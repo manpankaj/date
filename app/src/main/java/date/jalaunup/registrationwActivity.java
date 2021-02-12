@@ -95,6 +95,7 @@ public class registrationwActivity extends AppCompatActivity {
         progressDialog.setMessage("Please Wait..");
 
 
+
         if(ed_fullname.getText().toString().equals("")){
             Toast.makeText(this, "Enter Full Name", Toast.LENGTH_SHORT).show();
         }
@@ -116,6 +117,7 @@ public class registrationwActivity extends AppCompatActivity {
         else if(ed_age.getText().toString().equals("")){
             Toast.makeText(this, "Enter age in year.", Toast.LENGTH_SHORT).show();
         }
+
 
         else if(ed_password.getText().toString().equals("")){
             Toast.makeText(this, "Enter Password", Toast.LENGTH_SHORT).show();
@@ -146,7 +148,7 @@ public class registrationwActivity extends AppCompatActivity {
                 str_sex = "Female";
             }
 
-
+            String encrypt_password = password_encrypt.getSha256Hash(str_password);
 
 
             StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
@@ -180,7 +182,7 @@ public class registrationwActivity extends AppCompatActivity {
                     params.put("email",str_email);
                     params.put("age",str_age);
                     params.put("sex",str_sex);
-                    params.put("password",str_password);
+                    params.put("password",encrypt_password);
                     return params;
 
                 }

@@ -49,6 +49,7 @@ public class loginwActivity extends AppCompatActivity {
     public void login(View view){
         final String email = ed_email.getText().toString();
         final String password = ed_password.getText().toString();
+        String encrypt_password = password_encrypt.getSha256Hash(password);
 
         if(email.isEmpty()|| password.isEmpty()){
             Toast.makeText(this, "Please fill all the fields", Toast.LENGTH_SHORT).show();
@@ -76,7 +77,7 @@ public class loginwActivity extends AppCompatActivity {
                     //creating request parameters
                     HashMap<String, String> params = new HashMap<>();
                     params.put("email", email);
-                    params.put("password", password);
+                    params.put("password", encrypt_password );
 
                     //returing the response
                     return requestHandler.sendPostRequest(URL_LOGIN, params);
