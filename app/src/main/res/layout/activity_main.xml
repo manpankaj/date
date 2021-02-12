@@ -31,30 +31,23 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/login_worker"
-                android:layout_width="260dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:layout_marginStart="50dp"
-                android:layout_marginTop="40dp"
-
-                android:text="Login As Worker" />
-
-            <Button
-                android:id="@+id/login_employer"
-                android:layout_width="260dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:layout_marginStart="50dp"
-                android:text="Login As Employer" />
-
-            <Button
                 android:id="@+id/registration_worker"
                 android:layout_width="260dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
                 android:layout_marginStart="50dp"
+                android:layout_marginTop="40dp"
                 android:text="Registration As Worker" />
+
+            <Button
+                android:id="@+id/login_worker"
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginStart="50dp"
+
+
+                android:text="Login As Worker" />
 
             <Button
                 android:id="@+id/registration_employer"
@@ -63,6 +56,14 @@
                 android:layout_marginLeft="50dp"
                 android:layout_marginStart="50dp"
                 android:text="Registration As Employer" />
+
+            <Button
+                android:id="@+id/login_employer"
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginStart="50dp"
+                android:text="Login As Employer" />
 
             <ImageView
                 android:id="@+id/imageView2"
