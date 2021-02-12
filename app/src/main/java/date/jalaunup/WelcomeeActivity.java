@@ -9,7 +9,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-public class WelcomeActivity extends AppCompatActivity {
+
+public class WelcomeeActivity extends AppCompatActivity {
 
     SharedPreferences sharedPreferences;
     public static final String MY_PREFERENCES = "MyPrefs";
@@ -20,11 +21,11 @@ public class WelcomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_welcome);
+        setContentView(R.layout.activity_welcome_w);
 
         sharedPreferences = getSharedPreferences(MY_PREFERENCES, Context.MODE_PRIVATE);
         username = findViewById(R.id.username);
-        username.setText("Welcome, " + sharedPreferences.getString(USERNAME,""));
+        username.setText("Welcome Employer, " + sharedPreferences.getString(USERNAME,""));
 
         logout = findViewById(R.id.logout);
 
@@ -35,7 +36,7 @@ public class WelcomeActivity extends AppCompatActivity {
                 editor.clear();
                 editor.apply();
                 finish();
-                Intent intent = new Intent(WelcomeActivity.this, loginwActivity.class);
+                Intent intent = new Intent(WelcomeeActivity.this, logineActivity.class);
                 startActivity(intent);
             }
         });

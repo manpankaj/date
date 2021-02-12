@@ -23,7 +23,8 @@
         <activity android:name=".logineActivity" android:label="EMPLOYER LOGIN"> </activity>
         <activity android:name=".registrationwActivity" android:label="WORKER REGISTRATION"> </activity>
         <activity android:name=".registrationeActivity" android:label="EMPLOYER REGISTRATION"> </activity>
-        <activity android:name=".WelcomeActivity" android:label="WELCOME WORKER"> </activity>
+        <activity android:name=".WelcomewActivity" android:label="WELCOME WORKER"> </activity>
+        <activity android:name=".WelcomeeActivity" android:label="WELCOME EMPLOYER"> </activity>
 
     </application>
 </manifest>

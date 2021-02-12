@@ -64,12 +64,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="100dp"
+                android:onClick="login"
                 android:text="Login" />
                 <Button
-                    android:id="@+id/backDis"
+                    android:id="@+id/back"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="200dp"
+                    android:onClick="back"
                     android:text="Back " />
 
             </RelativeLayout>

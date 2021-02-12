@@ -41,7 +41,7 @@ public class loginwActivity extends AppCompatActivity {
 
         if (status){
             finish();
-            Intent intent = new Intent(loginwActivity.this, WelcomeActivity.class);
+            Intent intent = new Intent(loginwActivity.this, WelcomewActivity.class);
             startActivity(intent);
         }
     }
@@ -102,7 +102,7 @@ public class loginwActivity extends AppCompatActivity {
 
                             finish();
                             Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_LONG).show();
-                            Intent intent = new Intent(loginwActivity.this, WelcomeActivity.class);
+                            Intent intent = new Intent(loginwActivity.this, WelcomewActivity.class);
                             startActivity(intent);
                         }
                     } catch (JSONException e) {
@@ -117,9 +117,9 @@ public class loginwActivity extends AppCompatActivity {
         }
     }
 
-    public void register(View view){
+    public void back(View view){
         finish();
-        Intent intent = new Intent(loginwActivity.this, registrationwActivity.class);
+        Intent intent = new Intent(loginwActivity.this, MainActivity.class);
         startActivity(intent);
     }
 }
