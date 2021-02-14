@@ -23,8 +23,11 @@
         <activity android:name=".logineActivity" android:label="EMPLOYER LOGIN"> </activity>
         <activity android:name=".registrationwActivity" android:label="WORKER REGISTRATION"> </activity>
         <activity android:name=".registrationeActivity" android:label="EMPLOYER REGISTRATION"> </activity>
-        <activity android:name=".WelcomewActivity" android:label="WELCOME WORKER"> </activity>
-        <activity android:name=".WelcomeeActivity" android:label="WELCOME EMPLOYER"> </activity>
+        <activity android:name=".WelcomewActivity" android:label="WORKER'S HOME SCREEN"> </activity>
+        <activity android:name=".worker_profileActivity" android:label="WORKER'S PROFILE UPDATE"> </activity>
+        <activity android:name=".worker_employmentActivity" android:label="WORKER'S EMPLOYMENT"> </activity>
+        <activity android:name=".worker_changePActivity" android:label="WORKER'S CHANGE PASSWORD"> </activity>
+        <activity android:name=".WelcomeeActivity" android:label="EMPLOYER'S HOME SCREEN"> </activity>
 
     </application>
 </manifest>

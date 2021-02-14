@@ -5,19 +5,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#87ABDF"
     android:orientation="vertical">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <TextView
                 android:id="@+id/username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#9DF8B0"
-                android:text="Welcome"
+                android:text="Welcome, "
                 android:textColor="#AE1A1A"
                 android:textSize="20sp" />
             <TextView
@@ -25,14 +28,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#9DF8B0"
-                android:text="Welcome"
+                android:text="Welcome "
                 android:textColor="#AE1A1A"
                 android:textSize="20sp" />
-            <Button
-                android:id="@+id/logout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Logout"/>>
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+                <Button
+                    android:id="@+id/back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginLeft="100dp"
+                    android:text="Back"/>
+
+                <Button
+                    android:id="@+id/logout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginLeft="220dp"
+                    android:text="Logout"/>
+            </RelativeLayout>
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="100dp"

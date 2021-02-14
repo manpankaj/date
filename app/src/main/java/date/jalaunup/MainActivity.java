@@ -5,7 +5,6 @@ import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
     @Override
@@ -16,8 +15,6 @@ public class MainActivity extends AppCompatActivity {
         Button login_e = findViewById(R.id.login_employer);
         Button regis_w = findViewById(R.id.registration_worker);
         Button regis_e = findViewById(R.id.registration_employer);
-
-
         login_w.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,8 +43,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
         TextView register = (TextView)findViewById(R.id.disclaimer);
         register.setMovementMethod(LinkMovementMethod.getInstance());
         register.setOnClickListener(new View.OnClickListener() {

@@ -29,55 +29,51 @@
                 android:textColorLink="#FFFFFF"
                 android:textSize="18sp"
                 android:textStyle="bold" />
-
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
             <Button
                 android:id="@+id/registration_worker"
-                android:layout_width="260dp"
+                android:layout_width="145dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
-                android:layout_marginStart="50dp"
                 android:layout_marginTop="40dp"
                 android:text="Registration As Worker" />
-
             <Button
                 android:id="@+id/login_worker"
-                android:layout_width="260dp"
+                android:layout_width="145dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:layout_marginStart="50dp"
-
-
+                android:layout_marginLeft="210dp"
+                android:layout_marginTop="40dp"
                 android:text="Login As Worker" />
-
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
             <Button
                 android:id="@+id/registration_employer"
-                android:layout_width="260dp"
+                android:layout_width="145dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginStart="50dp"
+                android:layout_marginLeft="50dp"
                 android:text="Registration As Employer" />
 
             <Button
                 android:id="@+id/login_employer"
-                android:layout_width="260dp"
+                android:layout_width="145dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:layout_marginStart="50dp"
+                android:layout_marginLeft="210dp"
+                android:layout_marginTop="10dp"
                 android:text="Login As Employer" />
-
+            </RelativeLayout>
             <ImageView
                 android:id="@+id/imageView2"
-                android:layout_width="378dp"
-                android:layout_height="36dp"
-                android:layout_marginBottom="0dp"
-                android:layout_marginEnd="0dp"
-                android:layout_marginLeft="0dp"
-                android:layout_marginRight="0dp"
-                android:layout_marginStart="0dp"
-                android:layout_marginTop="200dp"
+                android:layout_width="100dp"
+                android:layout_height="33dp"
+                android:layout_marginTop="270dp"
+                android:layout_marginLeft="160dp"
                 app:srcCompat="@drawable/niclogo" />
-
-
             <TextView
                 android:id="@+id/disclaimer"
                 android:layout_width="match_parent"

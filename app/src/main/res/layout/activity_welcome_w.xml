@@ -5,37 +5,55 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#87ABDF"
     android:orientation="vertical">
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-
             <TextView
                 android:id="@+id/username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="40sp"
-                android:text="Welcome Worker, "/>
-
+                android:background="#9DF8B0"
+                android:text="Welcome"
+                android:textColor="#AE1A1A"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#9DF8B0"
+                android:text="Welcome"
+                android:textColor="#AE1A1A"
+                android:textSize="20sp" />
+            <Button
+                android:id="@+id/profileupdate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:text="Update Profile" />
+            <Button
+                android:id="@+id/searchemployment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Search Employment"/>
+            <Button
+                android:id="@+id/changepassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Change Password"/>
             <Button
                 android:id="@+id/logout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Logout"/>>
+                android:text="Logout"/>
             <ImageView
                 android:id="@+id/imageView2"
-                android:layout_width="378dp"
-                android:layout_height="36dp"
-                android:layout_marginBottom="0dp"
-                android:layout_marginEnd="0dp"
-                android:layout_marginLeft="0dp"
-                android:layout_marginRight="0dp"
-                android:layout_marginStart="0dp"
+                android:layout_width="100dp"
+                android:layout_height="33dp"
+                android:layout_marginLeft="160dp"
                 android:layout_marginTop="300dp"
                 app:srcCompat="@drawable/niclogo" />
         </LinearLayout>
