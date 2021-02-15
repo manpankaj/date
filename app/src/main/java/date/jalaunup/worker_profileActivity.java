@@ -15,7 +15,6 @@ public class worker_profileActivity extends AppCompatActivity {
     public static final String EMAIL = "email";
     TextView username,email;
     Button logout,back;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +34,6 @@ public class worker_profileActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
         logout = findViewById(R.id.logout);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override

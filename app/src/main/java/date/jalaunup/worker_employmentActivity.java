@@ -15,7 +15,6 @@ public class worker_employmentActivity extends AppCompatActivity {
     public static final String EMAIL = "email";
     TextView username,email;
     Button logout,back;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +24,6 @@ public class worker_employmentActivity extends AppCompatActivity {
         email = findViewById(R.id.email);
         username.setText("Welcome " + sharedPreferences.getString(USERNAME, ""));
         email.setText("Your Mobile No. " + sharedPreferences.getString(EMAIL, ""));
-
         back = findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,12 +33,10 @@ public class worker_employmentActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
         logout = findViewById(R.id.logout);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.clear();
                 editor.apply();

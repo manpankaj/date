@@ -1,8 +1,6 @@
 package date.jalaunup;
-
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-
 public class password_encrypt {
     public static String getSha256Hash(String password) {
         try {
@@ -18,7 +16,6 @@ public class password_encrypt {
             return null;
         }
     }
-
     private static String bin2hex(byte[] data) {
         StringBuilder hex = new StringBuilder(data.length * 2);
         for (byte b : data)

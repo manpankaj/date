@@ -5,12 +5,9 @@ import android.os.Bundle;
 import android.text.InputFilter;
 import android.text.Spanned;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -21,9 +18,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,7 +28,7 @@ public class registrationwActivity extends AppCompatActivity {
     RadioGroup ed_sex;
     RadioButton rd_male,rd_female;
     String str_fullname,str_mobile,str_email,str_age,str_sex,str_password;
-    String url = "http://192.168.1.9:8080/date/registration_w.php";
+    String url = "http://10.135.217.19:8080/date/registration_w.php";
     String MobilePattern = "[0-9]{10}";
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     String passwordPattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{4,}$";

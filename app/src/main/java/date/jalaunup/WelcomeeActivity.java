@@ -14,14 +14,43 @@ public class WelcomeeActivity extends AppCompatActivity {
     public static final String EMAIL = "email";
     TextView username,email;
     Button logout;
+    Button worker_profile,search_employment,change_password;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_welcome_e);
+        setContentView(R.layout.activity_welcome_w);
         sharedPreferences = getSharedPreferences(MY_PREFERENCES, Context.MODE_PRIVATE);
         username = findViewById(R.id.username);
-        username.setText("Welcome Employer, " + sharedPreferences.getString(USERNAME,""));
+        email = findViewById(R.id.email);
+        username.setText("Welcome " + sharedPreferences.getString(USERNAME, ""));
         email.setText("Your Mobile No. " + sharedPreferences.getString(EMAIL, ""));
+        worker_profile = findViewById(R.id.profileupdate);
+        worker_profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                Intent intent = new Intent(WelcomeeActivity.this, worker_profileActivity.class);
+                startActivity(intent);
+            }
+        });
+        search_employment = findViewById(R.id.searchemployment);
+        search_employment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                Intent intent = new Intent(WelcomeeActivity.this, worker_employmentActivity.class);
+                startActivity(intent);
+            }
+        });
+        change_password = findViewById(R.id.changepassword);
+        change_password.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                Intent intent = new Intent(WelcomeeActivity.this, worker_changePActivity.class);
+                startActivity(intent);
+            }
+        });
         logout = findViewById(R.id.logout);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -30,7 +59,7 @@ public class WelcomeeActivity extends AppCompatActivity {
                 editor.clear();
                 editor.apply();
                 finish();
-                Intent intent = new Intent(WelcomeeActivity.this, logineActivity.class);
+                Intent intent = new Intent(WelcomeeActivity.this, loginwActivity.class);
                 startActivity(intent);
             }
         });
