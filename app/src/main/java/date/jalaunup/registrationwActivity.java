@@ -22,7 +22,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 public class registrationwActivity extends AppCompatActivity {
     EditText ed_fullname,ed_mobile,ed_email,ed_age,ed_password,ed_password1;
     RadioGroup ed_sex;
@@ -33,8 +32,6 @@ public class registrationwActivity extends AppCompatActivity {
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     String passwordPattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{4,}$";
     private View view;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         class InputFilterMinMax implements InputFilter {
