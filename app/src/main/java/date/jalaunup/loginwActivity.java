@@ -20,8 +20,6 @@ public class loginwActivity extends AppCompatActivity {
     public static final String EMAIL = "email";
     public static final String STATUS = "status";
     public static final String USERNAME = "username";
-   // public static final String CATEGORY = "category";
-   // public static final String SUB_CATEGORY = "SUB_category";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

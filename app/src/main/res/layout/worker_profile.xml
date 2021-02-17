@@ -26,7 +26,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#9DF8B0"
-                android:text="Welcome "
+                android:text="Welcome"
                 android:textColor="#AE1A1A"
                 android:textSize="20sp" />
             <RelativeLayout
@@ -43,10 +43,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/tv_parent1"
+                android:text="Welcome"
                 android:textColor="#00f"
                 android:textSize="20sp"
-                android:layout_marginLeft="150dp"
-                android:text="Child" />
+                android:layout_marginLeft="150dp" />
             </RelativeLayout>
             <Spinner
                 android:layout_width="match_parent"
@@ -67,10 +67,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/tv_child1"
+                android:text="Welcome"
                 android:textColor="#f00"
                 android:textSize="20sp"
-                android:layout_marginLeft="150dp"
-                android:text="Child" />
+                android:layout_marginLeft="150dp" />
             </RelativeLayout>
             <Spinner
                 android:layout_width="match_parent"

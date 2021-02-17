@@ -1,5 +1,4 @@
 package date.jalaunup;
-
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -31,8 +30,8 @@ public class worker_profileActivity extends AppCompatActivity {
     public static final String MY_PREFERENCES = "MyPrefs";
     public static final String USERNAME = "username";
     public static final String EMAIL = "email";
-   // public static final String CATEGORY = "category";
-    //public static final String SUB_CATEGORY = "SUB_category";
+    public static final String CATEGORY = "category";
+    public static final String SUB_CATEGORY = "sub_category";
     TextView username,email,tv_parent1,tv_child1;
     Button logout,back,profile;
     Spinner sp_parent,sp_child;
@@ -50,12 +49,14 @@ public class worker_profileActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences(MY_PREFERENCES, Context.MODE_PRIVATE);
         username = findViewById(R.id.username);
         email = findViewById(R.id.email);
+        tv_parent1 = findViewById(R.id.tv_parent1);
+        tv_child1 = findViewById(R.id.tv_child1);
         username.setText("Welcome " + sharedPreferences.getString(USERNAME, ""));
         email.setText("Your Mobile No. " + sharedPreferences.getString(EMAIL, ""));
         sp_parent = (Spinner) findViewById(R.id.parent);
         sp_child = (Spinner) findViewById(R.id.child);
-        //tv_parent1.setText( sharedPreferences.getString(CATEGORY, ""));
-        //tv_child1.setText( sharedPreferences.getString(SUB_CATEGORY));
+        tv_parent1.setText("Welcome " + sharedPreferences.getString(CATEGORY, ""));
+        tv_child1.setText("Welcome " + sharedPreferences.getString(SUB_CATEGORY, ""));
         arrayList_parent = new ArrayList<>();
         arrayList_parent.add("Animals");
         arrayList_parent.add("Birds");
