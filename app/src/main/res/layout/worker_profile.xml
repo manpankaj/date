@@ -44,6 +44,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/tv_parent1"
                 android:text="Welcome"
+                android:background="#9DF8B0"
                 android:textColor="#00f"
                 android:textSize="20sp"
                 android:layout_marginLeft="150dp" />
@@ -67,6 +68,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/tv_child1"
+                android:background="#9DF8B0"
                 android:text="Welcome"
                 android:textColor="#f00"
                 android:textSize="20sp"

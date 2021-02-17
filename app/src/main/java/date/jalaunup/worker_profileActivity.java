@@ -32,7 +32,7 @@ public class worker_profileActivity extends AppCompatActivity {
     public static final String EMAIL = "email";
     public static final String CATEGORY = "category";
     public static final String SUB_CATEGORY = "sub_category";
-    TextView username,email,tv_parent1,tv_child1;
+    TextView username,email,tv_parent,tv_child;
     Button logout,back,profile;
     Spinner sp_parent,sp_child;
     ArrayList<String> arrayList_parent;
@@ -40,7 +40,7 @@ public class worker_profileActivity extends AppCompatActivity {
     ArrayAdapter<String> arrayAdapter_parent;
     ArrayAdapter<String> arrayAdapter_child;
     String str_category,str_sub_category;
-    String url = "http://10.135.217.19:8080/date/worker_profile.php";
+    String url = "http://192.168.1.9:8080/date/worker_profile.php";
     private View view;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,14 +49,14 @@ public class worker_profileActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences(MY_PREFERENCES, Context.MODE_PRIVATE);
         username = findViewById(R.id.username);
         email = findViewById(R.id.email);
-        tv_parent1 = findViewById(R.id.tv_parent1);
-        tv_child1 = findViewById(R.id.tv_child1);
+        tv_parent = findViewById(R.id.tv_parent1);
+        tv_child = findViewById(R.id.tv_child1);
         username.setText("Welcome " + sharedPreferences.getString(USERNAME, ""));
         email.setText("Your Mobile No. " + sharedPreferences.getString(EMAIL, ""));
         sp_parent = (Spinner) findViewById(R.id.parent);
         sp_child = (Spinner) findViewById(R.id.child);
-        tv_parent1.setText("Welcome " + sharedPreferences.getString(CATEGORY, ""));
-        tv_child1.setText("Welcome " + sharedPreferences.getString(SUB_CATEGORY, ""));
+        tv_parent.setText(sharedPreferences.getString(CATEGORY, ""));
+        tv_child.setText(sharedPreferences.getString(SUB_CATEGORY, ""));
         arrayList_parent = new ArrayList<>();
         arrayList_parent.add("Animals");
         arrayList_parent.add("Birds");
