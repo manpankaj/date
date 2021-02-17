@@ -90,7 +90,7 @@
                     android:id="@+id/radioFemale"
                     android:text="Female"/>
             </RadioGroup>
-            <EditText
+             <EditText
                 android:id="@+id/txtPwd"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"

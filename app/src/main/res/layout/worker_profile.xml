@@ -29,6 +29,9 @@
                 android:text="Welcome "
                 android:textColor="#AE1A1A"
                 android:textSize="20sp" />
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -36,11 +39,23 @@
                 android:textColor="#00f"
                 android:textSize="20sp"
                 android:text="Parent" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_parent1"
+                android:textColor="#00f"
+                android:textSize="20sp"
+                android:layout_marginLeft="150dp"
+                android:text="Child" />
+            </RelativeLayout>
             <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/parent"
                 android:layout_marginTop="5dp"/>
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -48,6 +63,15 @@
                 android:textColor="#f00"
                 android:textSize="20sp"
                 android:text="Child" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_child1"
+                android:textColor="#f00"
+                android:textSize="20sp"
+                android:layout_marginLeft="150dp"
+                android:text="Child" />
+            </RelativeLayout>
             <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -71,6 +95,13 @@
                 android:layout_marginLeft="220dp"
                 android:text="Logout"/>
             </RelativeLayout>
+            <Button
+                android:id="@+id/profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="120dp"
+                android:text="Profile Update"/>
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="100dp"
