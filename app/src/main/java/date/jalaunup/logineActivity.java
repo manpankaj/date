@@ -13,7 +13,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import androidx.appcompat.app.AppCompatActivity;
 public class logineActivity extends AppCompatActivity {
-    public static final String URL_LOGIN = "http://192.168.1.9:8080/date/login_e.php";
+    public static final String URL_LOGIN = "http://10.135.217.19:8080/date/login_e.php";
     EditText ed_email, ed_password;
     SharedPreferences sharedPreferences;
     public static final String MY_PREFERENCES = "MyPrefs";
