@@ -4,10 +4,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.InputFilter;
+import android.text.Spanned;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,18 +35,44 @@ public class worker_profileActivity extends AppCompatActivity {
     public static final String EMAIL = "email";
     public static final String CATEGORY = "category";
     public static final String SUB_CATEGORY = "sub_category";
+    public static final String EXP_YEAR = "exp_year";
     TextView username,email,tv_parent,tv_child;
+    EditText expyear;
     Button logout,back,profile;
     Spinner sp_parent,sp_child;
     ArrayList<String> arrayList_parent;
     ArrayList<String> arrayList_animals,arrayList_birds,arrayList_flowers;
     ArrayAdapter<String> arrayAdapter_parent;
     ArrayAdapter<String> arrayAdapter_child;
-    String str_category,str_sub_category;
+    String str_category,str_sub_category,str_expyear;
     String url = "http://192.168.1.9:8080/date/worker_profile.php";
     private View view;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        class InputFilterMinMax implements InputFilter {
+            private final int min;
+            private final int max;
+            public InputFilterMinMax(int min, int max) {
+                this.min = min;
+                this.max = max;
+            }
+            public InputFilterMinMax(String min, String max) {
+                this.min = Integer.parseInt(min);
+                this.max = Integer.parseInt(max);
+            }
+            @Override
+            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+                try {
+                    int input = Integer.parseInt(dest.toString() + source.toString());
+                    if (isInRange(min, max, input))
+                        return null;
+                } catch (NumberFormatException nfe) { }
+                return "";
+            }
+            private boolean isInRange(int a, int b, int c) {
+                return b > a ? c >= a && c <= b : c >= b && c <= a;
+            }
+        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.worker_profile);
         sharedPreferences = getSharedPreferences(MY_PREFERENCES, Context.MODE_PRIVATE);
@@ -51,12 +80,15 @@ public class worker_profileActivity extends AppCompatActivity {
         email = findViewById(R.id.email);
         tv_parent = findViewById(R.id.tv_parent1);
         tv_child = findViewById(R.id.tv_child1);
+        expyear = findViewById(R.id.expyear);
+        expyear.setFilters(new InputFilter[]{new InputFilterMinMax("1", "30")});
         username.setText("Welcome " + sharedPreferences.getString(USERNAME, ""));
         email.setText("Your Mobile No. " + sharedPreferences.getString(EMAIL, ""));
         sp_parent = (Spinner) findViewById(R.id.parent);
         sp_child = (Spinner) findViewById(R.id.child);
         tv_parent.setText(sharedPreferences.getString(CATEGORY, ""));
         tv_child.setText(sharedPreferences.getString(SUB_CATEGORY, ""));
+        expyear.setText(sharedPreferences.getString(EXP_YEAR, ""));
         arrayList_parent = new ArrayList<>();
         arrayList_parent.add("Animals");
         arrayList_parent.add("Birds");
@@ -145,8 +177,15 @@ public class worker_profileActivity extends AppCompatActivity {
         });
         profile = findViewById(R.id.profile);
         profile.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
+                str_expyear = expyear.getText().toString().trim();
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString(CATEGORY, str_category);
+                editor.putString(SUB_CATEGORY, str_sub_category);
+                editor.putString(EXP_YEAR, str_expyear);
+                editor.apply();
                 ProgressDialog progressDialog = new ProgressDialog(worker_profileActivity.this);
                 progressDialog.setMessage("Please Wait..");
                 progressDialog.show();
@@ -171,6 +210,7 @@ public class worker_profileActivity extends AppCompatActivity {
                         params.put("mobile", sharedPreferences.getString(EMAIL, ""));
                         params.put("category", str_category);
                         params.put("sub_category", str_sub_category);
+                        params.put("expyear", str_sub_category);
                         return params;
                     }
                 };

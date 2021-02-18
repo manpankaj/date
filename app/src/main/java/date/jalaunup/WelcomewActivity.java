@@ -12,6 +12,9 @@ public class WelcomewActivity extends AppCompatActivity {
     public static final String MY_PREFERENCES = "MyPrefs";
     public static final String USERNAME = "username";
     public static final String EMAIL = "email";
+    public static final String CATEGORY = "category";
+    public static final String SUB_CATEGORY = "sub_category";
+    public static final String EXP_YEAR = "exp_year";
     TextView username,email;
     Button logout;
     Button worker_profile,search_employment,change_password;
@@ -22,8 +25,8 @@ public class WelcomewActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences(MY_PREFERENCES, Context.MODE_PRIVATE);
         username = findViewById(R.id.username);
         email = findViewById(R.id.email);
-        username.setText("Welcome " + sharedPreferences.getString(USERNAME, ""));
-        email.setText("Your Mobile No. " + sharedPreferences.getString(EMAIL, ""));
+        username.setText("Welcome " + sharedPreferences.getString(USERNAME, "") );
+        email.setText("Your Mobile No. " + sharedPreferences.getString(EMAIL, "") );
         worker_profile = findViewById(R.id.profileupdate);
         worker_profile.setOnClickListener(new View.OnClickListener() {
             @Override

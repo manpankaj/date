@@ -38,13 +38,12 @@
                 android:id="@+id/tv_parent"
                 android:textColor="#00f"
                 android:textSize="20sp"
-                android:text="Parent" />
+                android:text="Field" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/tv_parent1"
-                android:text="Welcome"
-                android:background="#9DF8B0"
+                android:text="Parent"
                 android:textColor="#00f"
                 android:textSize="20sp"
                 android:layout_marginLeft="150dp" />
@@ -63,13 +62,12 @@
                 android:id="@+id/tv_child"
                 android:textColor="#f00"
                 android:textSize="20sp"
-                android:text="Child" />
+                android:text="Work" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/tv_child1"
-                android:background="#9DF8B0"
-                android:text="Welcome"
+                android:text="Child"
                 android:textColor="#f00"
                 android:textSize="20sp"
                 android:layout_marginLeft="150dp" />
@@ -79,6 +77,14 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/child"
                 android:layout_marginTop="5dp"/>
+            <EditText
+                android:id="@+id/expyear"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:ems="10"
+                android:hint="Experience in Year"
+                android:inputType="number"  />
             <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content" >

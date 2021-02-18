@@ -20,6 +20,9 @@ public class loginwActivity extends AppCompatActivity {
     public static final String EMAIL = "email";
     public static final String STATUS = "status";
     public static final String USERNAME = "username";
+    public static final String CATEGORY = "category";
+    public static final String SUB_CATEGORY = "sub_category";
+    public static final String EXP_YEAR = "exp_year";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,10 +70,16 @@ public class loginwActivity extends AppCompatActivity {
                         JSONObject obj = new JSONObject(s);
                         if (!obj.getBoolean("error")) {
                             String username = obj.getString("username");
+                            String category = obj.getString("category");
+                            String sub_category = obj.getString("sub_category");
+                            String exp_year = obj.getString("exp_year");
                             SharedPreferences.Editor editor = sharedPreferences.edit();
                             editor.putString(USERNAME, username);
                             editor.putString(EMAIL, email);
                             editor.putBoolean(STATUS, true);
+                            editor.putString(CATEGORY, category);
+                            editor.putString(SUB_CATEGORY, sub_category);
+                            editor.putString(EXP_YEAR, exp_year);
                             editor.apply();
                             finish();
                             Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_LONG).show();
