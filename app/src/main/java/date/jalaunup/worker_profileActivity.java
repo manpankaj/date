@@ -41,7 +41,7 @@ public class worker_profileActivity extends AppCompatActivity {
     Button logout,back,profile;
     Spinner sp_parent,sp_child;
     ArrayList<String> arrayList_parent;
-    ArrayList<String> arrayList_animals,arrayList_birds,arrayList_flowers;
+    ArrayList<String> arrayList_Civil,arrayList_Electrical,arrayList_Jal_Sansaadan,arrayList_Computer,arrayList_Education,arrayList_Official_Work;
     ArrayAdapter<String> arrayAdapter_parent;
     ArrayAdapter<String> arrayAdapter_child;
     String str_category,str_sub_category,str_expyear;
@@ -90,30 +90,59 @@ public class worker_profileActivity extends AppCompatActivity {
         tv_child.setText(sharedPreferences.getString(SUB_CATEGORY, ""));
         expyear.setText(sharedPreferences.getString(EXP_YEAR, ""));
         arrayList_parent = new ArrayList<>();
-        arrayList_parent.add("Animals");
-        arrayList_parent.add("Birds");
-        arrayList_parent.add("Flowers");
+        arrayList_parent.add("Civil");
+        arrayList_parent.add("Electrical");
+        arrayList_parent.add("Jal Sansaadan");
+        arrayList_parent.add("Computer");
+        arrayList_parent.add("Education");
+        arrayList_parent.add("Official Work");
         arrayAdapter_parent = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, arrayList_parent);
         sp_parent.setAdapter(arrayAdapter_parent);
-        arrayList_animals = new ArrayList<>();
-        arrayList_animals.add("Tiger");
-        arrayList_animals.add("Lion");
-        arrayList_animals.add("Elephant");
-        arrayList_animals.add("Monkey");
-        arrayList_animals.add("Cow");
-        arrayList_birds = new ArrayList<>();
-        arrayList_birds.add("Sparrow");
-        arrayList_birds.add("Peacock");
-        arrayList_birds.add("Eagle");
-        arrayList_flowers = new ArrayList<>();
-        arrayList_flowers.add("Rose");
-        arrayList_flowers.add("Lotus");
+        arrayList_Civil = new ArrayList<>();
+        arrayList_Civil.add("Civil Labour");
+        arrayList_Civil.add("Construction Mistree");
+        arrayList_Civil.add("Civil Supplier");
+        arrayList_Civil.add("Civil JCB ");
+        arrayList_Civil.add("Painter");
+        arrayList_Civil.add("Plumber");
+        arrayList_Civil.add("Electrician");
+        arrayList_Civil.add("Carpenter");
+        arrayList_Civil.add("Tiles Mistree");
+        arrayList_Civil.add("Jaal Mistree");
+        arrayList_Electrical = new ArrayList<>();
+        arrayList_Electrical.add("Electrical Labour");
+        arrayList_Electrical.add("Electrician");
+        arrayList_Electrical.add("Heavy Electrical Supplier");
+        arrayList_Jal_Sansaadan = new ArrayList<>();
+        arrayList_Jal_Sansaadan.add("Irrigation Labour");
+        arrayList_Jal_Sansaadan.add("Irrigation Mistree");
+        arrayList_Jal_Sansaadan.add("Irrigation JCB");
+        arrayList_Jal_Sansaadan.add("Irrigation Supplier");
+        arrayList_Computer = new ArrayList<>();
+        arrayList_Computer.add("Data Entry Operator");
+        arrayList_Computer.add("Programmer");
+        arrayList_Computer.add("Network Engineer");
+        arrayList_Computer.add("Hardware Engineer");
+        arrayList_Computer.add("Computer Equipment Supplier ");
+        arrayList_Computer.add("Computer Equipment Maintenance ");
+        arrayList_Education = new ArrayList<>();
+        arrayList_Education.add("Primary Teaching");
+        arrayList_Education.add("Junior Teaching");
+        arrayList_Education.add("Higher Secondary Teaching");
+        arrayList_Education.add("Secondary Teaching");
+        arrayList_Education.add("Graduation Teaching");
+        arrayList_Education.add("Post-Graduation Teaching");
+        arrayList_Official_Work = new ArrayList<>();
+        arrayList_Official_Work.add("Clerk");
+        arrayList_Official_Work.add("Manager");
+        arrayList_Official_Work.add("Peon");
+        arrayList_Official_Work.add("Receptionist");
         sp_parent.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 str_category =  parent.getItemAtPosition(position).toString();
                 if (position == 0) {
-                    arrayAdapter_child = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, arrayList_animals);
+                    arrayAdapter_child = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, arrayList_Civil);
                     sp_child.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                         @Override
                         public void onItemSelected(AdapterView<?> child, View view, int position, long id) {
@@ -125,7 +154,7 @@ public class worker_profileActivity extends AppCompatActivity {
                     });
                 }
                 if (position == 1) {
-                    arrayAdapter_child = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, arrayList_birds);
+                    arrayAdapter_child = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, arrayList_Electrical);
                     sp_child.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                         @Override
                         public void onItemSelected(AdapterView<?> child, View view, int position, long id) {
@@ -137,7 +166,43 @@ public class worker_profileActivity extends AppCompatActivity {
                     });
                 }
                 if (position == 2) {
-                    arrayAdapter_child = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, arrayList_flowers);
+                    arrayAdapter_child = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, arrayList_Jal_Sansaadan);
+                    sp_child.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> child, View view, int position, long id) {
+                            str_sub_category = child.getItemAtPosition(position).toString();
+                        }
+                        @Override
+                        public void onNothingSelected(AdapterView<?> child) {
+                        }
+                    });
+                }
+                if (position == 3) {
+                    arrayAdapter_child = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, arrayList_Computer);
+                    sp_child.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> child, View view, int position, long id) {
+                            str_sub_category = child.getItemAtPosition(position).toString();
+                        }
+                        @Override
+                        public void onNothingSelected(AdapterView<?> child) {
+                        }
+                    });
+                }
+                if (position == 4) {
+                    arrayAdapter_child = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, arrayList_Education);
+                    sp_child.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> child, View view, int position, long id) {
+                            str_sub_category = child.getItemAtPosition(position).toString();
+                        }
+                        @Override
+                        public void onNothingSelected(AdapterView<?> child) {
+                        }
+                    });
+                }
+                if (position == 5) {
+                    arrayAdapter_child = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, arrayList_Official_Work);
                     sp_child.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                         @Override
                         public void onItemSelected(AdapterView<?> child, View view, int position, long id) {

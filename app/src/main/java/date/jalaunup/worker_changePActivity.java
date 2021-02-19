@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,10 +14,17 @@ public class worker_changePActivity extends AppCompatActivity {
     public static final String MY_PREFERENCES = "MyPrefs";
     public static final String USERNAME = "username";
     public static final String EMAIL = "email";
+    EditText ed_oldpassword,ed_password,ed_password1;
+    String str_oldpassword,str_password;
+    String passwordPattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{4,}$";
     TextView username,email;
-    Button logout,back;
+    Button logout,back,changepassword;
+    private View view;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        ed_oldpassword = findViewById(R.id.txtOldPwd);
+        ed_password = findViewById(R.id.txtPwd);
+        ed_password1 = findViewById(R.id.txtPwd2);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.worker_change_p);
         sharedPreferences = getSharedPreferences(MY_PREFERENCES, Context.MODE_PRIVATE);

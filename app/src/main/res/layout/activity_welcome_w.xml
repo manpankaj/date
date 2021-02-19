@@ -16,45 +16,51 @@
                 android:id="@+id/username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#9DF8B0"
+                android:background="#9C8ABC"
+                android:textColor="#F5F6F8"
+                android:gravity="center"
                 android:text="Welcome"
-                android:textColor="#AE1A1A"
                 android:textSize="20sp" />
             <TextView
                 android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#9DF8B0"
+                android:background="#9C8ABC"
+                android:textColor="#F5F6F8"
+                android:gravity="center"
                 android:text="Welcome"
-                android:textColor="#AE1A1A"
                 android:textSize="20sp" />
             <Button
                 android:id="@+id/profileupdate"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
+                android:layout_gravity="center_vertical|center_horizontal"
                 android:text="Update Profile" />
             <Button
                 android:id="@+id/searchemployment"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
                 android:text="Search Employment"/>
             <Button
                 android:id="@+id/changepassword"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
                 android:text="Change Password"/>
             <Button
                 android:id="@+id/logout"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
                 android:text="Logout"/>
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="100dp"
                 android:layout_height="33dp"
-                android:layout_marginLeft="160dp"
-                android:layout_marginTop="300dp"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_marginTop="250dp"
                 app:srcCompat="@drawable/niclogo" />
         </LinearLayout>
     </ScrollView>
