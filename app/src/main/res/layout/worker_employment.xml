@@ -14,22 +14,23 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-
             <TextView
                 android:id="@+id/username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#9DF8B0"
-                android:text="Welcome, "
-                android:textColor="#AE1A1A"
+                android:background="#9C8ABC"
+                android:textColor="#F5F6F8"
+                android:gravity="center"
+                android:text="Welcome"
                 android:textSize="20sp" />
             <TextView
                 android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#9DF8B0"
-                android:text="Welcome "
-                android:textColor="#AE1A1A"
+                android:background="#9C8ABC"
+                android:textColor="#F5F6F8"
+                android:gravity="center"
+                android:text="Welcome"
                 android:textSize="20sp" />
             <RelativeLayout
                 android:layout_width="fill_parent"

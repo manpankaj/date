@@ -30,10 +30,10 @@ public class worker_changePActivity extends AppCompatActivity {
     public static final String EMAIL = "email";
     EditText ed_oldpassword,ed_password,ed_password1;
     String str_oldpassword,str_password,str_mobile;
-    String url_changeP = "http://10.135.217.19:8080/date/worker_changeP.php";
+    String url_changeP = "http://192.168.1.9:8080/date/worker_changeP.php";
     String passwordPattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{4,}$";
     TextView username,email;
-     Button logout,back;
+    Button logout,back;
     private View view;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,63 +70,61 @@ public class worker_changePActivity extends AppCompatActivity {
             }
         });
     }
-        public void changeP(View v) {
-            final ProgressDialog progressDialog = new ProgressDialog(this);
-            progressDialog.setMessage("Please Wait..");
-            if (ed_oldpassword.getText().toString().equals("")){
-                Toast.makeText(this, "Enter Old Password", Toast.LENGTH_SHORT).show();
-            }
-            else if(!ed_oldpassword.getText().toString().matches(passwordPattern)){
-                Toast.makeText(this, "Old Password must contain minimum 8 characters at least 1 Alphabet, 1 Number and 1 Special Character.", Toast.LENGTH_SHORT).show();
-            }
-            else if(ed_password.getText().toString().equals("")){
-                Toast.makeText(this, "Enter New Password", Toast.LENGTH_SHORT).show();
-            }
-            else if(!ed_password.getText().toString().matches(passwordPattern)){
-                Toast.makeText(this, "New Password must contain minimum 8 characters at least 1 Alphabet, 1 Number and 1 Special Character.", Toast.LENGTH_SHORT).show();
-            }
-            else if(ed_password1.getText().toString().equals("")){
-                Toast.makeText(this, "Enter Confirm Password", Toast.LENGTH_SHORT).show();
-            }
-            else if(!ed_password1.getText().toString().equals (ed_password.getText().toString())){
-                Toast.makeText(this, "Password and Confirm Password Does not match", Toast.LENGTH_SHORT).show();
-            }
-            else{
-                progressDialog.show();
-                str_mobile = sharedPreferences.getString(EMAIL, "");
-                str_oldpassword = ed_oldpassword.getText().toString().trim();
-                str_password = ed_password.getText().toString().trim();
-                String encrypt_oldpassword = password_encrypt.getSha256Hash(str_oldpassword);
-                String encrypt_password = password_encrypt.getSha256Hash(str_password);
-                StringRequest request = new StringRequest(Request.Method.POST, url_changeP, new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        progressDialog.dismiss();
-                        ed_oldpassword.setText("");
-                        ed_password.setText("");
-                        ed_password1.setText("");
-                        Toast.makeText(worker_changePActivity.this, response, Toast.LENGTH_SHORT).show();
-                    }
-                },new Response.ErrorListener(){
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        progressDialog.dismiss();
-                        Toast.makeText(worker_changePActivity.this, error.getMessage().toString(), Toast.LENGTH_SHORT).show();
-                    }
-                }
-                ){
-                    @Override
-                    protected Map<String, String> getParams() throws AuthFailureError {
-                        Map<String,String> params = new HashMap<String, String>();
-                        params.put("mobile",str_mobile);
-                        params.put("oldpassword",encrypt_oldpassword);
-                        params.put("password",encrypt_password);
-                        return params;
-                    }
-                };
-                RequestQueue requestQueue = Volley.newRequestQueue(worker_changePActivity.this);
-                requestQueue.add(request);
-            }
+    public void changeP(View v) {
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Please Wait..");
+        if (ed_oldpassword.getText().toString().equals("")){
+            Toast.makeText(this, "Enter Old Password", Toast.LENGTH_SHORT).show();
         }
-
+        else if(!ed_oldpassword.getText().toString().matches(passwordPattern)){
+            Toast.makeText(this, "Old Password must contain minimum 8 characters at least 1 Alphabet, 1 Number and 1 Special Character.", Toast.LENGTH_SHORT).show();
+        }
+        else if(ed_password.getText().toString().equals("")){
+            Toast.makeText(this, "Enter New Password", Toast.LENGTH_SHORT).show();
+        }
+        else if(!ed_password.getText().toString().matches(passwordPattern)){
+            Toast.makeText(this, "New Password must contain minimum 8 characters at least 1 Alphabet, 1 Number and 1 Special Character.", Toast.LENGTH_SHORT).show();
+        }
+        else if(ed_password1.getText().toString().equals("")){
+            Toast.makeText(this, "Enter Confirm Password", Toast.LENGTH_SHORT).show();
+        }
+        else if(!ed_password1.getText().toString().equals (ed_password.getText().toString())){
+            Toast.makeText(this, "Password and Confirm Password Does not match", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            progressDialog.show();
+            str_mobile = sharedPreferences.getString(EMAIL, "");
+            str_oldpassword = ed_oldpassword.getText().toString().trim();
+            str_password = ed_password.getText().toString().trim();
+            String encrypt_oldpassword = password_encrypt.getSha256Hash(str_oldpassword);
+            String encrypt_password = password_encrypt.getSha256Hash(str_password);
+            StringRequest request = new StringRequest(Request.Method.POST, url_changeP, new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    Toast.makeText(worker_changePActivity.this, response, Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(worker_changePActivity.this, WelcomewActivity.class);
+                    startActivity(intent);
+                }
+            },new Response.ErrorListener(){
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    progressDialog.dismiss();
+                    Toast.makeText(worker_changePActivity.this, error.getMessage().toString(), Toast.LENGTH_SHORT).show();
+                }
+            }
+            ){
+                @Override
+                protected Map<String, String> getParams() throws AuthFailureError {
+                    Map<String,String> params = new HashMap<String, String>();
+                    params.put("mobile",str_mobile);
+                    params.put("oldpassword",encrypt_oldpassword);
+                    params.put("password",encrypt_password);
+                    return params;
+                }
+            };
+            RequestQueue requestQueue = Volley.newRequestQueue(worker_changePActivity.this);
+            requestQueue.add(request);
+        }
+    }
 }
