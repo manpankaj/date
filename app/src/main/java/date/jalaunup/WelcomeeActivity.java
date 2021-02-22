@@ -18,7 +18,7 @@ public class WelcomeeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_welcome_w);
+        setContentView(R.layout.activity_welcome_e);
         sharedPreferences = getSharedPreferences(MY_PREFERENCES, Context.MODE_PRIVATE);
         username = findViewById(R.id.username);
         email = findViewById(R.id.email);

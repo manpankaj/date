@@ -23,7 +23,7 @@ public class logineActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login_employer );
+        setContentView(R.layout.login_employer);
         ed_email = findViewById(R.id.txtMob);
         ed_password = findViewById(R.id.txtPwd);
         sharedPreferences = getSharedPreferences(MY_PREFERENCES, Context.MODE_PRIVATE);
