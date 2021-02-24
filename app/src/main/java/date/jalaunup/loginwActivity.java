@@ -13,7 +13,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import androidx.appcompat.app.AppCompatActivity;
 public class loginwActivity extends AppCompatActivity {
-    public static final String URL_LOGIN = "http://192.168.1.9:8080/date/login_w.php";
+    public static final String URL_LOGIN = "http://10.135.217.19:8080/date/login_w.php";
     EditText ed_email, ed_password;
     SharedPreferences sharedPreferences;
     public static final String MY_PREFERENCES = "MyPrefs";
@@ -23,6 +23,8 @@ public class loginwActivity extends AppCompatActivity {
     public static final String CATEGORY = "category";
     public static final String SUB_CATEGORY = "sub_category";
     public static final String EXP_YEAR = "exp_year";
+    String MobilePattern = "[0-9]{10}";
+    String passwordPattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{4,}$";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,8 +43,17 @@ public class loginwActivity extends AppCompatActivity {
         final String email = ed_email.getText().toString();
         final String password = ed_password.getText().toString();
         String encrypt_password = password_encrypt.getSha256Hash(password);
-        if(email.isEmpty()|| password.isEmpty()){
-            Toast.makeText(this, "Please fill all the fields", Toast.LENGTH_SHORT).show();
+        if(ed_email.getText().toString().equals("")){
+            Toast.makeText(this, "Enter Mobile No.", Toast.LENGTH_SHORT).show();
+        }
+        else if(!ed_email.getText().toString().matches(MobilePattern)){
+            Toast.makeText(this, "Enter Correct Mobile No.", Toast.LENGTH_SHORT).show();
+        }
+        else if(ed_password.getText().toString().equals("")){
+            Toast.makeText(this, "Enter Password", Toast.LENGTH_SHORT).show();
+        }
+        else if(!ed_password.getText().toString().matches(passwordPattern)){
+            Toast.makeText(this, "Password must contain minimum 8 characters at least 1 Alphabet, 1 Number and 1 Special Character.", Toast.LENGTH_SHORT).show();
         }
         else {
             class Login extends AsyncTask<Void, Void, String> {

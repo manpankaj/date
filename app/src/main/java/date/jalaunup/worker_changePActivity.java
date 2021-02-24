@@ -30,7 +30,7 @@ public class worker_changePActivity extends AppCompatActivity {
     public static final String EMAIL = "email";
     EditText ed_oldpassword,ed_password,ed_password1;
     String str_oldpassword,str_password,str_mobile;
-    String url_changeP = "http://192.168.1.9:8080/date/worker_changeP.php";
+    String url_changeP = "http://10.135.217.19:8080/date/worker_changeP.php";
     String passwordPattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{4,}$";
     TextView username,email;
     Button logout,back;

@@ -45,7 +45,7 @@ public class worker_profileActivity extends AppCompatActivity {
     ArrayAdapter<String> arrayAdapter_parent;
     ArrayAdapter<String> arrayAdapter_child;
     String str_category,str_sub_category,str_expyear;
-    String url = "http://192.168.1.9:8080/date/worker_profile.php";
+    String url = "http://10.135.217.19:8080/date/worker_profile.php";
     private View view;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

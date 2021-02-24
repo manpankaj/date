@@ -29,6 +29,7 @@
         <activity android:name=".worker_employmentActivity" android:label="WORKER'S EMPLOYMENT"> </activity>
         <activity android:name=".worker_changePActivity" android:label="WORKER'S CHANGE PASSWORD"> </activity>
         <activity android:name=".WelcomeeActivity" android:label="EMPLOYER'S HOME SCREEN"> </activity>
+        <activity android:name=".employer_profileActivity" android:label="EMPLOYER'S PROFILE UPDATE"> </activity>
 
     </application>
 </manifest>

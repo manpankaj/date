@@ -31,32 +31,32 @@
                 android:text="Welcome"
                 android:textSize="20sp" />
             <Button
-                android:id="@+id/profileupdate"
+                android:id="@+id/profileUpdate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:text="Update Profile" />
             <Button
-                android:id="@+id/savework"
+                android:id="@+id/saveWork"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:text="Save Project Work"/>
             <Button
-                android:id="@+id/savemanpowerReq"
+                android:id="@+id/saveManpowerReq"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:text="Save Manpower Requirements"/>
             <Button
-                android:id="@+id/searchworker"
+                android:id="@+id/searchWorker"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:text="Search Worker"/>
             <Button
-                android:id="@+id/changepassword"
+                android:id="@+id/changePassword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|center_horizontal"

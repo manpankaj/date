@@ -12,9 +12,12 @@ public class WelcomeeActivity extends AppCompatActivity {
     public static final String MY_PREFERENCES = "MyPrefs";
     public static final String USERNAME = "username";
     public static final String EMAIL = "email";
+   // public static final String CATEGORY = "category";
+    //public static final String SUB_CATEGORY = "sub_category";
+    //public static final String EXP_YEAR = "exp_year";
     TextView username,email;
     Button logout;
-    Button worker_profile,search_employment,change_password;
+    Button employer_profile,save_work,save_manpower,search_manpower,change_password;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,32 +25,50 @@ public class WelcomeeActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences(MY_PREFERENCES, Context.MODE_PRIVATE);
         username = findViewById(R.id.username);
         email = findViewById(R.id.email);
-        username.setText("Welcome " + sharedPreferences.getString(USERNAME, ""));
-        email.setText("Your Mobile No. " + sharedPreferences.getString(EMAIL, ""));
-        worker_profile = findViewById(R.id.profileupdate);
-        worker_profile.setOnClickListener(new View.OnClickListener() {
+        username.setText("Welcome " + sharedPreferences.getString(USERNAME, "") );
+        email.setText("Your Mobile No. " + sharedPreferences.getString(EMAIL, "") );
+        employer_profile = findViewById(R.id.profileUpdate);
+        employer_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 SharedPreferences.Editor editor = sharedPreferences.edit();
-                Intent intent = new Intent(WelcomeeActivity.this, worker_profileActivity.class);
+                Intent intent = new Intent(WelcomeeActivity.this, employer_profileActivity.class);
                 startActivity(intent);
             }
         });
-        search_employment = findViewById(R.id.searchemployment);
-        search_employment.setOnClickListener(new View.OnClickListener() {
+        save_work = findViewById(R.id.saveWork);
+        save_work.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 SharedPreferences.Editor editor = sharedPreferences.edit();
-                Intent intent = new Intent(WelcomeeActivity.this, worker_employmentActivity.class);
+                Intent intent = new Intent(WelcomeeActivity.this, employer_profileActivity.class);
                 startActivity(intent);
             }
         });
-        change_password = findViewById(R.id.changepassword);
+        save_manpower= findViewById(R.id.saveManpowerReq);
+        save_manpower.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                Intent intent = new Intent(WelcomeeActivity.this, employer_profileActivity.class);
+                startActivity(intent);
+            }
+        });
+        search_manpower= findViewById(R.id.searchWorker);
+        search_manpower.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                Intent intent = new Intent(WelcomeeActivity.this, employer_profileActivity.class);
+                startActivity(intent);
+            }
+        });
+        change_password = findViewById(R.id.changePassword);
         change_password.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 SharedPreferences.Editor editor = sharedPreferences.edit();
-                Intent intent = new Intent(WelcomeeActivity.this, worker_changePActivity.class);
+                Intent intent = new Intent(WelcomeeActivity.this, employer_profileActivity.class);
                 startActivity(intent);
             }
         });
@@ -59,7 +80,7 @@ public class WelcomeeActivity extends AppCompatActivity {
                 editor.clear();
                 editor.apply();
                 finish();
-                Intent intent = new Intent(WelcomeeActivity.this, loginwActivity.class);
+                Intent intent = new Intent(WelcomeeActivity.this, logineActivity.class);
                 startActivity(intent);
             }
         });
