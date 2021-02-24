@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#87ABDF"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#9C8ABC"
+                android:textColor="#F5F6F8"
+                android:gravity="center"
+                android:text="Welcome"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#9C8ABC"
+                android:textColor="#F5F6F8"
+                android:gravity="center"
+                android:text="Welcome"
+                android:textSize="20sp" />
+            <EditText
+                android:id="@+id/txtOPwd"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:hint="Enter Old Password"
+                android:inputType="textPassword" />
+            <EditText
+                android:id="@+id/txtNPwd"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:hint="Enter New Password"
+                android:inputType="textPassword" />
+            <EditText
+                android:id="@+id/txtNPwd2"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:ems="10"
+                android:hint="Confirm Password"
+                android:inputType="textPassword" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/changeP"
+                android:onClick="changeP"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_marginTop="20dp"
+                android:text="Change Password" />
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+                <Button
+                    android:id="@+id/back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="100dp"
+                    android:text="Back"/>
+
+                <Button
+                    android:id="@+id/logout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="220dp"
+                    android:text="Logout"/>
+            </RelativeLayout>
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="100dp"
+                android:layout_height="33dp"
+                android:layout_marginLeft="160dp"
+                android:layout_marginTop="300dp"
+                app:srcCompat="@drawable/niclogo" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

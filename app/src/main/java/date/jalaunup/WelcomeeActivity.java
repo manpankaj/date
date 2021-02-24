@@ -68,7 +68,7 @@ public class WelcomeeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 SharedPreferences.Editor editor = sharedPreferences.edit();
-                Intent intent = new Intent(WelcomeeActivity.this, employer_profileActivity.class);
+                Intent intent = new Intent(WelcomeeActivity.this, employer_changePActivity.class);
                 startActivity(intent);
             }
         });
