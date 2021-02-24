@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#87ABDF"
     android:orientation="vertical"
-    android:padding="20dp">
+    android:padding="5dp">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">2
@@ -38,10 +38,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/tv_parent"
-                android:textColor="#00f"
+                android:textColor="#000000"
                 android:layout_marginTop="20dp"
-                android:textSize="20sp"
-                android:text="Field" />
+                android:textSize="18sp"
+                android:text="Select Field Area" />
 
                 <TextView
                     android:id="@+id/tv_parent1"
@@ -51,7 +51,7 @@
                     android:layout_marginTop="20dp"
                     android:text="Field"
                     android:textColor="#000000"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
             </RelativeLayout>
             <Spinner
                 android:layout_width="match_parent"
@@ -66,16 +66,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/tv_child"
-                android:textColor="#f00"
-                android:textSize="20sp"
-                android:text="Work" />
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:text="Select Work Area" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/tv_child1"
                 android:text="Work"
                 android:textColor="#000000"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:layout_marginLeft="150dp" />
             </RelativeLayout>
             <Spinner
@@ -91,7 +91,7 @@
                 android:layout_marginLeft="50dp"
                 android:text="Work Experience in Year"
                 android:textColor="#000000"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
             <EditText
                 android:id="@+id/expyear"
                 android:layout_width="wrap_content"

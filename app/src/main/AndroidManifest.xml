@@ -31,6 +31,6 @@
         <activity android:name=".WelcomeeActivity" android:label="EMPLOYER'S HOME SCREEN"> </activity>
         <activity android:name=".employer_profileActivity" android:label="EMPLOYER'S PROFILE UPDATE"> </activity>
         <activity android:name=".employer_changePActivity" android:label="EMPLOYER'S CHANGE PASSWORD"> </activity>
-
+        <activity android:name=".employer_saveworkActivity" android:label="EMPLOYER'S SAVE PROJECT WORK"> </activity>
     </application>
 </manifest>
