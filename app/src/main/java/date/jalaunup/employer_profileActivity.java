@@ -9,26 +9,26 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 public class employer_profileActivity extends AppCompatActivity {
-    SharedPreferences sharedPreferences;
-    public static final String MY_PREFERENCES = "MyPrefs";
-    public static final String USERNAME = "username";
-    public static final String EMAIL = "email";
+    SharedPreferences sharedPreferences_emp;
+    public static final String MY_PREFERENCES_EMP = "MyPrefsEmp";
+    public static final String EMAIL_EMP = "email";
+    public static final String USERNAME_EMP = "username";
     TextView username,email;
     Button logout,back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.employer_profile);
-        sharedPreferences = getSharedPreferences(MY_PREFERENCES, Context.MODE_PRIVATE);
+        sharedPreferences_emp = getSharedPreferences(MY_PREFERENCES_EMP, Context.MODE_PRIVATE);
         username = findViewById(R.id.username);
         email = findViewById(R.id.email);
-        username.setText("Welcome " + sharedPreferences.getString(USERNAME, ""));
-        email.setText("Your Mobile No. " + sharedPreferences.getString(EMAIL, ""));
+        username.setText("Welcome " + sharedPreferences_emp.getString(USERNAME_EMP, ""));
+        email.setText("Your Mobile No. " + sharedPreferences_emp.getString(EMAIL_EMP, ""));
         back = findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences.Editor editor = sharedPreferences.edit();
+                SharedPreferences.Editor editor = sharedPreferences_emp.edit();
                 Intent intent = new Intent(employer_profileActivity.this, WelcomeeActivity.class);
                 startActivity(intent);
             }
@@ -37,7 +37,7 @@ public class employer_profileActivity extends AppCompatActivity {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences.Editor editor = sharedPreferences.edit();
+                SharedPreferences.Editor editor = sharedPreferences_emp.edit();
                 editor.clear();
                 editor.apply();
                 finish();

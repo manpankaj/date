@@ -16,7 +16,6 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-
             <TextView
                 android:id="@+id/username"
                 android:layout_width="match_parent"
@@ -63,14 +62,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
                 android:hint="Enter Project Name"
-                android:inputType="textPassword" />
+                android:inputType="text" />
             <EditText
                 android:id="@+id/txtSideAdd"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
                 android:hint="Enter Project Side Address"
-                android:inputType="textPassword" />
+                android:inputType="text" />
             <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content" >
@@ -91,29 +90,53 @@
                     android:layout_marginLeft="130dp"
                     android:layout_marginTop="5dp"/>
             </RelativeLayout>
-            <EditText
-                android:id="@+id/txtStartDate"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:ems="10"
-                android:hint="Enter Starting Date of Project"
-                android:inputType="textPassword" />
-            <EditText
-                android:id="@+id/txtCompleteDates"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:ems="10"
-                android:hint="Enter Dates for Project Complete"
-                android:inputType="textPassword" />
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+                <Button
+                    android:id="@+id/txtStartDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:textSize="11sp"
+                    android:text="Pick project start date" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_sdate"
+                    android:textColor="#000000"
+                    android:layout_marginLeft="210dp"
+                    android:layout_marginTop="20dp"
+                    android:textSize="18sp"
+                    android:text="Start Date" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+                <Button
+                    android:id="@+id/txtEndDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:textSize="12sp"
+                    android:text="Pick project end date" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_edate"
+                    android:layout_marginLeft="210dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:text="End Date" />
+            </RelativeLayout>
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/saveProject"
                 android:onClick="saveProject"
                 android:layout_gravity="center_vertical|center_horizontal"
-                android:layout_marginTop="20dp"
                 android:text="Save Project Work" />
             <RelativeLayout
                 android:layout_width="fill_parent"
@@ -122,16 +145,14 @@
                     android:id="@+id/back"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginLeft="100dp"
+                    android:layout_marginLeft="80dp"
                     android:text="Back"/>
 
                 <Button
                     android:id="@+id/logout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginLeft="220dp"
+                    android:layout_marginLeft="200dp"
                     android:text="Logout"/>
             </RelativeLayout>
             <ImageView
@@ -139,7 +160,7 @@
                 android:layout_width="100dp"
                 android:layout_height="33dp"
                 android:layout_marginLeft="160dp"
-                android:layout_marginTop="300dp"
+                android:layout_marginTop="170dp"
                 app:srcCompat="@drawable/niclogo" />
         </LinearLayout>
     </ScrollView>

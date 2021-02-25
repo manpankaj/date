@@ -25,10 +25,10 @@ import java.util.Map;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class employer_changePActivity extends AppCompatActivity {
-    SharedPreferences sharedPreferences;
-    public static final String MY_PREFERENCES = "MyPrefs";
-    public static final String USERNAME = "username";
-    public static final String EMAIL = "email";
+    SharedPreferences sharedPreferences_emp;
+    public static final String MY_PREFERENCES_EMP = "MyPrefsEmp";
+    public static final String EMAIL_EMP = "email";
+    public static final String USERNAME_EMP = "username";
     EditText ed_oldpassword,ed_password,ed_password1;
     String str_oldpassword,str_password,str_mobile;
     String url_changeP = "http://10.135.217.19:8080/date/employer_changeP.php";
@@ -40,11 +40,11 @@ public class employer_changePActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.employer_change_p);
-        sharedPreferences = getSharedPreferences(MY_PREFERENCES, Context.MODE_PRIVATE);
+        sharedPreferences_emp = getSharedPreferences(MY_PREFERENCES_EMP, Context.MODE_PRIVATE);
         username = findViewById(R.id.username);
         email = findViewById(R.id.email);
-        username.setText("Welcome " + sharedPreferences.getString(USERNAME, ""));
-        email.setText("Your Mobile No. " + sharedPreferences.getString(EMAIL, ""));
+        username.setText("Welcome " + sharedPreferences_emp.getString(USERNAME_EMP, ""));
+        email.setText("Your Mobile No. " + sharedPreferences_emp.getString(EMAIL_EMP, ""));
         ed_oldpassword = findViewById(R.id.txtOPwd);
         ed_password = findViewById(R.id.txtNPwd);
         ed_password1 = findViewById(R.id.txtNPwd2);
@@ -53,7 +53,7 @@ public class employer_changePActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences.Editor editor = sharedPreferences.edit();
+                SharedPreferences.Editor editor = sharedPreferences_emp.edit();
                 Intent intent = new Intent(employer_changePActivity.this, WelcomeeActivity.class);
                 startActivity(intent);
             }
@@ -62,7 +62,7 @@ public class employer_changePActivity extends AppCompatActivity {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences.Editor editor = sharedPreferences.edit();
+                SharedPreferences.Editor editor = sharedPreferences_emp.edit();
                 editor.clear();
                 editor.apply();
                 finish();
@@ -94,7 +94,7 @@ public class employer_changePActivity extends AppCompatActivity {
         }
         else{
             progressDialog.show();
-            str_mobile = sharedPreferences.getString(EMAIL, "");
+            str_mobile = sharedPreferences_emp.getString(EMAIL_EMP, "");
             str_oldpassword = ed_oldpassword.getText().toString().trim();
             str_password = ed_password.getText().toString().trim();
             String encrypt_oldpassword = password_encrypt.getSha256Hash(str_oldpassword);
@@ -102,7 +102,7 @@ public class employer_changePActivity extends AppCompatActivity {
             StringRequest request = new StringRequest(Request.Method.POST, url_changeP, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    SharedPreferences.Editor editor = sharedPreferences_emp.edit();
                     Toast.makeText(employer_changePActivity.this, response, Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(employer_changePActivity.this, WelcomeeActivity.class);
                     startActivity(intent);
