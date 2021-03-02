@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#87ABDF"
+    android:background="#E1CEE6"
     android:padding="5dp"
     android:orientation="vertical">
 
@@ -19,7 +19,7 @@
                 android:id="@+id/username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#9C8ABC"
+                android:background="#CA62C0"
                 android:textColor="#F5F6F8"
                 android:gravity="center"
                 android:text="Welcome"
@@ -28,7 +28,7 @@
                 android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#9C8ABC"
+                android:background="#CA62C0"
                 android:textColor="#F5F6F8"
                 android:gravity="center"
                 android:text="Welcome"
@@ -56,32 +56,50 @@
                 android:hint="Confirm Password"
                 android:inputType="textPassword" />
             <Button
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/changeP"
                 android:onClick="changeP"
-                android:layout_gravity="center_vertical|center_horizontal"
-                android:layout_marginTop="20dp"
+                android:layout_columnWeight="1"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_gravity="fill"
+                app:backgroundTint="#CA62C0"
                 android:text="Change Password" />
-            <RelativeLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content" >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
                 <Button
                     android:id="@+id/back"
+                    app:backgroundTint="#CA62C0"
+                    android:layout_columnWeight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginLeft="100dp"
+                    android:layout_marginTop="10dp"
                     android:text="Back"/>
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
 
                 <Button
                     android:id="@+id/logout"
+                    app:backgroundTint="#CA62C0"
+                    android:layout_columnWeight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginLeft="220dp"
+                    android:layout_marginTop="10dp"
                     android:text="Logout"/>
-            </RelativeLayout>
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+            </LinearLayout>>
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="100dp"

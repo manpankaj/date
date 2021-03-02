@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#87ABDF"
+    android:background="#E1CEE6"
     android:padding="5dp"
     android:orientation="vertical">
     <ScrollView
@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:background="#1D2FCA"
+        android:background="#CA62C0"
         android:gravity="center"
         android:text="DATE District Administration Temporary Employment System Jalaun UP"
         android:textColor="#FFFFFF"
@@ -31,7 +31,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
-                android:background="#9C8ABC"
+                android:background="#CA62C0"
                 android:gravity="center"
                 android:text="Welcome Worker Please Provide The Details For Registration"
                 android:textColor="#F5F6F8" />
@@ -82,7 +82,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:checked="true"
-                    android:layout_marginLeft="50dp"
+                    android:layout_marginLeft="40dp"
                     android:id="@+id/radioMale"
                     android:text="Male"/>
                 <RadioButton
@@ -107,31 +107,52 @@
                 android:ems="10"
                 android:hint="Confirm Password"
                 android:inputType="textPassword" />
-            <RelativeLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content" >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
     <Button
         android:id="@+id/Register"
-        android:layout_width="wrap_content"
+        app:backgroundTint="#CA62C0"
+        android:layout_columnWeight="1"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
         android:onClick="Register_w"
         android:text="Register" />
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
             <Button
                 android:id="@+id/moveToLogin"
-                android:layout_width="wrap_content"
+                app:backgroundTint="#CA62C0"
+                android:layout_columnWeight="1"
+                android:layout_width="160dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="220dp"
                 android:onClick="Login_w"
                 android:text="login " />
-            </RelativeLayout>
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="100dp"
-                android:layout_height="33dp"
-                android:layout_marginLeft="160dp"
-                android:layout_marginTop="50dp"
-                app:srcCompat="@drawable/niclogo" />
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+            </LinearLayout>>
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="100dp"
+                    android:layout_height="33dp"
+                    android:layout_marginTop="70dp"
+                    app:srcCompat="@drawable/niclogo" />
+            </LinearLayout>>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

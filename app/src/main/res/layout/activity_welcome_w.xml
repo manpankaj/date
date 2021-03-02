@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#87ABDF"
+    android:background="#E1CEE6"
     android:padding="5dp"
     android:orientation="vertical">
     <ScrollView
@@ -17,7 +17,7 @@
                 android:id="@+id/username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#9C8ABC"
+                android:background="#CA62C0"
                 android:textColor="#F5F6F8"
                 android:gravity="center"
                 android:text="Welcome"
@@ -26,43 +26,64 @@
                 android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#9C8ABC"
+                android:background="#CA62C0"
                 android:textColor="#F5F6F8"
                 android:gravity="center"
                 android:text="Welcome"
                 android:textSize="20sp" />
             <Button
                 android:id="@+id/profileupdate"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_columnWeight="1"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_gravity="fill"
+                app:backgroundTint="#CA62C0"
                 android:text="Update Profile" />
             <Button
                 android:id="@+id/searchemployment"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_columnWeight="1"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_gravity="fill"
+                app:backgroundTint="#CA62C0"
                 android:text="Search Employment"/>
             <Button
                 android:id="@+id/changepassword"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_columnWeight="1"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_gravity="fill"
+                app:backgroundTint="#CA62C0"
                 android:text="Change Password"/>
             <Button
                 android:id="@+id/logout"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_columnWeight="1"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_gravity="fill"
+                app:backgroundTint="#CA62C0"
                 android:text="Logout"/>
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="100dp"
-                android:layout_height="33dp"
-                android:layout_gravity="center_vertical|center_horizontal"
-                android:layout_marginTop="250dp"
-                app:srcCompat="@drawable/niclogo" />
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="100dp"
+                    android:layout_height="33dp"
+                    android:layout_marginTop="130dp"
+                    app:srcCompat="@drawable/niclogo" />
+            </LinearLayout>>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

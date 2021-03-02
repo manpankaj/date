@@ -1,4 +1,4 @@
-package date.jalaunup;
+package date.jalaunup.Config;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.InputStreamReader;

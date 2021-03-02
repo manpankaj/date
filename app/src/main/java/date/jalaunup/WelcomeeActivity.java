@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-import date.jalaunup.Config.RoleManager;
 
 public class WelcomeeActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences_emp;
@@ -40,21 +39,8 @@ public class WelcomeeActivity extends AppCompatActivity {
             Intent intent = new Intent(WelcomeeActivity.this, logineActivity.class);
             startActivity(intent);
         }
-
-        String roleId = sharedPreferences_emp.getString("ROLE_ID","0");
-        if(roleId.equals(RoleManager.ROLE_EMPLOYER) == false)
-        {
-            SharedPreferences.Editor editor = sharedPreferences_emp.edit();
-            editor.clear();
-            editor.apply();
-            finish();
-            Intent intent = new Intent(WelcomeeActivity.this, logineActivity.class);
-            startActivity(intent);
-        }
-
-
-
-        employer_profile.setOnClickListener(new View.OnClickListener() {
+            employer_profile = findViewById(R.id.profileUpdate);
+            employer_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 SharedPreferences.Editor editor = sharedPreferences_emp.edit();

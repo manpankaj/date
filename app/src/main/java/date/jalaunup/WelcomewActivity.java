@@ -1,37 +1,41 @@
 package date.jalaunup;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.HashMap;
+
 import androidx.appcompat.app.AppCompatActivity;
+import date.jalaunup.Config.SessionManager;
+
 public class WelcomewActivity extends AppCompatActivity {
-    SharedPreferences sharedPreferences;
-    public static final String MY_PREFERENCES = "MyPrefs";
-    public static final String USERNAME = "username";
-    public static final String EMAIL = "email";
-    public static final String CATEGORY = "category";
-    public static final String SUB_CATEGORY = "sub_category";
-    public static final String EXP_YEAR = "exp_year";
+    SessionManager session;
     TextView username,email;
-    Button logout;
-    Button worker_profile,search_employment,change_password;
+    Button worker_profile,search_employment,change_password,logout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome_w);
-        sharedPreferences = getSharedPreferences(MY_PREFERENCES, Context.MODE_PRIVATE);
+        session = new SessionManager(getApplicationContext());
         username = findViewById(R.id.username);
         email = findViewById(R.id.email);
-        username.setText("Welcome " + sharedPreferences.getString(USERNAME, "") );
-        email.setText("Your Mobile No. " + sharedPreferences.getString(EMAIL, "") );
+        Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
+        session.checkLogin();
+        session.checkWorker();
+        HashMap<String, String> user = session.getUserDetails();
+        String str_username = user.get(SessionManager.KEY_NAME);
+        String str_email = user.get(SessionManager.KEY_EMAIL);
+        String str_role = user.get(SessionManager.KEY_ROLE);
+        username.setText("Welcome " + str_username + str_role);
+        email.setText("Your Mobile No. " + str_email );
+
         worker_profile = findViewById(R.id.profileupdate);
         worker_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences.Editor editor = sharedPreferences.edit();
                 Intent intent = new Intent(WelcomewActivity.this, worker_profileActivity.class);
                 startActivity(intent);
             }
@@ -40,7 +44,6 @@ public class WelcomewActivity extends AppCompatActivity {
         search_employment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences.Editor editor = sharedPreferences.edit();
                 Intent intent = new Intent(WelcomewActivity.this, worker_employmentActivity.class);
                 startActivity(intent);
             }
@@ -49,7 +52,6 @@ public class WelcomewActivity extends AppCompatActivity {
         change_password.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences.Editor editor = sharedPreferences.edit();
                 Intent intent = new Intent(WelcomewActivity.this, worker_changePActivity.class);
                 startActivity(intent);
             }
@@ -58,12 +60,7 @@ public class WelcomewActivity extends AppCompatActivity {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.clear();
-                editor.apply();
-                finish();
-                Intent intent = new Intent(WelcomewActivity.this, loginwActivity.class);
-                startActivity(intent);
+                session.logoutUser();
             }
         });
     }

@@ -15,6 +15,8 @@ import com.android.volley.toolbox.Volley;
 import java.util.HashMap;
 import java.util.Map;
 import androidx.appcompat.app.AppCompatActivity;
+import date.jalaunup.Config.password_encrypt;
+
 public class registrationeActivity extends AppCompatActivity {
     EditText ed_empname,ed_mobile,ed_email,ed_add,ed_password,ed_password1;
     String str_empname,str_mobile,str_email,str_add,str_password,str_password1;

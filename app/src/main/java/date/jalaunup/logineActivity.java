@@ -12,7 +12,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.HashMap;
 import androidx.appcompat.app.AppCompatActivity;
-import date.jalaunup.Config.RoleManager;
+import date.jalaunup.Config.RequestHandler;
+import date.jalaunup.Config.password_encrypt;
+
 public class logineActivity extends AppCompatActivity {
     public static final String URL_LOGIN = "http://10.135.217.19:8080/date/login_e.php";
     EditText ed_email, ed_password;
@@ -90,8 +92,6 @@ public class logineActivity extends AppCompatActivity {
                             editor.putString(USERNAME_EMP, username);
                             editor.putString(EMAIL_EMP, email);
                             editor.putBoolean(STATUS_EMP, true);
-                            editor.putBoolean(STATUS_EMP, true);
-                            editor.putString("ROLE_ID",RoleManager.ROLE_EMPLOYER);
                             //editor.putString(CATEGORY, category);
                             //editor.putString(SUB_CATEGORY, sub_category);
                            // editor.putString(EXP_YEAR, exp_year);

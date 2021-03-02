@@ -1,4 +1,4 @@
-package date.jalaunup;
+package date.jalaunup.Config;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 public class password_encrypt {

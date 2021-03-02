@@ -1,6 +1,5 @@
 package date.jalaunup;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -28,14 +27,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 import androidx.appcompat.app.AppCompatActivity;
+import date.jalaunup.Config.SessionManager;
+
 public class worker_profileActivity extends AppCompatActivity {
-    SharedPreferences sharedPreferences;
-    public static final String MY_PREFERENCES = "MyPrefs";
-    public static final String USERNAME = "username";
-    public static final String EMAIL = "email";
-    public static final String CATEGORY = "category";
-    public static final String SUB_CATEGORY = "sub_category";
-    public static final String EXP_YEAR = "exp_year";
+    SessionManager session;
+    SharedPreferences pref;
+    SharedPreferences.Editor editor;
+    public static final String KEY_CATEGORY = "category";
+    public static final String KEY_SUBCATEGORY = "subcategory";
+    public static final String KEY_EXPYEAR = "expyear";
     TextView username,email,tv_parent,tv_child;
     EditText expyear;
     Button logout,back,profile;
@@ -44,7 +44,7 @@ public class worker_profileActivity extends AppCompatActivity {
     ArrayList<String> arrayList_Civil,arrayList_Electrical,arrayList_Jal_Sansaadan,arrayList_Computer,arrayList_Education,arrayList_Official_Work;
     ArrayAdapter<String> arrayAdapter_parent;
     ArrayAdapter<String> arrayAdapter_child;
-    String str_category,str_sub_category,str_expyear;
+    String str_category1,str_subcategory1,str_expyear1;
     String url = "http://10.135.217.19:8080/date/worker_profile.php";
     private View view;
     @Override
@@ -75,20 +75,29 @@ public class worker_profileActivity extends AppCompatActivity {
         }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.worker_profile);
-        sharedPreferences = getSharedPreferences(MY_PREFERENCES, Context.MODE_PRIVATE);
+       // Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
+        session.checkLogin();
+        session.checkWorker();
+        HashMap<String, String> user = session.getUserDetails();
+        String str_username = user.get(SessionManager.KEY_NAME);
+        String str_email = user.get(SessionManager.KEY_EMAIL);
+        String str_role = user.get(SessionManager.KEY_ROLE);
+        String str_category = user.get(SessionManager.KEY_CATEGORY);
+        String str_subcategory = user.get(SessionManager.KEY_SUBCATEGORY);
+        String str_expyear = user.get(SessionManager.KEY_EXPYEAR);
         username = findViewById(R.id.username);
         email = findViewById(R.id.email);
         tv_parent = findViewById(R.id.tv_parent1);
         tv_child = findViewById(R.id.tv_child1);
         expyear = findViewById(R.id.expyear);
         expyear.setFilters(new InputFilter[]{new InputFilterMinMax("1", "30")});
-        username.setText("Welcome " + sharedPreferences.getString(USERNAME, ""));
-        email.setText("Your Mobile No. " + sharedPreferences.getString(EMAIL, ""));
+        username.setText("Welcome " + str_username + str_role);
+        email.setText("Your Mobile No. " + str_email);
         sp_parent = (Spinner) findViewById(R.id.parent);
         sp_child = (Spinner) findViewById(R.id.child);
-        tv_parent.setText(sharedPreferences.getString(CATEGORY, ""));
-        tv_child.setText(sharedPreferences.getString(SUB_CATEGORY, ""));
-        expyear.setText(sharedPreferences.getString(EXP_YEAR, ""));
+        tv_parent.setText(str_category);
+        tv_child.setText(str_subcategory);
+        expyear.setText(str_expyear);
         arrayList_parent = new ArrayList<>();
         arrayList_parent.add("Civil");
         arrayList_parent.add("Electrical");
@@ -140,13 +149,13 @@ public class worker_profileActivity extends AppCompatActivity {
         sp_parent.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                str_category =  parent.getItemAtPosition(position).toString();
+                str_category1 =  parent.getItemAtPosition(position).toString();
                 if (position == 0) {
                     arrayAdapter_child = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, arrayList_Civil);
                     sp_child.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                         @Override
                         public void onItemSelected(AdapterView<?> child, View view, int position, long id) {
-                            str_sub_category = child.getItemAtPosition(position).toString();
+                            str_subcategory1 = child.getItemAtPosition(position).toString();
                         }
                         @Override
                         public void onNothingSelected(AdapterView<?> child) {
@@ -158,7 +167,7 @@ public class worker_profileActivity extends AppCompatActivity {
                     sp_child.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                         @Override
                         public void onItemSelected(AdapterView<?> child, View view, int position, long id) {
-                            str_sub_category = child.getItemAtPosition(position).toString();
+                            str_subcategory1 = child.getItemAtPosition(position).toString();
                         }
                         @Override
                         public void onNothingSelected(AdapterView<?> child) {
@@ -170,7 +179,7 @@ public class worker_profileActivity extends AppCompatActivity {
                     sp_child.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                         @Override
                         public void onItemSelected(AdapterView<?> child, View view, int position, long id) {
-                            str_sub_category = child.getItemAtPosition(position).toString();
+                            str_subcategory1 = child.getItemAtPosition(position).toString();
                         }
                         @Override
                         public void onNothingSelected(AdapterView<?> child) {
@@ -182,7 +191,7 @@ public class worker_profileActivity extends AppCompatActivity {
                     sp_child.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                         @Override
                         public void onItemSelected(AdapterView<?> child, View view, int position, long id) {
-                            str_sub_category = child.getItemAtPosition(position).toString();
+                            str_subcategory1 = child.getItemAtPosition(position).toString();
                         }
                         @Override
                         public void onNothingSelected(AdapterView<?> child) {
@@ -194,7 +203,7 @@ public class worker_profileActivity extends AppCompatActivity {
                     sp_child.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                         @Override
                         public void onItemSelected(AdapterView<?> child, View view, int position, long id) {
-                            str_sub_category = child.getItemAtPosition(position).toString();
+                            str_subcategory1 = child.getItemAtPosition(position).toString();
                         }
                         @Override
                         public void onNothingSelected(AdapterView<?> child) {
@@ -206,7 +215,7 @@ public class worker_profileActivity extends AppCompatActivity {
                     sp_child.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                         @Override
                         public void onItemSelected(AdapterView<?> child, View view, int position, long id) {
-                            str_sub_category = child.getItemAtPosition(position).toString();
+                            str_subcategory1 = child.getItemAtPosition(position).toString();
                         }
                         @Override
                         public void onNothingSelected(AdapterView<?> child) {
@@ -223,7 +232,6 @@ public class worker_profileActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences.Editor editor = sharedPreferences.edit();
                 Intent intent = new Intent(worker_profileActivity.this, WelcomewActivity.class);
                 startActivity(intent);
             }
@@ -232,12 +240,7 @@ public class worker_profileActivity extends AppCompatActivity {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.clear();
-                editor.apply();
-                finish();
-                Intent intent = new Intent(worker_profileActivity.this, loginwActivity.class);
-                startActivity(intent);
+                    session.logoutUser();
             }
         });
         profile = findViewById(R.id.profile);
@@ -245,11 +248,10 @@ public class worker_profileActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                str_expyear = expyear.getText().toString().trim();
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString(CATEGORY, str_category);
-                editor.putString(SUB_CATEGORY, str_sub_category);
-                editor.putString(EXP_YEAR, str_expyear);
+                str_expyear1 = expyear.getText().toString().trim();
+                editor.putString(KEY_CATEGORY, str_category1);
+                editor.putString(KEY_SUBCATEGORY, str_subcategory1);
+                editor.putString(KEY_EXPYEAR, str_expyear1);
                 editor.apply();
                 ProgressDialog progressDialog = new ProgressDialog(worker_profileActivity.this);
                 progressDialog.setMessage("Please Wait..");
@@ -271,11 +273,11 @@ public class worker_profileActivity extends AppCompatActivity {
                     @Override
                     protected Map<String, String> getParams() throws AuthFailureError {
                         Map<String, String> params = new HashMap<String, String>();
-                        params.put("fullname", sharedPreferences.getString(USERNAME, ""));
-                        params.put("mobile", sharedPreferences.getString(EMAIL, ""));
-                        params.put("category", str_category);
-                        params.put("sub_category", str_sub_category);
-                        params.put("expyear", str_expyear);
+                        params.put("fullname", str_username);
+                        params.put("mobile", str_email);
+                        params.put("category", str_category1);
+                        params.put("sub_category", str_subcategory1);
+                        params.put("expyear", str_expyear1);
                         return params;
                     }
                 };

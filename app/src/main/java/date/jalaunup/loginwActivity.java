@@ -1,61 +1,52 @@
 package date.jalaunup;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.util.HashMap;
+
 import androidx.appcompat.app.AppCompatActivity;
+import date.jalaunup.Config.RequestHandler;
+import date.jalaunup.Config.SessionManager;
+import date.jalaunup.Config.password_encrypt;
+
 public class loginwActivity extends AppCompatActivity {
     public static final String URL_LOGIN = "http://10.135.217.19:8080/date/login_w.php";
     EditText ed_email, ed_password;
-    SharedPreferences sharedPreferences;
-    public static final String MY_PREFERENCES = "MyPrefs";
-    public static final String EMAIL = "email";
-    public static final String STATUS = "status";
-    public static final String USERNAME = "username";
-    public static final String CATEGORY = "category";
-    public static final String SUB_CATEGORY = "sub_category";
-    public static final String EXP_YEAR = "exp_year";
     String MobilePattern = "[0-9]{10}";
     String passwordPattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{4,}$";
+    SessionManager session;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login_worker );
+        setContentView(R.layout.login_worker);
+        session = new SessionManager(getApplicationContext());
         ed_email = findViewById(R.id.txtMob);
         ed_password = findViewById(R.id.txtPwd);
-        sharedPreferences = getSharedPreferences(MY_PREFERENCES, Context.MODE_PRIVATE);
-        boolean status = sharedPreferences.getBoolean(STATUS, false);
-        if (status){
-            finish();
-            Intent intent = new Intent(loginwActivity.this, WelcomewActivity.class);
-            startActivity(intent);
-        }
+        Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
+
     }
-    public void login(View view){
+    public void login(View view) {
         final String email = ed_email.getText().toString();
         final String password = ed_password.getText().toString();
         String encrypt_password = password_encrypt.getSha256Hash(password);
-        if(ed_email.getText().toString().equals("")){
+        if (ed_email.getText().toString().equals("")) {
             Toast.makeText(this, "Enter Mobile No.", Toast.LENGTH_SHORT).show();
-        }
-        else if(!ed_email.getText().toString().matches(MobilePattern)){
+        } else if (!ed_email.getText().toString().matches(MobilePattern)) {
             Toast.makeText(this, "Enter Correct Mobile No.", Toast.LENGTH_SHORT).show();
-        }
-        else if(ed_password.getText().toString().equals("")){
+        } else if (ed_password.getText().toString().equals("")) {
             Toast.makeText(this, "Enter Password", Toast.LENGTH_SHORT).show();
-        }
-        else if(!ed_password.getText().toString().matches(passwordPattern)){
+        } else if (!ed_password.getText().toString().matches(passwordPattern)) {
             Toast.makeText(this, "Password must contain minimum 8 characters at least 1 Alphabet, 1 Number and 1 Special Character.", Toast.LENGTH_SHORT).show();
-        }
-        else {
+        } else {
             class Login extends AsyncTask<Void, Void, String> {
                 final ProgressDialog pdLoading = new ProgressDialog(loginwActivity.this);
                 @Override
@@ -70,7 +61,7 @@ public class loginwActivity extends AppCompatActivity {
                     RequestHandler requestHandler = new RequestHandler();
                     HashMap<String, String> params = new HashMap<>();
                     params.put("email", email);
-                    params.put("password", encrypt_password );
+                    params.put("password", encrypt_password);
                     return requestHandler.sendPostRequest(URL_LOGIN, params);
                 }
                 @Override
@@ -84,22 +75,15 @@ public class loginwActivity extends AppCompatActivity {
                             String category = obj.getString("category");
                             String sub_category = obj.getString("sub_category");
                             String exp_year = obj.getString("exp_year");
-                            SharedPreferences.Editor editor = sharedPreferences.edit();
-                            editor.putString(USERNAME, username);
-                            editor.putString(EMAIL, email);
-                            editor.putBoolean(STATUS, true);
-                            editor.putString(CATEGORY, category);
-                            editor.putString(SUB_CATEGORY, sub_category);
-                            editor.putString(EXP_YEAR, exp_year);
-                            editor.apply();
-                            finish();
+                            String role = obj.getString("role");
+                            session.createLoginSession(username, email, category, sub_category, exp_year, role);
                             Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_LONG).show();
                             Intent intent = new Intent(loginwActivity.this, WelcomewActivity.class);
                             startActivity(intent);
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
-                        Toast.makeText(loginwActivity.this, "Incorrect Mobile No. or Password" , Toast.LENGTH_LONG).show();
+                        Toast.makeText(loginwActivity.this, "Incorrect Mobile No. or Password", Toast.LENGTH_LONG).show();
                     }
                 }
             }
@@ -107,7 +91,7 @@ public class loginwActivity extends AppCompatActivity {
             login.execute();
         }
     }
-    public void back(View view){
+    public void back(View view) {
         finish();
         Intent intent = new Intent(loginwActivity.this, MainActivity.class);
         startActivity(intent);

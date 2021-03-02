@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#87ABDF"
+    android:background="#E1CEE6"
     android:orientation="vertical"
     android:padding="5dp">
     <ScrollView
@@ -17,7 +17,7 @@
                 android:id="@+id/username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#9C8ABC"
+                android:background="#CA62C0"
                 android:textColor="#F5F6F8"
                 android:gravity="center"
                 android:text="Welcome"
@@ -27,38 +27,58 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:background="#9C8ABC"
+                android:background="#CA62C0"
                 android:textColor="#F5F6F8"
                 android:text="Welcome"
                 android:textSize="20sp" />
 
-            <RelativeLayout
-                android:layout_width="fill_parent"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|center_horizontal">
-            <Button
-                android:id="@+id/back"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="70dp"
+                android:orientation="horizontal">
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+                <Button
+                    android:id="@+id/back"
+                    app:backgroundTint="#CA62C0"
+                    android:layout_columnWeight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                 android:text="Back"/>
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
             <Button
                 android:id="@+id/logout"
+                app:backgroundTint="#CA62C0"
+                android:layout_columnWeight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="180dp"
+                android:layout_marginTop="10dp"
                 android:text="Logout"/>
-            </RelativeLayout>
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+            </LinearLayout>>
 
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="100dp"
-                android:layout_height="33dp"
-                android:layout_gravity="center_vertical|center_horizontal"
-                android:layout_marginTop="120dp"
-                app:srcCompat="@drawable/niclogo" />
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="100dp"
+                    android:layout_height="33dp"
+                    android:layout_marginTop="130dp"
+                    app:srcCompat="@drawable/niclogo" />
+            </LinearLayout>>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

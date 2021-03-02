@@ -18,6 +18,8 @@ import com.android.volley.toolbox.Volley;
 import java.util.HashMap;
 import java.util.Map;
 import androidx.appcompat.app.AppCompatActivity;
+import date.jalaunup.Config.password_encrypt;
+
 public class registrationwActivity extends AppCompatActivity {
     EditText ed_fullname,ed_mobile,ed_email,ed_age,ed_password,ed_password1;
     RadioButton rd_male,rd_female;
