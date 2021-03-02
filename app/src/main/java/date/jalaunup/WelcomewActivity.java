@@ -24,7 +24,7 @@ public class WelcomewActivity extends AppCompatActivity {
         email = findViewById(R.id.email);
         Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
         session.checkLogin();
-        session.checkWorker();
+        //session.checkWorker();
         HashMap<String, String> user = session.getUserDetails();
         String str_username = user.get(SessionManager.KEY_NAME);
         String str_email = user.get(SessionManager.KEY_EMAIL);

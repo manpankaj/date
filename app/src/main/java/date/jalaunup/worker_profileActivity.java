@@ -31,13 +31,8 @@ import date.jalaunup.Config.SessionManager;
 
 public class worker_profileActivity extends AppCompatActivity {
     SessionManager session;
-    SharedPreferences pref;
-    SharedPreferences.Editor editor;
-    public static final String KEY_CATEGORY = "category";
-    public static final String KEY_SUBCATEGORY = "subcategory";
-    public static final String KEY_EXPYEAR = "expyear";
     TextView username,email,tv_parent,tv_child;
-    EditText expyear;
+    EditText tv_expyear;
     Button logout,back,profile;
     Spinner sp_parent,sp_child;
     ArrayList<String> arrayList_parent;
@@ -45,7 +40,7 @@ public class worker_profileActivity extends AppCompatActivity {
     ArrayAdapter<String> arrayAdapter_parent;
     ArrayAdapter<String> arrayAdapter_child;
     String str_category1,str_subcategory1,str_expyear1;
-    String url = "http://10.135.217.19:8080/date/worker_profile.php";
+    String url = "http://192.168.1.9:8080/date/worker_profile.php";
     private View view;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,7 +70,8 @@ public class worker_profileActivity extends AppCompatActivity {
         }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.worker_profile);
-       // Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
+        session = new SessionManager(getApplicationContext());
+        Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
         session.checkLogin();
         session.checkWorker();
         HashMap<String, String> user = session.getUserDetails();
@@ -89,15 +85,15 @@ public class worker_profileActivity extends AppCompatActivity {
         email = findViewById(R.id.email);
         tv_parent = findViewById(R.id.tv_parent1);
         tv_child = findViewById(R.id.tv_child1);
-        expyear = findViewById(R.id.expyear);
-        expyear.setFilters(new InputFilter[]{new InputFilterMinMax("1", "30")});
+        tv_expyear = findViewById(R.id.tv_expyear1);
+        tv_expyear.setFilters(new InputFilter[]{new InputFilterMinMax("1", "30")});
         username.setText("Welcome " + str_username + str_role);
         email.setText("Your Mobile No. " + str_email);
         sp_parent = (Spinner) findViewById(R.id.parent);
         sp_child = (Spinner) findViewById(R.id.child);
         tv_parent.setText(str_category);
         tv_child.setText(str_subcategory);
-        expyear.setText(str_expyear);
+        tv_expyear.setText(str_expyear);
         arrayList_parent = new ArrayList<>();
         arrayList_parent.add("Civil");
         arrayList_parent.add("Electrical");
@@ -248,11 +244,8 @@ public class worker_profileActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                str_expyear1 = expyear.getText().toString().trim();
-                editor.putString(KEY_CATEGORY, str_category1);
-                editor.putString(KEY_SUBCATEGORY, str_subcategory1);
-                editor.putString(KEY_EXPYEAR, str_expyear1);
-                editor.apply();
+                str_expyear1 = tv_expyear.getText().toString().trim();
+                session.updateWorkerProfile(str_category1,str_subcategory1,str_expyear1);
                 ProgressDialog progressDialog = new ProgressDialog(worker_profileActivity.this);
                 progressDialog.setMessage("Please Wait..");
                 progressDialog.show();
@@ -261,6 +254,8 @@ public class worker_profileActivity extends AppCompatActivity {
                     public void onResponse(String response) {
                         progressDialog.dismiss();
                         Toast.makeText(worker_profileActivity.this, response, Toast.LENGTH_SHORT).show();
+                        Intent myIntent = new Intent(worker_profileActivity.this, WelcomewActivity.class);
+                        worker_profileActivity.this.startActivity(myIntent);
                     }
                 }, new Response.ErrorListener() {
                     @Override

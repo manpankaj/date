@@ -38,7 +38,7 @@ public class employer_saveworkActivity extends AppCompatActivity {
     public static final String USERNAME_EMP = "username";
     EditText ed_project,ed_project_add;
     String str_project,str_project_add,str_mobile,str_sdate,str_edate;
-    String url_changeP = "http://10.135.217.19:8080/date/employer_savework.php";
+    String url_changeP = "http://192.168.1.9:8080/date/employer_savework.php";
     TextView username,email,sdate,edate;
     Button logout,back,startdate,enddate;
     Calendar start,end;

@@ -6,159 +6,204 @@
     android:background="#E1CEE6"
     android:orientation="vertical"
     android:padding="5dp">
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">2
+        android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <TextView
                 android:id="@+id/username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#CA62C0"
-                android:textColor="#F5F6F8"
                 android:gravity="center"
                 android:text="Welcome"
+                android:textColor="#F5F6F8"
                 android:textSize="20sp" />
+
             <TextView
                 android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:background="#CA62C0"
-                android:textColor="#F5F6F8"
+                android:gravity="center"
                 android:text="Welcome"
+                android:textColor="#F5F6F8"
                 android:textSize="20sp" />
+
             <RelativeLayout
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content" >
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/tv_parent"
-                android:textColor="#7F4A8E"
-                android:layout_marginTop="20dp"
-                android:textSize="18sp"
-                android:text="Select Field Area" />
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Your Field Area"
+                    android:textColor="#7F4A8E"
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/tv_parent1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="150dp"
+                    android:layout_marginLeft="200dp"
                     android:layout_marginTop="20dp"
                     android:text="Field"
                     android:textColor="#7F4A8E"
                     android:textSize="18sp" />
             </RelativeLayout>
-            <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/parent"
-                android:layout_marginLeft="80dp"
-                android:layout_marginTop="5dp"/>
+
             <RelativeLayout
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content" >
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/tv_child"
-                android:textColor="#7F4A8E"
-                android:textSize="18sp"
-                android:text="Select Work Area" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/tv_child1"
-                android:text="Work"
-                android:textColor="#7F4A8E"
-                android:textSize="18sp"
-                android:layout_marginLeft="150dp" />
-            </RelativeLayout>
-            <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/child"
-                android:layout_marginLeft="80dp"
-                android:layout_marginTop="5dp"/>
+                android:layout_height="wrap_content">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:text="Work Experience in Year"
-                android:textColor="#7F4A8E"
-                android:textSize="18sp" />
-            <EditText
-                android:id="@+id/expyear"
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Change Field Area"
+                    android:textColor="#7F4A8E"
+                    android:textSize="18sp" />
+
+                <Spinner
+                    android:id="@+id/parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="200dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_child"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Your Work Area"
+                    android:textColor="#7F4A8E"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_child1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="200dp"
+                    android:text="Work"
+                    android:textColor="#7F4A8E"
+                    android:textSize="18sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Change Work Area"
+                    android:textColor="#7F4A8E"
+                    android:textSize="18sp" />
+
+                <Spinner
+                    android:id="@+id/child"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="200dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="150dp"
-                android:ems="10"
-                android:hint="Experience in Year"
-                android:inputType="number"  />
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_expyear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Work Experience in Year"
+                    android:textColor="#7F4A8E"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/tv_expyear1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="200dp"
+                    android:hint="Experience in Year"
+                    android:inputType="number" />
+            </RelativeLayout>
 
             <Button
                 android:id="@+id/profile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
+                android:layout_gravity="fill"
                 android:layout_marginLeft="50dp"
                 android:layout_marginRight="50dp"
-                android:layout_gravity="fill"
-                app:backgroundTint="#CA62C0"
-                android:text="Profile Update" />
+                android:text="Profile Update"
+                app:backgroundTint="#CA62C0" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-                <Space
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
-            <Button
-                android:id="@+id/back"
-                app:backgroundTint="#CA62C0"
-                android:layout_columnWeight="1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Back"/>
-                <Space
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
-            <Button
-                android:id="@+id/logout"
-                app:backgroundTint="#CA62C0"
-                android:layout_columnWeight="1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Logout"/>
-                <Space
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
-            </LinearLayout>>
 
-            <LinearLayout
-                xmlns:android="http://schemas.android.com/apk/res/android"
-                android:orientation="vertical"
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_marginTop="10dp"
+                    android:text="Back"
+                    app:backgroundTint="#CA62C0" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/logout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_marginTop="10dp"
+                    android:text="Logout"
+                    app:backgroundTint="#CA62C0" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+            </LinearLayout>
+            >
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="vertical">
+
                 <ImageView
                     android:id="@+id/imageView2"
                     android:layout_width="100dp"
                     android:layout_height="33dp"
                     android:layout_marginTop="130dp"
                     app:srcCompat="@drawable/niclogo" />
-            </LinearLayout>>
+            </LinearLayout>
+            >
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

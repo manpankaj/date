@@ -17,10 +17,11 @@ public class SessionManager {
     private static final String IS_LOGIN = "IsLoggedIn";
     public static final String KEY_NAME = "name";
     public static final String KEY_EMAIL = "email";
-    public static final String KEY_CATEGORY = "category";
-    public static final String KEY_SUBCATEGORY = "subcategory";
-    public static final String KEY_EXPYEAR = "expyear";
     public static final String KEY_ROLE = "role";
+    public static String KEY_CATEGORY = "category";
+    public static String KEY_SUBCATEGORY = "subcategory";
+    public static String KEY_EXPYEAR = "expyear";
+
 
     public SessionManager(Context context){
         this._context = context;
@@ -38,6 +39,12 @@ public class SessionManager {
         editor.putString(KEY_ROLE, role);
         editor.commit();
     }
+    public void updateWorkerProfile( String category, String sub_category, String exp_year){
+        editor.putString(KEY_CATEGORY, category);
+        editor.putString(KEY_SUBCATEGORY, sub_category);
+        editor.putString(KEY_EXPYEAR, exp_year);
+        editor.commit();
+    }
 
     public void checkLogin(){
         if(!this.isLoggedIn() ){
@@ -49,7 +56,7 @@ public class SessionManager {
     }
 
     public void checkWorker(){
-        if(pref.getString(KEY_ROLE,null)=="2"){
+        if(!this.isLoggedIn() || pref.getString(KEY_ROLE,null)!="w"){
             Intent i = new Intent(_context, MainActivity.class);
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

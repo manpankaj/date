@@ -25,6 +25,8 @@ import java.util.Map;
 import androidx.appcompat.app.AppCompatActivity;
 import date.jalaunup.Config.password_encrypt;
 
+import date.jalaunup.Config.password_encrypt;
+
 public class employer_changePActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences_emp;
     public static final String MY_PREFERENCES_EMP = "MyPrefsEmp";
@@ -32,7 +34,7 @@ public class employer_changePActivity extends AppCompatActivity {
     public static final String USERNAME_EMP = "username";
     EditText ed_oldpassword,ed_password,ed_password1;
     String str_oldpassword,str_password,str_mobile;
-    String url_changeP = "http://10.135.217.19:8080/date/employer_changeP.php";
+    String url_changeP = "http://192.168.1.9:8080/date/employer_changeP.php";
     String passwordPattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{4,}$";
     TextView username,email;
     Button logout,back;
