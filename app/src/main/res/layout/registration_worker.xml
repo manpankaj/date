@@ -128,13 +128,13 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1" />
             <Button
-                android:id="@+id/moveToLogin"
+                android:id="@+id/moveToBack"
                 app:backgroundTint="#CA62C0"
                 android:layout_columnWeight="1"
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
-                android:onClick="Login_w"
-                android:text="login " />
+                android:onClick="back"
+                android:text="Back" />
                 <Space
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"

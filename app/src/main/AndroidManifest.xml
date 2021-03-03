@@ -30,6 +30,7 @@
         <activity android:name=".worker_profileActivity" android:label="WORKER'S PROFILE UPDATE"> </activity>
         <activity android:name=".worker_employmentActivity" android:label="WORKER'S EMPLOYMENT"> </activity>
         <activity android:name=".worker_changePActivity" android:label="WORKER'S CHANGE PASSWORD"> </activity>
+        <activity android:name=".admin_changePActivity" android:label="ADMIN CHANGE PASSWORD"> </activity>
         <activity android:name=".WelcomeeActivity" android:label="EMPLOYER'S HOME SCREEN"> </activity>
         <activity android:name=".WelcomeaActivity" android:label="ADMIN HOME SCREEN"> </activity>
         <activity android:name=".admin_profileActivity" android:label="ADMIN PROFILE"> </activity>

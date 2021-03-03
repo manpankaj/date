@@ -40,7 +40,7 @@ public class worker_changePActivity extends AppCompatActivity {
         session = new SessionManager(getApplicationContext());
         session.checkLogin();
         //session.checkWorker();
-        Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
         HashMap<String, String> user = session.getUserDetails();
         str_username = user.get(SessionManager.KEY_NAME);
         str_email = user.get(SessionManager.KEY_EMAIL);

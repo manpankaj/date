@@ -67,8 +67,8 @@ public class registrationwActivity extends AppCompatActivity {
         ed_password1 = findViewById(R.id.txtPwd2);
         ed_age.setFilters(new InputFilter[]{new InputFilterMinMax("1", "60")});
     }
-    public void Login_w(View view) {
-               startActivity(new Intent(getApplicationContext(),loginwActivity.class));
+    public void back(View view) {
+               startActivity(new Intent(getApplicationContext(),MainActivity.class));
         finish();    }
     public void Register_w(View view) {
         final ProgressDialog progressDialog = new ProgressDialog(this);

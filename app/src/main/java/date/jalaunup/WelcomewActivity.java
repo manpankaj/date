@@ -15,6 +15,7 @@ public class WelcomewActivity extends AppCompatActivity {
     SessionManager session;
     TextView username,email;
     Button worker_profile,search_employment,change_password,logout;
+    String str_username,str_email,str_role;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,13 +23,13 @@ public class WelcomewActivity extends AppCompatActivity {
         session = new SessionManager(getApplicationContext());
         username = findViewById(R.id.username);
         email = findViewById(R.id.email);
-        Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
         session.checkLogin();
         //session.checkWorker();
+        Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
         HashMap<String, String> user = session.getUserDetails();
-        String str_username = user.get(SessionManager.KEY_NAME);
-        String str_email = user.get(SessionManager.KEY_EMAIL);
-        String str_role = user.get(SessionManager.KEY_ROLE);
+        str_username = user.get(SessionManager.KEY_NAME);
+        str_email = user.get(SessionManager.KEY_EMAIL);
+        str_role = user.get(SessionManager.KEY_ROLE);
         username.setText("Welcome " + str_username + str_role);
         email.setText("Your Mobile No. " + str_email );
 

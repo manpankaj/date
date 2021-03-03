@@ -6,9 +6,11 @@
     android:background="#E1CEE6"
     android:padding="5dp"
     android:orientation="vertical">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -31,77 +33,73 @@
                 android:gravity="center"
                 android:text="Welcome"
                 android:textSize="20sp" />
+            <EditText
+                android:id="@+id/txtOPwd"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:hint="Enter Old Password"
+                android:inputType="textPassword" />
+            <EditText
+                android:id="@+id/txtNPwd"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:hint="Enter New Password"
+                android:inputType="textPassword" />
+            <EditText
+                android:id="@+id/txtNPwd2"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:ems="10"
+                android:hint="Confirm Password"
+                android:inputType="textPassword" />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/changeP"
+                android:onClick="changeP"
+                android:layout_columnWeight="1"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_gravity="fill"
+                app:backgroundTint="#CA62C0"
+                android:text="Change Password" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+                <Button
+                    android:id="@+id/back"
+                    app:backgroundTint="#CA62C0"
+                    android:layout_columnWeight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Back"/>
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
 
-            <Button
-                android:id="@+id/saveWork"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="50dp"
-                android:layout_gravity="fill"
-                app:backgroundTint="#CA62C0"
-                android:text="Save Project Work"/>
-            <Button
-                android:id="@+id/Update_Projectwork"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="50dp"
-                android:layout_gravity="fill"
-                app:backgroundTint="#CA62C0"
-                android:text="Update Project Work" />
-            <Button
-                android:id="@+id/saveManpowerReq"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="50dp"
-                android:layout_gravity="fill"
-                app:backgroundTint="#CA62C0"
-                android:text="Save Manpower Requirements"/>
-            <Button
-                android:id="@+id/updateManpowerReq"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="50dp"
-                android:layout_gravity="fill"
-                app:backgroundTint="#CA62C0"
-                android:text="Update Manpower Requirements"/>
-            <Button
-                android:id="@+id/searchWorker"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="50dp"
-                android:layout_gravity="fill"
-                app:backgroundTint="#CA62C0"
-                android:text="Search Worker"/>
-            <Button
-                android:id="@+id/changePassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="50dp"
-                android:layout_gravity="fill"
-                app:backgroundTint="#CA62C0"
-                android:text="Change Password"/>
-            <Button
-                android:id="@+id/logout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="50dp"
-                android:layout_gravity="fill"
-                app:backgroundTint="#CA62C0"
-                android:text="Logout"/>
+                <Button
+                    android:id="@+id/logout"
+                    app:backgroundTint="#CA62C0"
+                    android:layout_columnWeight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Logout"/>
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+            </LinearLayout>
             <LinearLayout
                 xmlns:android="http://schemas.android.com/apk/res/android"
                 android:orientation="vertical"

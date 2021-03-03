@@ -68,7 +68,7 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
-                android:hint="Enter Project Side Address"
+                android:hint="Enter Project Site Address"
                 android:inputType="text" />
             <RelativeLayout
                 android:layout_width="fill_parent"

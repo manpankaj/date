@@ -142,7 +142,7 @@
                 android:background="#CA62C0"
                 android:layout_columnWeight="1"
                 android:gravity="center"
-                android:text="Disclaimer :- App Designed by NIC and Data Provided By Local Worker and Employer"
+                android:text="Disclaimer :- App Designed by NIC Jalaun at Orai UP and Data Provided By Local Worker and Employer"
                 android:textColor="#F8F6F8"
                 android:textSize="12dp" />
 

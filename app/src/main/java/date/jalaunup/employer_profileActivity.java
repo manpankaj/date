@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.HashMap;
 
@@ -23,7 +22,7 @@ public class employer_profileActivity extends AppCompatActivity {
         session = new SessionManager(getApplicationContext());
         session.checkLogin();
         //session.checkEmployer();
-        Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
         HashMap<String, String> user = session.getUserDetails();
         str_username = user.get(SessionManager.KEY_NAME);
         str_email = user.get(SessionManager.KEY_EMAIL);

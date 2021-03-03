@@ -24,11 +24,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import date.jalaunup.Config.SessionManager;
 import date.jalaunup.Config.password_encrypt;
 
-public class employer_changePActivity extends AppCompatActivity {
+public class admin_changePActivity extends AppCompatActivity {
     SessionManager session;
     EditText ed_oldpassword,ed_password,ed_password1;
     String str_oldpassword,str_password,str_username,str_email,str_role;
-    String url_changeP = "http://10.135.217.19:8080/date/employer_changeP.php";
+    String url_changeP = "http://10.135.217.19:8080/date/admin_changeP.php";
     String passwordPattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{4,}$";
     TextView username,email;
     Button logout,back;
@@ -36,10 +36,10 @@ public class employer_changePActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.employer_change_p);
+        setContentView(R.layout.admin_change_p);
         session = new SessionManager(getApplicationContext());
         session.checkLogin();
-        //session.checkEmployer();
+        //session.checkWorker();
         //Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
         HashMap<String, String> user = session.getUserDetails();
         str_username = user.get(SessionManager.KEY_NAME);
@@ -57,7 +57,7 @@ public class employer_changePActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(employer_changePActivity.this, WelcomeeActivity.class);
+                Intent intent = new Intent(admin_changePActivity.this, WelcomeaActivity.class);
                 startActivity(intent);
             }
         });
@@ -65,7 +65,7 @@ public class employer_changePActivity extends AppCompatActivity {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                session.logoutUser();
+                    session.logoutUser();
             }
         });
     }
@@ -99,15 +99,15 @@ public class employer_changePActivity extends AppCompatActivity {
             StringRequest request = new StringRequest(Request.Method.POST, url_changeP, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
-                    Toast.makeText(employer_changePActivity.this, response, Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(employer_changePActivity.this, WelcomeeActivity.class);
+                    Toast.makeText(admin_changePActivity.this, response, Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(admin_changePActivity.this, WelcomeaActivity.class);
                     startActivity(intent);
                 }
             },new Response.ErrorListener(){
                 @Override
                 public void onErrorResponse(VolleyError error) {
                     progressDialog.dismiss();
-                    Toast.makeText(employer_changePActivity.this, error.getMessage().toString(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(admin_changePActivity.this, error.getMessage().toString(), Toast.LENGTH_SHORT).show();
                 }
             }
             ){
@@ -120,7 +120,7 @@ public class employer_changePActivity extends AppCompatActivity {
                     return params;
                 }
             };
-            RequestQueue requestQueue = Volley.newRequestQueue(employer_changePActivity.this);
+            RequestQueue requestQueue = Volley.newRequestQueue(admin_changePActivity.this);
             requestQueue.add(request);
         }
     }

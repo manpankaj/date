@@ -38,7 +38,7 @@ public class worker_profileActivity extends AppCompatActivity {
     ArrayList<String> arrayList_Civil,arrayList_Electrical,arrayList_Jal_Sansaadan,arrayList_Computer,arrayList_Education,arrayList_Official_Work;
     ArrayAdapter<String> arrayAdapter_parent;
     ArrayAdapter<String> arrayAdapter_child;
-    String str_category1,str_subcategory1,str_expyear1;
+    String str_category1,str_subcategory1,str_expyear1,str_username,str_email,str_role,str_category,str_subcategory,str_expyear;
     String url = "http://10.135.217.19:8080/date/worker_profile.php";
     private View view;
     @Override
@@ -72,14 +72,14 @@ public class worker_profileActivity extends AppCompatActivity {
         session = new SessionManager(getApplicationContext());
         session.checkLogin();
         //session.checkWorker();
-        Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
         HashMap<String, String> user = session.getUserDetails();
-        String str_username = user.get(SessionManager.KEY_NAME);
-        String str_email = user.get(SessionManager.KEY_EMAIL);
-        String str_role = user.get(SessionManager.KEY_ROLE);
-        String str_category = user.get(SessionManager.KEY_CATEGORY);
-        String str_subcategory = user.get(SessionManager.KEY_SUBCATEGORY);
-        String str_expyear = user.get(SessionManager.KEY_EXPYEAR);
+        str_username = user.get(SessionManager.KEY_NAME);
+        str_email = user.get(SessionManager.KEY_EMAIL);
+        str_role = user.get(SessionManager.KEY_ROLE);
+        str_category = user.get(SessionManager.KEY_CATEGORY);
+        str_subcategory = user.get(SessionManager.KEY_SUBCATEGORY);
+        str_expyear = user.get(SessionManager.KEY_EXPYEAR);
         username = findViewById(R.id.username);
         email = findViewById(R.id.email);
         tv_parent = findViewById(R.id.tv_parent1);
@@ -253,8 +253,6 @@ public class worker_profileActivity extends AppCompatActivity {
                     public void onResponse(String response) {
                         progressDialog.dismiss();
                         Toast.makeText(worker_profileActivity.this, response, Toast.LENGTH_SHORT).show();
-                        Intent myIntent = new Intent(worker_profileActivity.this, WelcomewActivity.class);
-                        worker_profileActivity.this.startActivity(myIntent);
                     }
                 }, new Response.ErrorListener() {
                     @Override

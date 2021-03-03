@@ -36,8 +36,8 @@ public class registrationeActivity extends AppCompatActivity {
         ed_password = findViewById(R.id.txtPwd);
         ed_password1 = findViewById(R.id.txtPwd2);
     }
-    public void Login_e(View view) {
-        startActivity(new Intent(getApplicationContext(),logineActivity.class));
+    public void back(View view) {
+        startActivity(new Intent(getApplicationContext(),MainActivity.class));
         finish();
     }
     public void Register_e(View view) {

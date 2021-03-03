@@ -33,7 +33,7 @@ import date.jalaunup.Config.SessionManager;
 public class employer_saveworkActivity extends AppCompatActivity {
     SessionManager session;
     EditText ed_project,ed_project_add;
-    String str_project,str_project_add,str_sdate,str_edate,str_email;
+    String str_project,str_project_add,str_sdate,str_edate,str_email,str_username,str_role;
     String url_changeP = "http://10.135.217.19:8080/date/employer_savework.php";
     TextView username,email,sdate,edate;
     Button logout,back,startdate,enddate;
@@ -52,11 +52,11 @@ public class employer_saveworkActivity extends AppCompatActivity {
         session = new SessionManager(getApplicationContext());
         session.checkLogin();
         //session.checkEmployer();
-        Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
         HashMap<String, String> user = session.getUserDetails();
-        String str_username = user.get(SessionManager.KEY_NAME);
-        String str_email = user.get(SessionManager.KEY_EMAIL);
-        String str_role = user.get(SessionManager.KEY_ROLE);
+        str_username = user.get(SessionManager.KEY_NAME);
+        str_email = user.get(SessionManager.KEY_EMAIL);
+        str_role = user.get(SessionManager.KEY_ROLE);
         username = findViewById(R.id.username);
         email = findViewById(R.id.email);
         username.setText("Welcome " +  str_username + str_role);
@@ -180,8 +180,6 @@ public class employer_saveworkActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(String response) {
                     Toast.makeText(employer_saveworkActivity.this, response, Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(employer_saveworkActivity.this, WelcomeeActivity.class);
-                    startActivity(intent);
                 }
             },new Response.ErrorListener(){
                 @Override
