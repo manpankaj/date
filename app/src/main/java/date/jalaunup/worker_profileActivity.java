@@ -1,7 +1,6 @@
 package date.jalaunup;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.InputFilter;
 import android.text.Spanned;
@@ -40,7 +39,7 @@ public class worker_profileActivity extends AppCompatActivity {
     ArrayAdapter<String> arrayAdapter_parent;
     ArrayAdapter<String> arrayAdapter_child;
     String str_category1,str_subcategory1,str_expyear1;
-    String url = "http://192.168.1.9:8080/date/worker_profile.php";
+    String url = "http://10.135.217.19:8080/date/worker_profile.php";
     private View view;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,9 +70,9 @@ public class worker_profileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.worker_profile);
         session = new SessionManager(getApplicationContext());
-        Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
         session.checkLogin();
-        session.checkWorker();
+        //session.checkWorker();
+        Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
         HashMap<String, String> user = session.getUserDetails();
         String str_username = user.get(SessionManager.KEY_NAME);
         String str_email = user.get(SessionManager.KEY_EMAIL);

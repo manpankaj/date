@@ -20,7 +20,7 @@ import date.jalaunup.Config.password_encrypt;
 public class registrationeActivity extends AppCompatActivity {
     EditText ed_empname,ed_mobile,ed_email,ed_add,ed_password,ed_password1;
     String str_empname,str_mobile,str_email,str_add,str_password,str_password1;
-    String url = "http://192.168.1.9:8080/date/registration_e.php";
+    String url = "http://10.135.217.19:8080/date/registration_e.php";
     String MobilePattern = "[0-9]{10}";
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     String passwordPattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{4,}$";

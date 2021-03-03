@@ -1,9 +1,7 @@
 package date.jalaunup;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -23,7 +21,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import date.jalaunup.Config.SessionManager;
 import date.jalaunup.Config.password_encrypt;
 
@@ -31,7 +28,7 @@ public class worker_changePActivity extends AppCompatActivity {
     SessionManager session;
     EditText ed_oldpassword,ed_password,ed_password1;
     String str_oldpassword,str_password,str_username,str_email,str_role;
-    String url_changeP = "http://192.168.1.9:8080/date/worker_changeP.php";
+    String url_changeP = "http://10.135.217.19:8080/date/worker_changeP.php";
     String passwordPattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{4,}$";
     TextView username,email;
     Button logout,back;
@@ -41,9 +38,9 @@ public class worker_changePActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.worker_change_p);
         session = new SessionManager(getApplicationContext());
-        Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
         session.checkLogin();
-        session.checkWorker();
+        //session.checkWorker();
+        Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
         HashMap<String, String> user = session.getUserDetails();
         str_username = user.get(SessionManager.KEY_NAME);
         str_email = user.get(SessionManager.KEY_EMAIL);

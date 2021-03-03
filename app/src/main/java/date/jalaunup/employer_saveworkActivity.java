@@ -2,9 +2,7 @@ package date.jalaunup;
 
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -30,15 +28,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 import androidx.appcompat.app.AppCompatActivity;
+import date.jalaunup.Config.SessionManager;
 
 public class employer_saveworkActivity extends AppCompatActivity {
-    SharedPreferences sharedPreferences_emp;
-    public static final String MY_PREFERENCES_EMP = "MyPrefsEmp";
-    public static final String EMAIL_EMP = "email";
-    public static final String USERNAME_EMP = "username";
+    SessionManager session;
     EditText ed_project,ed_project_add;
-    String str_project,str_project_add,str_mobile,str_sdate,str_edate;
-    String url_changeP = "http://192.168.1.9:8080/date/employer_savework.php";
+    String str_project,str_project_add,str_sdate,str_edate,str_email;
+    String url_changeP = "http://10.135.217.19:8080/date/employer_savework.php";
     TextView username,email,sdate,edate;
     Button logout,back,startdate,enddate;
     Calendar start,end;
@@ -53,11 +49,18 @@ public class employer_saveworkActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.employer_savework);
-        sharedPreferences_emp = getSharedPreferences(MY_PREFERENCES_EMP, Context.MODE_PRIVATE);
+        session = new SessionManager(getApplicationContext());
+        session.checkLogin();
+        //session.checkEmployer();
+        Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
+        HashMap<String, String> user = session.getUserDetails();
+        String str_username = user.get(SessionManager.KEY_NAME);
+        String str_email = user.get(SessionManager.KEY_EMAIL);
+        String str_role = user.get(SessionManager.KEY_ROLE);
         username = findViewById(R.id.username);
         email = findViewById(R.id.email);
-        username.setText("Welcome " + sharedPreferences_emp.getString(USERNAME_EMP, ""));
-        email.setText("Your Mobile No. " + sharedPreferences_emp.getString(EMAIL_EMP, ""));
+        username.setText("Welcome " +  str_username + str_role);
+        email.setText("Your Mobile No. " + str_email);
         ed_project = findViewById(R.id.txtProjectName);
         ed_project_add = findViewById(R.id.txtSideAdd);
 
@@ -146,7 +149,6 @@ public class employer_saveworkActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences.Editor editor = sharedPreferences_emp.edit();
                 Intent intent = new Intent(employer_saveworkActivity.this, WelcomeeActivity.class);
                 startActivity(intent);
             }
@@ -155,12 +157,7 @@ public class employer_saveworkActivity extends AppCompatActivity {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences.Editor editor = sharedPreferences_emp.edit();
-                editor.clear();
-                editor.apply();
-                finish();
-                Intent intent = new Intent(employer_saveworkActivity.this, logineActivity.class);
-                startActivity(intent);
+                session.logoutUser();
             }
         });
     }
@@ -175,7 +172,6 @@ public class employer_saveworkActivity extends AppCompatActivity {
         }
         else{
             progressDialog.show();
-            str_mobile = sharedPreferences_emp.getString(EMAIL_EMP, "");
             str_project = ed_project.getText().toString().trim();
             str_project_add = ed_project_add.getText().toString().trim();
             str_sdate=sdate.getText().toString().trim();
@@ -183,7 +179,6 @@ public class employer_saveworkActivity extends AppCompatActivity {
             StringRequest request = new StringRequest(Request.Method.POST, url_changeP, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
-                    SharedPreferences.Editor editor = sharedPreferences_emp.edit();
                     Toast.makeText(employer_saveworkActivity.this, response, Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(employer_saveworkActivity.this, WelcomeeActivity.class);
                     startActivity(intent);
@@ -199,7 +194,7 @@ public class employer_saveworkActivity extends AppCompatActivity {
                 @Override
                 protected Map<String, String> getParams() throws AuthFailureError {
                     Map<String,String> params = new HashMap<String, String>();
-                    params.put("mobile",str_mobile);
+                    params.put("mobile",str_email);
                     params.put("project",str_project);
                     params.put("project_add",str_project_add);
                     params.put("sdate",str_sdate);

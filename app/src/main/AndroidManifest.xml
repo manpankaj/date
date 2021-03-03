@@ -21,6 +21,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".disclaimerActivity" android:label="DISCLAIMER"> </activity>
+        <activity android:name=".loginaActivity" android:label="ADMIN LOGIN"> </activity>
         <activity android:name=".loginwActivity" android:label="WORKER LOGIN"> </activity>
         <activity android:name=".logineActivity" android:label="EMPLOYER LOGIN"> </activity>
         <activity android:name=".registrationwActivity" android:label="WORKER REGISTRATION"> </activity>
@@ -30,6 +31,8 @@
         <activity android:name=".worker_employmentActivity" android:label="WORKER'S EMPLOYMENT"> </activity>
         <activity android:name=".worker_changePActivity" android:label="WORKER'S CHANGE PASSWORD"> </activity>
         <activity android:name=".WelcomeeActivity" android:label="EMPLOYER'S HOME SCREEN"> </activity>
+        <activity android:name=".WelcomeaActivity" android:label="ADMIN HOME SCREEN"> </activity>
+        <activity android:name=".admin_profileActivity" android:label="ADMIN PROFILE"> </activity>
         <activity android:name=".employer_profileActivity" android:label="EMPLOYER'S PROFILE UPDATE"> </activity>
         <activity android:name=".employer_changePActivity" android:label="EMPLOYER'S CHANGE PASSWORD"> </activity>
         <activity android:name=".employer_saveworkActivity" android:label="EMPLOYER'S SAVE PROJECT WORK"> </activity>

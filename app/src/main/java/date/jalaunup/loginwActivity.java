@@ -18,7 +18,7 @@ import date.jalaunup.Config.SessionManager;
 import date.jalaunup.Config.password_encrypt;
 
 public class loginwActivity extends AppCompatActivity {
-    public static final String URL_LOGIN = "http://192.168.1.9:8080/date/login_w.php";
+    public static final String URL_LOGIN = "http://10.135.217.19:8080/date/login_w.php";
     EditText ed_email, ed_password;
     String MobilePattern = "[0-9]{10}";
     String passwordPattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{4,}$";
@@ -76,7 +76,7 @@ public class loginwActivity extends AppCompatActivity {
                             String sub_category = obj.getString("sub_category");
                             String exp_year = obj.getString("exp_year");
                             String role = obj.getString("role");
-                            session.createLoginSession(username, email, category, sub_category, exp_year, role);
+                            session.createLoginSession_worker(username, email, category, sub_category, exp_year, role);
                             Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_LONG).show();
                             Intent intent = new Intent(loginwActivity.this, WelcomewActivity.class);
                             startActivity(intent);

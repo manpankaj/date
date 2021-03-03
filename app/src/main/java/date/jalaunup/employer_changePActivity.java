@@ -1,9 +1,7 @@
 package date.jalaunup;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -23,18 +21,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 import androidx.appcompat.app.AppCompatActivity;
-import date.jalaunup.Config.password_encrypt;
-
+import date.jalaunup.Config.SessionManager;
 import date.jalaunup.Config.password_encrypt;
 
 public class employer_changePActivity extends AppCompatActivity {
-    SharedPreferences sharedPreferences_emp;
-    public static final String MY_PREFERENCES_EMP = "MyPrefsEmp";
-    public static final String EMAIL_EMP = "email";
-    public static final String USERNAME_EMP = "username";
+    SessionManager session;
     EditText ed_oldpassword,ed_password,ed_password1;
-    String str_oldpassword,str_password,str_mobile;
-    String url_changeP = "http://192.168.1.9:8080/date/employer_changeP.php";
+    String str_oldpassword,str_password,str_username,str_email,str_role;
+    String url_changeP = "http://10.135.217.19:8080/date/employer_changeP.php";
     String passwordPattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{4,}$";
     TextView username,email;
     Button logout,back;
@@ -43,11 +37,18 @@ public class employer_changePActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.employer_change_p);
-        sharedPreferences_emp = getSharedPreferences(MY_PREFERENCES_EMP, Context.MODE_PRIVATE);
+        session = new SessionManager(getApplicationContext());
+        session.checkLogin();
+        //session.checkEmployer();
+        Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
+        HashMap<String, String> user = session.getUserDetails();
+        str_username = user.get(SessionManager.KEY_NAME);
+        str_email = user.get(SessionManager.KEY_EMAIL);
+        str_role = user.get(SessionManager.KEY_ROLE);
         username = findViewById(R.id.username);
         email = findViewById(R.id.email);
-        username.setText("Welcome " + sharedPreferences_emp.getString(USERNAME_EMP, ""));
-        email.setText("Your Mobile No. " + sharedPreferences_emp.getString(EMAIL_EMP, ""));
+        username.setText("Welcome " + str_username + str_role);
+        email.setText("Your Mobile No. " + str_email);
         ed_oldpassword = findViewById(R.id.txtOPwd);
         ed_password = findViewById(R.id.txtNPwd);
         ed_password1 = findViewById(R.id.txtNPwd2);
@@ -56,7 +57,6 @@ public class employer_changePActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences.Editor editor = sharedPreferences_emp.edit();
                 Intent intent = new Intent(employer_changePActivity.this, WelcomeeActivity.class);
                 startActivity(intent);
             }
@@ -65,12 +65,7 @@ public class employer_changePActivity extends AppCompatActivity {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences.Editor editor = sharedPreferences_emp.edit();
-                editor.clear();
-                editor.apply();
-                finish();
-                Intent intent = new Intent(employer_changePActivity.this, logineActivity.class);
-                startActivity(intent);
+                session.logoutUser();
             }
         });
     }
@@ -97,7 +92,6 @@ public class employer_changePActivity extends AppCompatActivity {
         }
         else{
             progressDialog.show();
-            str_mobile = sharedPreferences_emp.getString(EMAIL_EMP, "");
             str_oldpassword = ed_oldpassword.getText().toString().trim();
             str_password = ed_password.getText().toString().trim();
             String encrypt_oldpassword = password_encrypt.getSha256Hash(str_oldpassword);
@@ -105,7 +99,6 @@ public class employer_changePActivity extends AppCompatActivity {
             StringRequest request = new StringRequest(Request.Method.POST, url_changeP, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
-                    SharedPreferences.Editor editor = sharedPreferences_emp.edit();
                     Toast.makeText(employer_changePActivity.this, response, Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(employer_changePActivity.this, WelcomeeActivity.class);
                     startActivity(intent);
@@ -121,7 +114,7 @@ public class employer_changePActivity extends AppCompatActivity {
                 @Override
                 protected Map<String, String> getParams() throws AuthFailureError {
                     Map<String,String> params = new HashMap<String, String>();
-                    params.put("mobile",str_mobile);
+                    params.put("mobile",str_email);
                     params.put("oldpassword",encrypt_oldpassword);
                     params.put("password",encrypt_password);
                     return params;

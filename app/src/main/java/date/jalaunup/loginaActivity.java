@@ -17,41 +17,38 @@ import date.jalaunup.Config.RequestHandler;
 import date.jalaunup.Config.SessionManager;
 import date.jalaunup.Config.password_encrypt;
 
-public class logineActivity extends AppCompatActivity {
-    public static final String URL_LOGIN = "http://10.135.217.19:8080/date/login_e.php";
+public class loginaActivity extends AppCompatActivity {
+    public static final String URL_LOGIN = "http://10.135.217.19:8080/date/login_a.php";
     EditText ed_email, ed_password;
-    SessionManager session;
     String MobilePattern = "[0-9]{10}";
     String passwordPattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{4,}$";
+    SessionManager session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login_employer );
+        setContentView(R.layout.login_admin);
+        session = new SessionManager(getApplicationContext());
         ed_email = findViewById(R.id.txtMob);
         ed_password = findViewById(R.id.txtPwd);
-        session = new SessionManager(getApplicationContext());
         Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
+
     }
-    public void login(View view){
+    public void login(View view) {
         final String email = ed_email.getText().toString();
         final String password = ed_password.getText().toString();
         String encrypt_password = password_encrypt.getSha256Hash(password);
-        if(ed_email.getText().toString().equals("")){
+        if (ed_email.getText().toString().equals("")) {
             Toast.makeText(this, "Enter Mobile No.", Toast.LENGTH_SHORT).show();
-        }
-        else if(!ed_email.getText().toString().matches(MobilePattern)){
+        } else if (!ed_email.getText().toString().matches(MobilePattern)) {
             Toast.makeText(this, "Enter Correct Mobile No.", Toast.LENGTH_SHORT).show();
-        }
-        else if(ed_password.getText().toString().equals("")){
+        } else if (ed_password.getText().toString().equals("")) {
             Toast.makeText(this, "Enter Password", Toast.LENGTH_SHORT).show();
-        }
-        else if(!ed_password.getText().toString().matches(passwordPattern)){
+        } else if (!ed_password.getText().toString().matches(passwordPattern)) {
             Toast.makeText(this, "Password must contain minimum 8 characters at least 1 Alphabet, 1 Number and 1 Special Character.", Toast.LENGTH_SHORT).show();
-        }
-        else {
+        } else {
             class Login extends AsyncTask<Void, Void, String> {
-                final ProgressDialog pdLoading = new ProgressDialog(logineActivity.this);
+                final ProgressDialog pdLoading = new ProgressDialog(loginaActivity.this);
                 @Override
                 protected void onPreExecute() {
                     super.onPreExecute();
@@ -64,7 +61,7 @@ public class logineActivity extends AppCompatActivity {
                     RequestHandler requestHandler = new RequestHandler();
                     HashMap<String, String> params = new HashMap<>();
                     params.put("email", email);
-                    params.put("password", encrypt_password );
+                    params.put("password", encrypt_password);
                     return requestHandler.sendPostRequest(URL_LOGIN, params);
                 }
                 @Override
@@ -76,14 +73,14 @@ public class logineActivity extends AppCompatActivity {
                         if (!obj.getBoolean("error")) {
                             String username = obj.getString("username");
                             String role = obj.getString("role");
-                            session.createLoginSession_employer(username, email, role);
+                            session.createLoginSession_admin(username, email, role);
                             Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_LONG).show();
-                            Intent intent = new Intent(logineActivity.this, WelcomeeActivity.class);
+                            Intent intent = new Intent(loginaActivity.this, WelcomeaActivity.class);
                             startActivity(intent);
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
-                        Toast.makeText(logineActivity.this, "Incorrect Mobile No. or Password" , Toast.LENGTH_LONG).show();
+                        Toast.makeText(loginaActivity.this, "Incorrect Mobile No. or Password", Toast.LENGTH_LONG).show();
                     }
                 }
             }
@@ -91,9 +88,9 @@ public class logineActivity extends AppCompatActivity {
             login.execute();
         }
     }
-    public void back(View view){
+    public void back(View view) {
         finish();
-        Intent intent = new Intent(logineActivity.this, MainActivity.class);
+        Intent intent = new Intent(loginaActivity.this, MainActivity.class);
         startActivity(intent);
     }
 }

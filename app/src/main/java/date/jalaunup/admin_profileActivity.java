@@ -11,7 +11,7 @@ import java.util.HashMap;
 import androidx.appcompat.app.AppCompatActivity;
 import date.jalaunup.Config.SessionManager;
 
-public class employer_profileActivity extends AppCompatActivity {
+public class admin_profileActivity extends AppCompatActivity {
     SessionManager session;
     TextView username,email;
     Button logout,back;
@@ -19,10 +19,10 @@ public class employer_profileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.employer_profile);
+        setContentView(R.layout.admin_profile);
         session = new SessionManager(getApplicationContext());
         session.checkLogin();
-        //session.checkEmployer();
+        //session.checkAdmin();
         Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
         HashMap<String, String> user = session.getUserDetails();
         str_username = user.get(SessionManager.KEY_NAME);
@@ -38,7 +38,7 @@ public class employer_profileActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(employer_profileActivity.this, WelcomeeActivity.class);
+                Intent intent = new Intent(admin_profileActivity.this, WelcomeaActivity.class);
                 startActivity(intent);
             }
         });

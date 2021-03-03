@@ -13,6 +13,7 @@ public class SessionManager {
     SharedPreferences.Editor editor;
     Context _context;
     int PRIVATE_MODE = 0;
+    SessionManager session;
     private static final String PREF_NAME = "DatePref";
     private static final String IS_LOGIN = "IsLoggedIn";
     public static final String KEY_NAME = "name";
@@ -29,13 +30,27 @@ public class SessionManager {
         editor = pref.edit();
     }
 
-    public void createLoginSession(String username, String email, String category, String sub_category, String exp_year, String role){
+    public void createLoginSession_worker(String username, String email, String category, String sub_category, String exp_year, String role){
         editor.putBoolean(IS_LOGIN, true);
         editor.putString(KEY_NAME, username);
         editor.putString(KEY_EMAIL, email);
         editor.putString(KEY_CATEGORY, category);
         editor.putString(KEY_SUBCATEGORY, sub_category);
         editor.putString(KEY_EXPYEAR, exp_year);
+        editor.putString(KEY_ROLE, role);
+        editor.commit();
+    }
+    public void createLoginSession_employer(String username, String email, String role){
+        editor.putBoolean(IS_LOGIN, true);
+        editor.putString(KEY_NAME, username);
+        editor.putString(KEY_EMAIL, email);
+        editor.putString(KEY_ROLE, role);
+        editor.commit();
+    }
+    public void createLoginSession_admin(String username, String email, String role){
+        editor.putBoolean(IS_LOGIN, true);
+        editor.putString(KEY_NAME, username);
+        editor.putString(KEY_EMAIL, email);
         editor.putString(KEY_ROLE, role);
         editor.commit();
     }
@@ -56,13 +71,9 @@ public class SessionManager {
     }
 
     public void checkWorker(){
-        if(!this.isLoggedIn() || pref.getString(KEY_ROLE,null)!="w"){
-            Intent i = new Intent(_context, MainActivity.class);
-            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            _context.startActivity(i);
-        }
-        if(pref.getString(KEY_ROLE,null)=="3"){
+        HashMap<String, String> user = session.getUserDetails();
+        String str_role = user.get(SessionManager.KEY_ROLE);
+        if(!str_role.equals("w")){
             Intent i = new Intent(_context, MainActivity.class);
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -70,13 +81,9 @@ public class SessionManager {
         }
     }
     public void checkEmployer(){
-        if(pref.getString(KEY_ROLE,null)=="1"){
-            Intent i = new Intent(_context, MainActivity.class);
-            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            _context.startActivity(i);
-        }
-        if(pref.getString(KEY_ROLE,null)=="3"){
+        HashMap<String, String> user = session.getUserDetails();
+        String str_role = user.get(SessionManager.KEY_ROLE);
+        if(!str_role.equals("e")){
             Intent i = new Intent(_context, MainActivity.class);
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -84,13 +91,9 @@ public class SessionManager {
         }
     }
     public void checkAdmin(){
-        if(pref.getString(KEY_ROLE,null)=="1"){
-            Intent i = new Intent(_context, MainActivity.class);
-            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            _context.startActivity(i);
-        }
-        if(pref.getString(KEY_ROLE,null)=="2"){
+        HashMap<String, String> user = session.getUserDetails();
+        String str_role = user.get(SessionManager.KEY_ROLE);
+        if(!str_role.equals("a")){
             Intent i = new Intent(_context, MainActivity.class);
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

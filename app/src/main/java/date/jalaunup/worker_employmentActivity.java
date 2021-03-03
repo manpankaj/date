@@ -1,34 +1,43 @@
 package date.jalaunup;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.HashMap;
 
 import androidx.appcompat.app.AppCompatActivity;
+import date.jalaunup.Config.SessionManager;
+
 public class worker_employmentActivity extends AppCompatActivity {
-    SharedPreferences sharedPreferences;
-    public static final String MY_PREFERENCES = "MyPrefs";
-    public static final String USERNAME = "username";
-    public static final String EMAIL = "email";
+    SessionManager session;
     TextView username,email;
     Button logout,back;
+    String str_username,str_email,str_role;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.worker_employment);
-        sharedPreferences = getSharedPreferences(MY_PREFERENCES, Context.MODE_PRIVATE);
+        session = new SessionManager(getApplicationContext());
+        session.checkLogin();
+        //session.checkWorker();
+        Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
+        HashMap<String, String> user = session.getUserDetails();
+        str_username = user.get(SessionManager.KEY_NAME);
+        str_email = user.get(SessionManager.KEY_EMAIL);
+        str_role = user.get(SessionManager.KEY_ROLE);
         username = findViewById(R.id.username);
         email = findViewById(R.id.email);
-        username.setText("Welcome " + sharedPreferences.getString(USERNAME, ""));
-        email.setText("Your Mobile No. " + sharedPreferences.getString(EMAIL, ""));
+        username = findViewById(R.id.username);
+        email = findViewById(R.id.email);
+        username.setText("Welcome " + str_username + str_role);
+        email.setText("Your Mobile No. " + str_email);
         back = findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences.Editor editor = sharedPreferences.edit();
                 Intent intent = new Intent(worker_employmentActivity.this, WelcomewActivity.class);
                 startActivity(intent);
             }
@@ -37,12 +46,7 @@ public class worker_employmentActivity extends AppCompatActivity {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.clear();
-                editor.apply();
-                finish();
-                Intent intent = new Intent(worker_employmentActivity.this, loginwActivity.class);
-                startActivity(intent);
+                session.logoutUser();
             }
         });
     }

@@ -16,6 +16,14 @@ public class MainActivity<val> extends AppCompatActivity {
         Button login_e = findViewById(R.id.login_employer);
         Button regis_w = findViewById(R.id.registration_worker);
         Button regis_e = findViewById(R.id.registration_employer);
+        Button login_a = findViewById(R.id.login_admin);
+        login_a.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, loginaActivity.class);
+                startActivity(intent);
+            }
+        });
         login_w.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
