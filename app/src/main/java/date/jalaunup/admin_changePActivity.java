@@ -8,7 +8,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -16,20 +15,19 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-
 import java.util.HashMap;
 import java.util.Map;
-
 import androidx.appcompat.app.AppCompatActivity;
 import date.jalaunup.Config.SessionManager;
 import date.jalaunup.Config.password_encrypt;
+import date.jalaunup.Config.stringPattern;
+
 
 public class admin_changePActivity extends AppCompatActivity {
     SessionManager session;
     EditText ed_oldpassword,ed_password,ed_password1;
     String str_oldpassword,str_password,str_username,str_email,str_role;
     String url_changeP = "http://10.135.217.19:8080/date/admin_changeP.php";
-    String passwordPattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{4,}$";
     TextView username,email;
     Button logout,back;
     private View view;
@@ -75,13 +73,13 @@ public class admin_changePActivity extends AppCompatActivity {
         if (ed_oldpassword.getText().toString().equals("")){
             Toast.makeText(this, "Enter Old Password", Toast.LENGTH_SHORT).show();
         }
-        else if(!ed_oldpassword.getText().toString().matches(passwordPattern)){
+        else if(!ed_oldpassword.getText().toString().matches(stringPattern.passwordPattern)){
             Toast.makeText(this, "Old Password must contain minimum 8 characters at least 1 Alphabet, 1 Number and 1 Special Character.", Toast.LENGTH_SHORT).show();
         }
         else if(ed_password.getText().toString().equals("")){
             Toast.makeText(this, "Enter New Password", Toast.LENGTH_SHORT).show();
         }
-        else if(!ed_password.getText().toString().matches(passwordPattern)){
+        else if(!ed_password.getText().toString().matches(stringPattern.passwordPattern)){
             Toast.makeText(this, "New Password must contain minimum 8 characters at least 1 Alphabet, 1 Number and 1 Special Character.", Toast.LENGTH_SHORT).show();
         }
         else if(ed_password1.getText().toString().equals("")){

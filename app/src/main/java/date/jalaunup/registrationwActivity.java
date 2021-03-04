@@ -1,9 +1,9 @@
 package date.jalaunup;
+
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputFilter;
-import android.text.Spanned;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -18,43 +18,18 @@ import com.android.volley.toolbox.Volley;
 import java.util.HashMap;
 import java.util.Map;
 import androidx.appcompat.app.AppCompatActivity;
+import date.jalaunup.Config.integerMinMax;
 import date.jalaunup.Config.password_encrypt;
+import date.jalaunup.Config.stringPattern;
 
 public class registrationwActivity extends AppCompatActivity {
     EditText ed_fullname,ed_mobile,ed_email,ed_age,ed_password,ed_password1;
     RadioButton rd_male,rd_female;
     String str_fullname,str_mobile,str_email,str_age,str_sex,str_password;
     String url = "http://10.135.217.19:8080/date/registration_w.php";
-    String MobilePattern = "[0-9]{10}";
-    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
-    String passwordPattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{4,}$";
     private View view;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        class InputFilterMinMax implements InputFilter {
-            private final int min;
-            private final int max;
-            public InputFilterMinMax(int min, int max) {
-                this.min = min;
-                this.max = max;
-            }
-            public InputFilterMinMax(String min, String max) {
-                this.min = Integer.parseInt(min);
-                this.max = Integer.parseInt(max);
-            }
-            @Override
-            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
-                try {
-                    int input = Integer.parseInt(dest.toString() + source.toString());
-                    if (isInRange(min, max, input))
-                        return null;
-                } catch (NumberFormatException nfe) { }
-                return "";
-            }
-            private boolean isInRange(int a, int b, int c) {
-                return b > a ? c >= a && c <= b : c >= b && c <= a;
-            }
-        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.registration_worker);
         ed_fullname = findViewById(R.id.txtName);
@@ -65,7 +40,7 @@ public class registrationwActivity extends AppCompatActivity {
         rd_female = findViewById(R.id.radioFemale);
         ed_password = findViewById(R.id.txtPwd);
         ed_password1 = findViewById(R.id.txtPwd2);
-        ed_age.setFilters(new InputFilter[]{new InputFilterMinMax("1", "60")});
+        ed_age.setFilters(new InputFilter[]{new integerMinMax.InputFilterMinMax("1", "60")});
     }
     public void back(View view) {
                startActivity(new Intent(getApplicationContext(),MainActivity.class));
@@ -80,13 +55,13 @@ public class registrationwActivity extends AppCompatActivity {
         else if(ed_mobile.getText().toString().equals("")){
             Toast.makeText(this, "Enter Mobile No.", Toast.LENGTH_SHORT).show();
         }
-        else if(!ed_mobile.getText().toString().matches(MobilePattern)){
+        else if(!ed_mobile.getText().toString().matches(stringPattern.MobilePattern)){
             Toast.makeText(this, "Enter Correct Mobile No.", Toast.LENGTH_SHORT).show();
         }
         else if(ed_email.getText().toString().equals("")){
             Toast.makeText(this, "Enter Mail ID.", Toast.LENGTH_SHORT).show();
         }
-        else if(!ed_email.getText().toString().matches(emailPattern)){
+        else if(!ed_email.getText().toString().matches(stringPattern.emailPattern)){
             Toast.makeText(this, "Enter Correct Email ID.", Toast.LENGTH_SHORT).show();
         }
         else if(ed_age.getText().toString().equals("")){
@@ -95,7 +70,7 @@ public class registrationwActivity extends AppCompatActivity {
         else if(ed_password.getText().toString().equals("")){
             Toast.makeText(this, "Enter Password", Toast.LENGTH_SHORT).show();
         }
-        else if(!ed_password.getText().toString().matches(passwordPattern)){
+        else if(!ed_password.getText().toString().matches(stringPattern.passwordPattern)){
             Toast.makeText(this, "Password must contain minimum 8 characters at least 1 Alphabet, 1 Number and 1 Special Character.", Toast.LENGTH_SHORT).show();
         }
         else if(ed_password1.getText().toString().equals("")){

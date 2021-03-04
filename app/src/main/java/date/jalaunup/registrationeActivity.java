@@ -16,14 +16,12 @@ import java.util.HashMap;
 import java.util.Map;
 import androidx.appcompat.app.AppCompatActivity;
 import date.jalaunup.Config.password_encrypt;
+import date.jalaunup.Config.stringPattern;
 
 public class registrationeActivity extends AppCompatActivity {
     EditText ed_empname,ed_mobile,ed_email,ed_add,ed_password,ed_password1;
     String str_empname,str_mobile,str_email,str_add,str_password,str_password1;
     String url = "http://10.135.217.19:8080/date/registration_e.php";
-    String MobilePattern = "[0-9]{10}";
-    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
-    String passwordPattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{4,}$";
     private View view;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,13 +47,13 @@ public class registrationeActivity extends AppCompatActivity {
         else if(ed_mobile.getText().toString().equals("")){
             Toast.makeText(this, "Enter Mobile No.", Toast.LENGTH_SHORT).show();
         }
-        else if(!ed_mobile.getText().toString().matches(MobilePattern)){
+        else if(!ed_mobile.getText().toString().matches(stringPattern.MobilePattern)){
             Toast.makeText(this, "Enter Correct Mobile No.", Toast.LENGTH_SHORT).show();
         }
         else if(ed_email.getText().toString().equals("")){
             Toast.makeText(this, "Enter Mail ID.", Toast.LENGTH_SHORT).show();
         }
-        else if(!ed_email.getText().toString().matches(emailPattern)){
+        else if(!ed_email.getText().toString().matches(stringPattern.emailPattern)){
             Toast.makeText(this, "Enter Correct Email ID.", Toast.LENGTH_SHORT).show();
         }
         else if(ed_add.getText().toString().equals("")){
@@ -64,7 +62,7 @@ public class registrationeActivity extends AppCompatActivity {
         else if(ed_password.getText().toString().equals("")){
             Toast.makeText(this, "Enter Password", Toast.LENGTH_SHORT).show();
         }
-        else if(!ed_password.getText().toString().matches(passwordPattern)){
+        else if(!ed_password.getText().toString().matches(stringPattern.passwordPattern)){
             Toast.makeText(this, "Password must contain minimum 8 characters at least 1 Alphabet, 1 Number and 1 Special Character.", Toast.LENGTH_SHORT).show();
         }
         else if(ed_password1.getText().toString().equals("")){
