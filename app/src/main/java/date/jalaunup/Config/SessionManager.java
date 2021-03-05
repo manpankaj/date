@@ -70,36 +70,44 @@ public class SessionManager {
         }
     }
 
-    public void checkWorker(){
+
+    public String checkWorkerNew(SessionManager session){
         HashMap<String, String> user = session.getUserDetails();
         String str_role = user.get(SessionManager.KEY_ROLE);
-        if(!str_role.equals("w")){
+        if(!str_role.equals("w"))
+        {
             Intent i = new Intent(_context, MainActivity.class);
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             _context.startActivity(i);
         }
+        return str_role;
     }
-    public void checkEmployer(){
+    public String checkEmployerNew(SessionManager session){
         HashMap<String, String> user = session.getUserDetails();
         String str_role = user.get(SessionManager.KEY_ROLE);
-        if(!str_role.equals("e")){
+        if(!str_role.equals("e"))
+        {
             Intent i = new Intent(_context, MainActivity.class);
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             _context.startActivity(i);
         }
+        return str_role;
     }
-    public void checkAdmin(){
+    public String checkAdminNew(SessionManager session){
         HashMap<String, String> user = session.getUserDetails();
         String str_role = user.get(SessionManager.KEY_ROLE);
-        if(!str_role.equals("a")){
+        if(!str_role.equals("a"))
+        {
             Intent i = new Intent(_context, MainActivity.class);
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             _context.startActivity(i);
         }
+        return str_role;
     }
+
 
     public HashMap<String, String> getUserDetails(){
         HashMap<String, String> user = new HashMap<String, String>();
@@ -124,4 +132,10 @@ public class SessionManager {
     public boolean isLoggedIn(){
         return pref.getBoolean(IS_LOGIN, false);
     }
+
+    public String GetCurrentRoleId()
+    {
+        return pref.getString(KEY_ROLE, "0");
+    }
+
 }

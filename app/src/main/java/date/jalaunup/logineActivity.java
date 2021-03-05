@@ -14,9 +14,10 @@ import date.jalaunup.Config.RequestHandler;
 import date.jalaunup.Config.SessionManager;
 import date.jalaunup.Config.password_encrypt;
 import date.jalaunup.Config.stringPattern;
+import date.jalaunup.Config.url_add;
 
 public class logineActivity extends AppCompatActivity {
-    public static final String URL_LOGIN = "http://10.135.217.19:8080/date/login_e.php";
+    public static final String URL_LOGIN = url_add.login_employer;
     EditText ed_email, ed_password;
     SessionManager session;
 

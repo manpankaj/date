@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#E1CEE6"
+    android:background="@color/layout_background"
     android:padding="5dp"
     android:orientation="vertical">
 
@@ -17,32 +17,6 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/navigation_header_container"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:background="#CA62C0"
-        android:gravity="center"
-        android:text="DATE District Administration Temporary Employment System Jalaun UP"
-        android:textColor="#FFFFFF"
-        android:textColorLink="#FFFFFF"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="#CA62C0"
-                android:layout_width="100dp"
-                android:layout_marginLeft="145dp"
-                android:gravity="center"
-                android:text="DISCLAIMER"
-                android:textAllCaps="true"
-                android:textColor="#D61356" />
-
             <TextView
                 android:id="@+id/fstTxt"
                 android:layout_width="wrap_content"
@@ -50,23 +24,35 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="15dp"
-                android:background="#CA62C0"
+                android:textColor="@color/button_text"
+                android:background="@color/button_background"
                 android:justificationMode="inter_word"
                 android:text="Content of this mobile app is provided by user of this app and App is Developed and Maintained by NIC. NIC Jalaun design and developing android mobile application specially for the unorganised labour so it become easy to find the temporary or contractual job by this app.
 Workers who are seeking the job within district, using this app common man can find temporary jobs from his mobile, Once registered, the worker will fill up the details from his login that he is skilled / unskilled in which field or what work he can do, then the district administration will collect the data and send The worker’s details to department who conducting the construction work and the concerned departments Like PWD, RES, MI, Jal Sansthan, Electricity, MNREGA, NHAI, Bridge corporation etc. will provide him temporary employment in ongoing or coming projects according to his skill
-"
-                android:textColor="#F2F3FA" />
-
+" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal">
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
             <Button
                 android:id="@+id/backDis"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="50dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
                 android:layout_gravity="fill"
-                app:backgroundTint="#CA62C0"
+                app:backgroundTint="@color/button_background"
                 android:text="Back to main " />
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+            </RelativeLayout>
             <LinearLayout
                 xmlns:android="http://schemas.android.com/apk/res/android"
                 android:orientation="vertical"

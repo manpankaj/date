@@ -23,21 +23,20 @@ public class WelcomeaActivity extends AppCompatActivity {
         session = new SessionManager(getApplicationContext());
         username = findViewById(R.id.username);
         email = findViewById(R.id.email);
-        Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
         session.checkLogin();
-        //session.checkAdmin();
+        String roleNew =  session.checkAdminNew(session);
+        Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
         HashMap<String, String> user = session.getUserDetails();
         String str_username = user.get(SessionManager.KEY_NAME);
         String str_email = user.get(SessionManager.KEY_EMAIL);
-        String str_role = user.get(SessionManager.KEY_ROLE);
-        username.setText("Welcome " + str_username + str_role);
+        username.setText("Welcome " + str_username);
         email.setText("Your Mobile No. " + str_email );
 
         active_Worker = findViewById(R.id.activeWorker);
         active_Worker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(WelcomeaActivity.this, admin_profileActivity.class);
+                Intent intent = new Intent(WelcomeaActivity.this, RegisteredWorkerActivity.class);
                 startActivity(intent);
             }
         });

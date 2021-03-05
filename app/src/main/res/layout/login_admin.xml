@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#E1CEE6"
+    android:background="@color/layout_background"
     android:padding="5dp"
     android:orientation="vertical">
     <ScrollView
@@ -13,36 +13,25 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-    <TextView
-        android:id="@+id/navigation_header_container"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:background="#CA62C0"
-        android:gravity="center"
-        android:text="DATE District Administration Temporary Employment System Jalaun UP"
-        android:textColor="#FFFFFF"
-        android:textColorLink="#FFFFFF"
-        android:textSize="18sp"
-        android:textStyle="bold" />
             <TextView
                 android:id="@+id/fstTxt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
-                android:background="#CA62C0"
+                android:background="@color/header_background"
                 android:gravity="center"
                 android:text="Welcome Admin Please Enter Mobile No. and Password For login"
                 android:textColor="#F5F6F8" />
-    <EditText
-        android:id="@+id/txtMob"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
-        android:hint="Mobile No."
-        android:inputType="phone"
-        android:ems="10" />
+
+            <EditText
+                android:id="@+id/txtMob"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100dp"
+                android:ems="10"
+                android:hint="Mobile No."
+                android:maxLength="10"
+                android:inputType="phone" />
             <EditText
         android:id="@+id/txtPwd"
         android:layout_width="wrap_content"
@@ -51,17 +40,23 @@
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"/>
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="1">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <Space
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1" />
     <Button
         android:id="@+id/btnLogin"
-        app:backgroundTint="#CA62C0"
+        app:backgroundTint="@color/button_background"
+        android:textColor="@color/button_text"
         android:layout_columnWeight="1"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
@@ -73,7 +68,8 @@
                     android:layout_weight="1" />
             <Button
                 android:id="@+id/btnBack"
-                app:backgroundTint="#CA62C0"
+                app:backgroundTint="@color/button_background"
+                android:textColor="@color/button_text"
                 android:layout_columnWeight="1"
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
@@ -83,7 +79,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1" />
-            </LinearLayout>>
+            </LinearLayout>
+            </GridLayout>
             <LinearLayout
                 xmlns:android="http://schemas.android.com/apk/res/android"
                 android:orientation="vertical"

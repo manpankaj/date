@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#E1CEE6"
+    android:background="@color/layout_background"
     android:orientation="vertical"
     android:padding="5dp">
     <ScrollView
@@ -17,8 +17,8 @@
                 android:id="@+id/username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#CA62C0"
-                android:textColor="#F5F6F8"
+                android:background="@color/header_background"
+                android:textColor="@color/header_text"
                 android:gravity="center"
                 android:text="Welcome"
                 android:textSize="20sp" />
@@ -27,24 +27,30 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:background="#CA62C0"
-                android:textColor="#F5F6F8"
+                android:background="@color/header_background"
+                android:textColor="@color/header_text"
                 android:text="Welcome"
                 android:textSize="20sp" />
 
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="1">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <Space
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1" />
                 <Button
                     android:id="@+id/back"
-                    app:backgroundTint="#CA62C0"
+                    app:backgroundTint="@color/button_background"
+                    android:textColor="@color/button_text"
                     android:layout_columnWeight="1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="160dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                 android:text="Back"/>
@@ -54,9 +60,10 @@
                     android:layout_weight="1" />
             <Button
                 android:id="@+id/logout"
-                app:backgroundTint="#CA62C0"
+                app:backgroundTint="@color/button_background"
+                android:textColor="@color/button_text"
                 android:layout_columnWeight="1"
-                android:layout_width="wrap_content"
+                android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="Logout"/>
@@ -64,7 +71,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1" />
-            </LinearLayout>>
+            </LinearLayout>
+            </GridLayout>
 
             <LinearLayout
                 xmlns:android="http://schemas.android.com/apk/res/android"

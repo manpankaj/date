@@ -22,12 +22,13 @@ import date.jalaunup.Config.stringPattern;
 import androidx.appcompat.app.AppCompatActivity;
 import date.jalaunup.Config.SessionManager;
 import date.jalaunup.Config.password_encrypt;
+import date.jalaunup.Config.url_add;
 
 public class employer_changePActivity extends AppCompatActivity {
     SessionManager session;
     EditText ed_oldpassword,ed_password,ed_password1;
     String str_oldpassword,str_password,str_username,str_email,str_role;
-    String url_changeP = "http://10.135.217.19:8080/date/employer_changeP.php";
+    String url_changeP = url_add.employer_changeP;
     TextView username,email;
     Button logout,back;
     private View view;
@@ -37,8 +38,7 @@ public class employer_changePActivity extends AppCompatActivity {
         setContentView(R.layout.employer_change_p);
         session = new SessionManager(getApplicationContext());
         session.checkLogin();
-        //session.checkEmployer();
-        //Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
+        String roleNew =  session.checkEmployerNew(session);
         HashMap<String, String> user = session.getUserDetails();
         str_username = user.get(SessionManager.KEY_NAME);
         str_email = user.get(SessionManager.KEY_EMAIL);

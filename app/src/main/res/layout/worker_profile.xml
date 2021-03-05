@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#E1CEE6"
+    android:background="@color/layout_background"
     android:orientation="vertical"
     android:padding="5dp">
 
@@ -20,33 +20,36 @@
                 android:id="@+id/username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#CA62C0"
+                android:background="@color/header_background"
                 android:gravity="center"
                 android:text="Welcome"
-                android:textColor="#F5F6F8"
+                android:textColor="@color/header_text"
                 android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#CA62C0"
+                android:background="@color/header_background"
                 android:gravity="center"
                 android:text="Welcome"
-                android:textColor="#F5F6F8"
+                android:textColor="@color/header_text"
                 android:textSize="20sp" />
 
             <RelativeLayout
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp" >
 
                 <TextView
                     android:id="@+id/tv_parent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
+                    android:background="#FFFFFF"
                     android:text="Your Field Area"
-                    android:textColor="#7F4A8E"
+                    android:textColor="@color/button_background"
                     android:textSize="18sp" />
 
                 <TextView
@@ -56,38 +59,44 @@
                     android:layout_marginLeft="200dp"
                     android:layout_marginTop="20dp"
                     android:text="Field"
-                    android:textColor="#7F4A8E"
+                    android:textColor="@color/black"
                     android:textSize="18sp" />
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Change Field Area"
-                    android:textColor="#7F4A8E"
+                    android:textColor="@color/button_background"
                     android:textSize="18sp" />
 
                 <Spinner
                     android:id="@+id/parent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="200dp" />
+                    android:layout_marginLeft="200dp"
+                    android:textColor="@color/black"/>
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp">
 
                 <TextView
                     android:id="@+id/tv_child"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/white"
                     android:text="Your Work Area"
-                    android:textColor="#7F4A8E"
+                    android:textColor="#3F51B5"
                     android:textSize="18sp" />
 
                 <TextView
@@ -96,38 +105,44 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="200dp"
                     android:text="Work"
-                    android:textColor="#7F4A8E"
+                    android:textColor="@color/black"
                     android:textSize="18sp" />
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Change Work Area"
-                    android:textColor="#7F4A8E"
+                    android:textColor="@color/button_background"
                     android:textSize="18sp" />
 
                 <Spinner
                     android:id="@+id/child"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="200dp" />
+                    android:layout_marginLeft="200dp"
+                    android:textColor="@color/black"/>
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp">
 
                 <TextView
                     android:id="@+id/tv_expyear"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@color/white"
                     android:text="Work Experience in Year"
-                    android:textColor="#7F4A8E"
+                    android:textColor="#3F51B5"
                     android:textSize="18sp" />
 
                 <EditText
@@ -135,25 +150,43 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="200dp"
+                    android:background="#FFFFFF"
                     android:hint="Experience in Year"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:textColor="#3F51B5" />
             </RelativeLayout>
-
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal">
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
             <Button
                 android:id="@+id/profile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="50dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
                 android:text="Profile Update"
-                app:backgroundTint="#CA62C0" />
-
-            <LinearLayout
+                android:textColor="@color/button_text"
+                app:backgroundTint="@color/button_background" />
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+            </RelativeLayout>
+            <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:columnCount="1">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
                 <Space
                     android:layout_width="wrap_content"
@@ -162,12 +195,13 @@
 
                 <Button
                     android:id="@+id/back"
-                    android:layout_width="wrap_content"
+                    android:layout_width="160dp"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
                     android:layout_marginTop="10dp"
                     android:text="Back"
-                    app:backgroundTint="#CA62C0" />
+                    android:textColor="@color/button_text"
+                    app:backgroundTint="@color/button_background" />
 
                 <Space
                     android:layout_width="wrap_content"
@@ -176,19 +210,20 @@
 
                 <Button
                     android:id="@+id/logout"
-                    android:layout_width="wrap_content"
+                    android:layout_width="160dp"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
                     android:layout_marginTop="10dp"
                     android:text="Logout"
-                    app:backgroundTint="#CA62C0" />
+                    android:textColor="@color/button_text"
+                    app:backgroundTint="@color/button_background" />
 
                 <Space
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1" />
-            </LinearLayout>
-            >
+                </LinearLayout>
+            </GridLayout>
 
             <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="fill_parent"

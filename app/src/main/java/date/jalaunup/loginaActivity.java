@@ -14,9 +14,10 @@ import date.jalaunup.Config.RequestHandler;
 import date.jalaunup.Config.SessionManager;
 import date.jalaunup.Config.password_encrypt;
 import date.jalaunup.Config.stringPattern;
+import date.jalaunup.Config.url_add;
 
 public class loginaActivity extends AppCompatActivity {
-    public static final String URL_LOGIN = "http://10.135.217.19:8080/date/login_a.php";
+    public static final String URL_LOGIN = url_add.login_admin;
     EditText ed_email, ed_password;
     SessionManager session;
 
@@ -72,6 +73,7 @@ public class loginaActivity extends AppCompatActivity {
                             session.createLoginSession_admin(username, email, role);
                             Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_LONG).show();
                             Intent intent = new Intent(loginaActivity.this, WelcomeaActivity.class);
+                            //Intent intent = new Intent(loginaActivity.this, RegisteredWorkerActivity.class);
                             startActivity(intent);
                         }
                     } catch (JSONException e) {

@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#E1CEE6"
+    android:background="@color/layout_background"
     android:padding="5dp"
     android:orientation="vertical">
     <ScrollView
@@ -13,34 +13,23 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-    <TextView
-        android:id="@+id/navigation_header_container"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:background="#CA62C0"
-        android:gravity="center"
-        android:text="DATE District Administration Temporary Employment System Jalaun UP"
-        android:textColor="#FFFFFF"
-        android:textColorLink="#FFFFFF"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/fstTxt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
-                android:background="#CA62C0"
+                android:background="@color/header_background"
                 android:gravity="center"
                 android:text="Welcome Worker Please Provide The Details For Registration"
-                android:textColor="#F5F6F8" />
+                android:textColor="@color/header_text" />
             <EditText
                 android:id="@+id/txtName"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
                 android:ems="10"
+                android:textColor="@color/editview_text"
                 android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
                 android:inputType="textCapWords"
                 android:hint="Enter Full Name" />
@@ -50,6 +39,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
                 android:ems="10"
+                android:maxLength="10"
+                android:textColor="@color/editview_text"
                 android:hint="Enter Mobile No."
                 android:inputType="phone" />
             <EditText
@@ -58,6 +49,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
                 android:ems="10"
+                android:textColor="@color/editview_text"
                 android:hint="Enter Email ID"
                  />
             <EditText
@@ -66,12 +58,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
                 android:ems="10"
+                android:textColor="@color/editview_text"
                 android:hint="Enter Age Between 18 and 60"
                 android:inputType="number"  />
             <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content" >
-            </RelativeLayout>
             <RadioGroup
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -91,12 +83,14 @@
                     android:id="@+id/radioFemale"
                     android:text="Female"/>
             </RadioGroup>
+            </RelativeLayout>
              <EditText
                 android:id="@+id/txtPwd"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
                 android:ems="10"
+                 android:textColor="@color/editview_text"
                 android:hint="Enter Password"
                 android:inputType="textPassword" />
             <EditText
@@ -105,21 +99,28 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
                 android:ems="10"
+                android:textColor="@color/editview_text"
                 android:hint="Confirm Password"
                 android:inputType="textPassword" />
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="1">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <Space
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1" />
     <Button
         android:id="@+id/Register"
-        app:backgroundTint="#CA62C0"
+        app:backgroundTint="@color/button_background"
         android:layout_columnWeight="1"
         android:layout_width="160dp"
+        android:textColor="@color/button_text"
         android:layout_height="wrap_content"
         android:onClick="Register_w"
         android:text="Register" />
@@ -129,9 +130,10 @@
                     android:layout_weight="1" />
             <Button
                 android:id="@+id/moveToBack"
-                app:backgroundTint="#CA62C0"
+                app:backgroundTint="@color/button_background"
                 android:layout_columnWeight="1"
                 android:layout_width="160dp"
+                android:textColor="@color/button_text"
                 android:layout_height="wrap_content"
                 android:onClick="back"
                 android:text="Back" />
@@ -139,7 +141,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1" />
-            </LinearLayout>>
+            </LinearLayout>
+            </GridLayout>
             <LinearLayout
                 xmlns:android="http://schemas.android.com/apk/res/android"
                 android:orientation="vertical"

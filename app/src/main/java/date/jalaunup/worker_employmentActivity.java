@@ -21,8 +21,7 @@ public class worker_employmentActivity extends AppCompatActivity {
         setContentView(R.layout.worker_employment);
         session = new SessionManager(getApplicationContext());
         session.checkLogin();
-        //session.checkWorker();
-        //Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
+        String roleNew =  session.checkWorkerNew(session);
         HashMap<String, String> user = session.getUserDetails();
         str_username = user.get(SessionManager.KEY_NAME);
         str_email = user.get(SessionManager.KEY_EMAIL);

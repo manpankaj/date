@@ -1,41 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="date.jalaunup">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-       <application
+
+    <application
         android:allowBackup="true"
-           android:usesCleartextTraffic="true"
-           android:networkSecurityConfig="@xml/network_security_config"
+        android:background="@color/colorAccent"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:background="@android:color/white"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="@mipmap/ic_launcher_foreground"
         android:supportsRtl="true"
-        android:theme="@style/Theme.DATEJalaunUP">
+        android:theme="@style/Theme.DATEJalaunUP"
+        android:usesCleartextTraffic="true">
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".disclaimerActivity" android:label="DISCLAIMER"> </activity>
-        <activity android:name=".loginaActivity" android:label="ADMIN LOGIN"> </activity>
-        <activity android:name=".loginwActivity" android:label="WORKER LOGIN"> </activity>
-        <activity android:name=".logineActivity" android:label="EMPLOYER LOGIN"> </activity>
-        <activity android:name=".registrationwActivity" android:label="WORKER REGISTRATION"> </activity>
-        <activity android:name=".registrationeActivity" android:label="EMPLOYER REGISTRATION"> </activity>
-        <activity android:name=".WelcomewActivity" android:label="WORKER'S HOME SCREEN"> </activity>
-        <activity android:name=".worker_profileActivity" android:label="WORKER'S PROFILE UPDATE"> </activity>
-        <activity android:name=".worker_employmentActivity" android:label="WORKER'S EMPLOYMENT"> </activity>
-        <activity android:name=".worker_changePActivity" android:label="WORKER'S CHANGE PASSWORD"> </activity>
-        <activity android:name=".admin_changePActivity" android:label="ADMIN CHANGE PASSWORD"> </activity>
-        <activity android:name=".WelcomeeActivity" android:label="EMPLOYER'S HOME SCREEN"> </activity>
-        <activity android:name=".WelcomeaActivity" android:label="ADMIN HOME SCREEN"> </activity>
-        <activity android:name=".admin_profileActivity" android:label="ADMIN PROFILE"> </activity>
-        <activity android:name=".employer_profileActivity" android:label="EMPLOYER'S PROFILE UPDATE"> </activity>
-        <activity android:name=".employer_changePActivity" android:label="EMPLOYER'S CHANGE PASSWORD"> </activity>
-        <activity android:name=".employer_saveworkActivity" android:label="EMPLOYER'S SAVE PROJECT WORK"> </activity>
+
+        <activity
+            android:name=".disclaimerActivity"
+            android:label="DISCLAIMER" />
+        <activity
+            android:name=".loginaActivity"
+            android:label="ADMIN LOGIN" />
+        <activity
+            android:name=".loginwActivity"
+            android:label="WORKER LOGIN" />
+        <activity
+            android:name=".logineActivity"
+            android:label="EMPLOYER LOGIN" />
+        <activity
+            android:name=".registrationwActivity"
+            android:label="WORKER REGISTRATION" />
+        <activity
+            android:name=".registrationeActivity"
+            android:label="EMPLOYER REGISTRATION" />
+        <activity
+            android:name=".WelcomewActivity"
+            android:label="WORKER&apos;S HOME SCREEN" />
+        <activity
+            android:name=".worker_profileActivity"
+            android:label="WORKER&apos;S PROFILE UPDATE" />
+        <activity
+            android:name=".worker_employmentActivity"
+            android:label="WORKER&apos;S EMPLOYMENT" />
+        <activity
+            android:name=".worker_changePActivity"
+            android:label="WORKER&apos;S CHANGE PASSWORD" />
+        <activity
+            android:name=".admin_changePActivity"
+            android:label="ADMIN CHANGE PASSWORD" />
+        <activity
+            android:name=".WelcomeeActivity"
+            android:label="EMPLOYER&apos;S HOME SCREEN" />
+        <activity
+            android:name=".WelcomeaActivity"
+            android:label="ADMIN HOME SCREEN" />
+        <activity
+            android:name=".admin_profileActivity"
+            android:label="ADMIN PROFILE" />
+        <activity
+            android:name=".employer_profileActivity"
+            android:label="EMPLOYER&apos;S PROFILE UPDATE" />
+        <activity
+            android:name=".employer_changePActivity"
+            android:label="EMPLOYER&apos;S CHANGE PASSWORD" />
+        <activity
+            android:name=".employer_saveworkActivity"
+            android:label="EMPLOYER&apos;S SAVE PROJECT WORK" />
+        <activity
+            android:name=".ViewRegisteredWorkerDetailActivity"
+            android:label="ADMIN WORKER ACTIVATION"/>
+        <activity
+            android:name=".RegisteredWorkerActivity"
+            android:label="ADMIN WORKER ACTIVATION"/>
+        <activity
+            android:name=".ViewRegisteredEmployerDetailActivity"
+            android:label="ADMIN EMPLOYER ACTIVATION"/>
+        <activity
+            android:name=".RegisteredEmployerActivity"
+            android:label="ADMIN EMPLOYER ACTIVATION"/>
     </application>
+
 </manifest>

@@ -21,12 +21,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import date.jalaunup.Config.integerMinMax;
 import date.jalaunup.Config.password_encrypt;
 import date.jalaunup.Config.stringPattern;
+import date.jalaunup.Config.url_add;
 
 public class registrationwActivity extends AppCompatActivity {
     EditText ed_fullname,ed_mobile,ed_email,ed_age,ed_password,ed_password1;
     RadioButton rd_male,rd_female;
     String str_fullname,str_mobile,str_email,str_age,str_sex,str_password;
-    String url = "http://10.135.217.19:8080/date/registration_w.php";
+    String url = url_add.regis_worker;
     private View view;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

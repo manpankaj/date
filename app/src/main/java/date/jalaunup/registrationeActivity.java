@@ -17,11 +17,12 @@ import java.util.Map;
 import androidx.appcompat.app.AppCompatActivity;
 import date.jalaunup.Config.password_encrypt;
 import date.jalaunup.Config.stringPattern;
+import date.jalaunup.Config.url_add;
 
 public class registrationeActivity extends AppCompatActivity {
     EditText ed_empname,ed_mobile,ed_email,ed_add,ed_password,ed_password1;
     String str_empname,str_mobile,str_email,str_add,str_password,str_password1;
-    String url = "http://10.135.217.19:8080/date/registration_e.php";
+    String url = url_add.regis_employer;
     private View view;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

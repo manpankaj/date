@@ -23,14 +23,13 @@ public class WelcomewActivity extends AppCompatActivity {
         session = new SessionManager(getApplicationContext());
         username = findViewById(R.id.username);
         email = findViewById(R.id.email);
-        session.checkLogin();
-        //session.checkWorker();
-        Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
+       session.checkLogin();
+       String roleNew =  session.checkWorkerNew(session);
+       Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
         HashMap<String, String> user = session.getUserDetails();
         str_username = user.get(SessionManager.KEY_NAME);
         str_email = user.get(SessionManager.KEY_EMAIL);
-        str_role = user.get(SessionManager.KEY_ROLE);
-        username.setText("Welcome " + str_username + str_role);
+        username.setText("Welcome " + str_username);
         email.setText("Your Mobile No. " + str_email );
 
         worker_profile = findViewById(R.id.profileupdate);

@@ -28,6 +28,7 @@ import java.util.Map;
 import androidx.appcompat.app.AppCompatActivity;
 import date.jalaunup.Config.SessionManager;
 import date.jalaunup.Config.integerMinMax;
+import date.jalaunup.Config.url_add;
 
 public class worker_profileActivity extends AppCompatActivity {
     SessionManager session;
@@ -40,7 +41,7 @@ public class worker_profileActivity extends AppCompatActivity {
     ArrayAdapter<String> arrayAdapter_parent;
     ArrayAdapter<String> arrayAdapter_child;
     String str_category1,str_subcategory1,str_expyear1,str_username,str_email,str_role,str_category,str_subcategory,str_expyear;
-    String url = "http://10.135.217.19:8080/date/worker_profile.php";
+    String url =url_add.worker_update;
     private View view;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,8 +49,8 @@ public class worker_profileActivity extends AppCompatActivity {
         setContentView(R.layout.worker_profile);
         session = new SessionManager(getApplicationContext());
         session.checkLogin();
-        //session.checkWorker();
-        //Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
+        String roleNew =  session.checkWorkerNew(session);
+        Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
         HashMap<String, String> user = session.getUserDetails();
         str_username = user.get(SessionManager.KEY_NAME);
         str_email = user.get(SessionManager.KEY_EMAIL);
