@@ -55,35 +55,16 @@ public class WorkerAdapter extends RecyclerView.Adapter<WorkerAdapter.ViewHolder
             @Override
             public void onClick(View v)
             {
+
+
+
                 //Toast.makeText(mContext,"Role Id : "+RoleId, Toast.LENGTH_LONG).show();
                 Toast.makeText(mContext,"Worker Id : "+myListData.getWorkerId(), Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(mContext, ViewRegisteredWorkerDetailActivity.class);
                 intent.putExtra("WorkerId", myListData.getWorkerId());
                 mContext.startActivity(intent);
-                //Toast.makeText(mContext,"Complain Type :"+ComplainType, Toast.LENGTH_LONG).show();
-                //Intent intent = new Intent(mContext, UpdateComplainActivity.class);
 
-                /*if(ComplainType.equals("CLOSED"))
-                {
-                    Intent intent = new Intent(mContext, ViewClosedComplainDetailActivity.class);
-                    intent.putExtra("ComplainId", myListData.getComplainId());
-                    mContext.startActivity(intent);
-                }
-                else if(ComplainType.equals("PENDING"))
-                {
-                    if(RoleId.equals(RoleManager.ADMIN_URBAN) || RoleId.equals(RoleManager.ADMIN_RURAL))
-                    {
-                        Intent intent = new Intent(mContext, UpdateComplainNewActivity.class);
-                        intent.putExtra("ComplainId", myListData.getComplainId());
-                        mContext.startActivity(intent);
-                    }
-                    else if(RoleId.equals(RoleManager.VISITOR))
-                    {
-                        Intent intent = new Intent(mContext, ViewPendingComplainDetailActivity.class);
-                        intent.putExtra("ComplainId", myListData.getComplainId());
-                        mContext.startActivity(intent);
-                    }
-                }*/
+
             }
         });
     }

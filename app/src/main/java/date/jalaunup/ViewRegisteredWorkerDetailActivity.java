@@ -1,11 +1,10 @@
 package date.jalaunup;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
 import date.jalaunup.Config.SessionManager;
 
 public class ViewRegisteredWorkerDetailActivity extends AppCompatActivity {
@@ -21,6 +20,8 @@ public class ViewRegisteredWorkerDetailActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         currentWorkerId = intent.getStringExtra("WorkerId");
+
+
 
         Toast.makeText(ViewRegisteredWorkerDetailActivity.this,"Worker Id : "+ currentWorkerId, Toast.LENGTH_LONG).show();
     }

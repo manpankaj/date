@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_toEndOf="@id/textViewWorkerId"
         android:layout_toRightOf="@id/textViewWorkerId"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
         android:gravity="center_vertical"
         android:textSize="16sp"/>
