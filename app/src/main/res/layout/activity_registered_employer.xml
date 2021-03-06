@@ -8,11 +8,14 @@
     android:orientation="vertical">
 
     <TextView
+        android:text="Registered Employer List"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="left"
-        android:text="Registered Employer List"
-        android:paddingBottom="4dp"/>
+        android:textColor="@color/button_text"
+        android:background="@color/button_background"
+        android:layout_columnWeight="1"
+        android:gravity="center"
+        android:textSize="18dp"/>
 
     <TextView
         android:layout_width="match_parent"

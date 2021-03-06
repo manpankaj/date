@@ -1,13 +1,18 @@
 package date.jalaunup;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import date.jalaunup.Adapter.EmployerAdapter;
+import date.jalaunup.Objects.Employer;
+import date.jalaunup.Config.RequestHandler;
+import date.jalaunup.Config.SessionManager;
+import date.jalaunup.Config.url_add;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -16,21 +21,16 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import date.jalaunup.Adapter.WorkerAdapter;
-import date.jalaunup.Config.RequestHandler;
-import date.jalaunup.Config.SessionManager;
-import date.jalaunup.Config.url_add;
-import date.jalaunup.Objects.Worker;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class RegisteredEmployerActivity extends AppCompatActivity {
 
     SessionManager session;
-    String userId , roleId="a", areaId;
-
-    List<Worker> myListData;
+    List<Employer> myListData;
     RecyclerView recyclerView;
-
-    public static final String URL_PENDING_WORKER_LIST =url_add.pending_employer_act ;
+    public static final String URL_PENDING_Employer_LIST =url_add.pending_employer_act ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,14 +39,10 @@ public class RegisteredEmployerActivity extends AppCompatActivity {
         session = new SessionManager(getApplicationContext());
         session.checkLogin();
         String roleNew =  session.checkAdminNew(session);
-
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(RegisteredEmployerActivity.this));
-
         myListData = new ArrayList<>();
-
-        GetPendingComplain(areaId);
     }
 
     public void GetPendingComplain(String areaId)
@@ -68,8 +64,7 @@ public class RegisteredEmployerActivity extends AppCompatActivity {
             {
                 RequestHandler requestHandler = new RequestHandler();
                 HashMap<String, String> params = new HashMap<>();
-                params.put("id", "1");
-                return requestHandler.sendPostRequest(URL_PENDING_WORKER_LIST, params);
+                return requestHandler.sendPostRequest(URL_PENDING_Employer_LIST, params);
             }
 
             @Override
@@ -83,25 +78,25 @@ public class RegisteredEmployerActivity extends AppCompatActivity {
                     JSONObject jsonObj = new JSONObject(s);
                     if (jsonObj != null)
                     {
-                        JSONArray cmArray = jsonObj.getJSONArray("WorkerList");
+                        JSONArray cmArray = jsonObj.getJSONArray("EmployerList");
                         for (int count = 0; count < cmArray.length(); count++)
                         {
-                            JSONObject currentComplain = cmArray.getJSONObject(count);
-
-                            Worker tempOBJ = new Worker();
-                            tempOBJ.setWorkerId(currentComplain.getString("WorkerId"));
-                            tempOBJ.setWorkerName(currentComplain.getString("WorkerName"));
-                            tempOBJ.setWorkerEmail(currentComplain.getString("WorkerEmail"));
-                            tempOBJ.setWorkerMobileNo(currentComplain.getString("WorkerMobileNo"));
+                            JSONObject currentEmployer = cmArray.getJSONObject(count);
+                            Employer tempOBJ = new Employer();
+                            tempOBJ.setEmployerId(currentEmployer.getString("EmployerId"));
+                            tempOBJ.setEmployerName(currentEmployer.getString("EmployerName"));
+                            tempOBJ.setEmployerMobileNo(currentEmployer.getString("EmployerMobileNo"));
+                            tempOBJ.setEmployerEmail(currentEmployer.getString("EmployerEmail"));
+                            tempOBJ.setEmployerAddress(currentEmployer.getString("EmployerAddress"));
                             myListData.add(tempOBJ);
                         }
                     }
-                    Worker[] myArrayData = new Worker[myListData.size()];
+                    Employer[] myArrayData = new Employer[myListData.size()];
                     myArrayData = myListData.toArray(myArrayData);
 
-                    Log.e("Worker List :",myListData.toString());
+                    Log.e("Employer List :",myListData.toString());
 
-                    WorkerAdapter finalAdapter = new WorkerAdapter(RegisteredEmployerActivity.this,myArrayData,"PENDING",roleId);
+                    EmployerAdapter finalAdapter = new EmployerAdapter(RegisteredEmployerActivity.this,myArrayData);
                     recyclerView.setAdapter(finalAdapter);
 
                 }
@@ -114,12 +109,9 @@ public class RegisteredEmployerActivity extends AppCompatActivity {
         GetPendingComplainList show = new GetPendingComplainList();
         show.execute();
     }
-
-    @Override
-    public void onBackPressed()
-    {
-       // Intent i = new Intent(RegisteredWorkerActivity.this,.class);
-       // startActivity(i);
-        //finish();
+    public void back(View view) {
+        //Intent i = new Intent(String.valueOf(RegisteredEmployerActivity.this));
+        //startActivity(i);
+       // finish();
     }
 }

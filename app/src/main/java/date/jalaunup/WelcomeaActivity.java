@@ -44,7 +44,7 @@ public class WelcomeaActivity extends AppCompatActivity {
         active_Employer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(WelcomeaActivity.this, admin_profileActivity.class);
+                Intent intent = new Intent(WelcomeaActivity.this, RegisteredEmployerActivity.class);
                 startActivity(intent);
             }
         });

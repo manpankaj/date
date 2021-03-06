@@ -26,11 +26,8 @@ import androidx.recyclerview.widget.RecyclerView;
 public class RegisteredWorkerActivity extends AppCompatActivity {
 
     SessionManager session;
-    String userId , roleId="a", areaId;
-
     List<Worker> myListData;
     RecyclerView recyclerView;
-
     public static final String URL_PENDING_WORKER_LIST =url_add.pending_worker_act ;
 
     @Override
@@ -40,14 +37,10 @@ public class RegisteredWorkerActivity extends AppCompatActivity {
         session = new SessionManager(getApplicationContext());
         session.checkLogin();
         String roleNew =  session.checkAdminNew(session);
-
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(RegisteredWorkerActivity.this));
-
         myListData = new ArrayList<>();
-
-        GetPendingComplain(areaId);
     }
 
     public void GetPendingComplain(String areaId)
@@ -92,8 +85,13 @@ public class RegisteredWorkerActivity extends AppCompatActivity {
                             Worker tempOBJ = new Worker();
                             tempOBJ.setWorkerId(currentComplain.getString("WorkerId"));
                             tempOBJ.setWorkerName(currentComplain.getString("WorkerName"));
-                            tempOBJ.setWorkerEmail(currentComplain.getString("WorkerEmail"));
                             tempOBJ.setWorkerMobileNo(currentComplain.getString("WorkerMobileNo"));
+                            tempOBJ.setWorkerEmail(currentComplain.getString("WorkerEmail"));
+                            tempOBJ.setworkerAge(currentComplain.getString("WorkerAge"));
+                            tempOBJ.setWorkerSex(currentComplain.getString("WorkerSex"));
+                            tempOBJ.setWorkerField(currentComplain.getString("WorkerField"));
+                            tempOBJ.setWorkerWork(currentComplain.getString("WorkerWork"));
+                            tempOBJ.setWorkerWork(currentComplain.getString("WorkerWork"));
                             myListData.add(tempOBJ);
                         }
                     }
@@ -102,7 +100,7 @@ public class RegisteredWorkerActivity extends AppCompatActivity {
 
                     Log.e("Worker List :",myListData.toString());
 
-                    WorkerAdapter finalAdapter = new WorkerAdapter(RegisteredWorkerActivity.this,myArrayData,"PENDING",roleId);
+                    WorkerAdapter finalAdapter = new WorkerAdapter(RegisteredWorkerActivity.this,myArrayData);
                     recyclerView.setAdapter(finalAdapter);
 
                 }

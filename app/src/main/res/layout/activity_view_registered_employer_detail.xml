@@ -22,7 +22,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/header_background"
                 android:gravity="center"
-                android:text="Worker Profile Detail"
+                android:text="Employer Profile Detail"
                 android:textColor="@color/header_text"
                 android:textSize="20sp" />
 
@@ -37,17 +37,17 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:background="#FFFFFF"
-                    android:text="Worker ID"
+                    android:text="Employer ID"
                     android:textColor="@color/button_background"
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/tv_workerid"
+                    android:id="@+id/tv_employerid"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="160dp"
                     android:layout_marginTop="20dp"
-                    android:text="Worker ID"
+                    android:text="Employer ID"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
             </RelativeLayout>
@@ -61,13 +61,13 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Worker Name"
+                    android:text="Employer Name"
                     android:textColor="@color/button_background"
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/tv_worker_name"
-                    android:text="Worker Name"
+                    android:id="@+id/tv_employer_name"
+                    android:text="Employer Name"
                     android:textSize="18sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -85,16 +85,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
-                    android:text="Worker Mobile No."
+                    android:text="Employer Mobile No."
                     android:textColor="#3F51B5"
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/tv_worker_mobile"
+                    android:id="@+id/tv_Employer_mobile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="160dp"
-                    android:text="Worker Mobile No."
+                    android:text="Employer Mobile No."
                     android:textColor="@color/black"
                     android:textSize="18sp" />
             </RelativeLayout>
@@ -108,61 +108,15 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Worker Email ID"
+                    android:text="Employer Email ID"
                     android:textColor="@color/button_background"
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/tv_worker_email"
+                    android:id="@+id/tv_Employer_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Worker Email ID"
-                    android:textSize="18sp"
-                    android:layout_marginLeft="160dp"
-                    android:textColor="@color/black"/>
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:text="Worker Sex"
-                    android:textColor="#3F51B5"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/tv_worker_sex"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="160dp"
-                    android:text="Worker Sex"
-                    android:textColor="@color/black"
-                    android:textSize="18sp" />
-            </RelativeLayout>
-            <RelativeLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Worker Age"
-                    android:textColor="@color/button_background"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/tv_worker_age"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Worker Age"
+                    android:text="Employer Email ID"
                     android:textSize="18sp"
                     android:layout_marginLeft="160dp"
                     android:textColor="@color/black"/>
@@ -178,65 +132,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
-                    android:text="Worker Field Area"
+                    android:text="Employer Address"
                     android:textColor="#3F51B5"
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/tv_worker_fa"
+                    android:id="@+id/tv_Employer_sex"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="160dp"
-                    android:text="Worker Field Area"
+                    android:text="Employer Address"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
             </RelativeLayout>
-            <RelativeLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Worker Work Area"
-                    android:textColor="@color/button_background"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/tv_worker_wa"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Worker Work Area"
-                    android:textSize="18sp"
-                    android:layout_marginLeft="160dp"
-                    android:textColor="@color/black"/>
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:text="Work Experience"
-                    android:textColor="#3F51B5"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/tv_worker_we"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="160dp"
-                    android:text="Work Experience"
-                    android:textColor="@color/black"
-                    android:textSize="18sp" />
-            </RelativeLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -246,7 +155,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1" />
                 <Button
-                    android:id="@+id/profile"
+                    android:id="@+id/activate_Employer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
@@ -254,7 +163,7 @@
                     android:layout_marginLeft="25dp"
                     android:layout_marginRight="25dp"
                     android:layout_marginTop="10dp"
-                    android:text="Activate Worker"
+                    android:text="Activate Employer"
                     android:textColor="@color/button_text"
                     app:backgroundTint="@color/button_background" />
                 <Space
