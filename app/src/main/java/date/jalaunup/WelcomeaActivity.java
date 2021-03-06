@@ -60,7 +60,7 @@ public class WelcomeaActivity extends AppCompatActivity {
         reset_WP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(WelcomeaActivity.this, admin_profileActivity.class);
+                Intent intent = new Intent(WelcomeaActivity.this, admin_resetWPActivity.class);
                 startActivity(intent);
             }
         });

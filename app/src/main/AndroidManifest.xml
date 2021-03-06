@@ -88,6 +88,9 @@
         <activity
             android:name=".RegisteredEmployerActivity"
             android:label="ADMIN EMPLOYER ACTIVATION"/>
+        <activity
+            android:name=".admin_resetWPActivity"
+            android:label="ADMIN WORKER RESET"/>
     </application>
 
 </manifest>

@@ -1,16 +1,9 @@
 package date.jalaunup;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-
-import date.jalaunup.Adapter.WorkerAdapter;
-import date.jalaunup.Objects.Worker;
-import date.jalaunup.Config.RequestHandler;
-import date.jalaunup.Config.SessionManager;
-import date.jalaunup.Config.url_add;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -22,6 +15,11 @@ import java.util.List;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import date.jalaunup.Adapter.WorkerAdapter;
+import date.jalaunup.Config.RequestHandler;
+import date.jalaunup.Config.SessionManager;
+import date.jalaunup.Config.url_add;
+import date.jalaunup.Objects.Worker;
 
 public class RegisteredWorkerActivity extends AppCompatActivity {
 
@@ -69,7 +67,6 @@ public class RegisteredWorkerActivity extends AppCompatActivity {
             @Override
             protected void onPostExecute(String s)
             {
-
                 super.onPostExecute(s);
                 pdLoading.dismiss();
                 try
@@ -91,7 +88,7 @@ public class RegisteredWorkerActivity extends AppCompatActivity {
                             tempOBJ.setWorkerSex(currentComplain.getString("WorkerSex"));
                             tempOBJ.setWorkerField(currentComplain.getString("WorkerField"));
                             tempOBJ.setWorkerWork(currentComplain.getString("WorkerWork"));
-                            tempOBJ.setWorkerWork(currentComplain.getString("WorkerWork"));
+                            tempOBJ.setWorkerExp(currentComplain.getString("WorkerExp"));
                             myListData.add(tempOBJ);
                         }
                     }
