@@ -58,6 +58,7 @@ public class worker_profileActivity extends AppCompatActivity {
         str_category = user.get(SessionManager.KEY_CATEGORY);
         str_subcategory = user.get(SessionManager.KEY_SUBCATEGORY);
         str_expyear = user.get(SessionManager.KEY_EXPYEAR);
+
         username = findViewById(R.id.username);
         email = findViewById(R.id.email);
         tv_parent = findViewById(R.id.tv_parent1);

@@ -43,11 +43,13 @@ public class RegisteredEmployerActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(RegisteredEmployerActivity.this));
         myListData = new ArrayList<>();
+
+        GetPendingEmployer();
     }
 
-    public void GetPendingComplain(String areaId)
+    public void GetPendingEmployer()
     {
-        class GetPendingComplainList extends AsyncTask<Void, Void, String>
+        class GetPendingEmployerList extends AsyncTask<Void, Void, String>
         {
             ProgressDialog pdLoading = new ProgressDialog(RegisteredEmployerActivity.this);
 
@@ -106,7 +108,7 @@ public class RegisteredEmployerActivity extends AppCompatActivity {
                 }
             }
         }
-        GetPendingComplainList show = new GetPendingComplainList();
+        GetPendingEmployerList show = new GetPendingEmployerList();
         show.execute();
     }
     public void back(View view) {

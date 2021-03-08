@@ -91,6 +91,9 @@
         <activity
             android:name=".admin_resetWPActivity"
             android:label="ADMIN WORKER RESET"/>
+        <activity
+            android:name=".admin_resetEPActivity"
+            android:label="ADMIN EMPLOYER RESET"/>
     </application>
 
 </manifest>

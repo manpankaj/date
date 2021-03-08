@@ -12,9 +12,9 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorRed">#f93283</color>
-    <color name="header_background">#3F51B5</color>
-    <color name="layout_background">#FAB8BDC3</color>
-    <color name="button_background">#3F51B5</color>
+    <color name="header_background">#673AB7</color>
+    <color name="layout_background">#FFFFFFFF</color>
+    <color name="button_background">#673AB7</color>
     <color name="textview_text">#FFFFFFFF</color>
     <color name="editview_text">#FFFFFFFF</color>
     <color name="spinner_text">#FFFFFFFF</color>

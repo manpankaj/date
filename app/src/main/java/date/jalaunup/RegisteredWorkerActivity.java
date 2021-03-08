@@ -1,9 +1,11 @@
 package date.jalaunup;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -39,11 +41,13 @@ public class RegisteredWorkerActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(RegisteredWorkerActivity.this));
         myListData = new ArrayList<>();
+
+        GetPendingWorker();
     }
 
-    public void GetPendingComplain(String areaId)
+    public void GetPendingWorker()
     {
-        class GetPendingComplainList extends AsyncTask<Void, Void, String>
+        class GetPendingWorkerList extends AsyncTask<Void, Void, String>
         {
             ProgressDialog pdLoading = new ProgressDialog(RegisteredWorkerActivity.this);
 
@@ -60,7 +64,6 @@ public class RegisteredWorkerActivity extends AppCompatActivity {
             {
                 RequestHandler requestHandler = new RequestHandler();
                 HashMap<String, String> params = new HashMap<>();
-                params.put("id", "1");
                 return requestHandler.sendPostRequest(URL_PENDING_WORKER_LIST, params);
             }
 
@@ -77,18 +80,18 @@ public class RegisteredWorkerActivity extends AppCompatActivity {
                         JSONArray cmArray = jsonObj.getJSONArray("WorkerList");
                         for (int count = 0; count < cmArray.length(); count++)
                         {
-                            JSONObject currentComplain = cmArray.getJSONObject(count);
+                            JSONObject currentWorker = cmArray.getJSONObject(count);
 
                             Worker tempOBJ = new Worker();
-                            tempOBJ.setWorkerId(currentComplain.getString("WorkerId"));
-                            tempOBJ.setWorkerName(currentComplain.getString("WorkerName"));
-                            tempOBJ.setWorkerMobileNo(currentComplain.getString("WorkerMobileNo"));
-                            tempOBJ.setWorkerEmail(currentComplain.getString("WorkerEmail"));
-                            tempOBJ.setworkerAge(currentComplain.getString("WorkerAge"));
-                            tempOBJ.setWorkerSex(currentComplain.getString("WorkerSex"));
-                            tempOBJ.setWorkerField(currentComplain.getString("WorkerField"));
-                            tempOBJ.setWorkerWork(currentComplain.getString("WorkerWork"));
-                            tempOBJ.setWorkerExp(currentComplain.getString("WorkerExp"));
+                            tempOBJ.setWorkerId(currentWorker.getString("WorkerId"));
+                            tempOBJ.setWorkerName(currentWorker.getString("WorkerName"));
+                            tempOBJ.setWorkerMobileNo(currentWorker.getString("WorkerMobileNo"));
+                            tempOBJ.setWorkerEmail(currentWorker.getString("WorkerEmail"));
+                            tempOBJ.setworkerAge(currentWorker.getString("WorkerAge"));
+                            tempOBJ.setWorkerSex(currentWorker.getString("WorkerSex"));
+                            tempOBJ.setWorkerField(currentWorker.getString("WorkerField"));
+                            tempOBJ.setWorkerWork(currentWorker.getString("WorkerWork"));
+                            tempOBJ.setWorkerExp(currentWorker.getString("WorkerExp"));
                             myListData.add(tempOBJ);
                         }
                     }
@@ -107,15 +110,15 @@ public class RegisteredWorkerActivity extends AppCompatActivity {
                 }
             }
         }
-        GetPendingComplainList show = new GetPendingComplainList();
+        GetPendingWorkerList show = new GetPendingWorkerList();
         show.execute();
     }
 
     @Override
     public void onBackPressed()
     {
-       // Intent i = new Intent(RegisteredWorkerActivity.this,.class);
-       // startActivity(i);
-        //finish();
+        Intent i = new Intent(RegisteredWorkerActivity.this,WelcomeaActivity.class);
+       startActivity(i);
+      finish();
     }
 }
