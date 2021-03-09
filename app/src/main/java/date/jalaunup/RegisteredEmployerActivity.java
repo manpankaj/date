@@ -6,13 +6,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-
-import date.jalaunup.Adapter.EmployerAdapter;
-import date.jalaunup.Objects.Employer;
-import date.jalaunup.Config.RequestHandler;
-import date.jalaunup.Config.SessionManager;
-import date.jalaunup.Config.url_add;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -24,6 +17,11 @@ import java.util.List;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import date.jalaunup.Adapter.EmployerAdapter;
+import date.jalaunup.Config.RequestHandler;
+import date.jalaunup.Config.SessionManager;
+import date.jalaunup.Config.url_add;
+import date.jalaunup.Objects.Employer;
 
 public class RegisteredEmployerActivity extends AppCompatActivity {
 
@@ -72,7 +70,6 @@ public class RegisteredEmployerActivity extends AppCompatActivity {
             @Override
             protected void onPostExecute(String s)
             {
-
                 super.onPostExecute(s);
                 pdLoading.dismiss();
                 try
@@ -84,6 +81,7 @@ public class RegisteredEmployerActivity extends AppCompatActivity {
                         for (int count = 0; count < cmArray.length(); count++)
                         {
                             JSONObject currentEmployer = cmArray.getJSONObject(count);
+
                             Employer tempOBJ = new Employer();
                             tempOBJ.setEmployerId(currentEmployer.getString("EmployerId"));
                             tempOBJ.setEmployerName(currentEmployer.getString("EmployerName"));
@@ -111,9 +109,12 @@ public class RegisteredEmployerActivity extends AppCompatActivity {
         GetPendingEmployerList show = new GetPendingEmployerList();
         show.execute();
     }
-    public void back(View view) {
-        //Intent i = new Intent(String.valueOf(RegisteredEmployerActivity.this));
-        //startActivity(i);
-       // finish();
+
+    @Override
+    public void onBackPressed()
+    {
+        Intent i = new Intent(RegisteredEmployerActivity.this,WelcomeaActivity.class);
+        startActivity(i);
+        finish();
     }
 }
