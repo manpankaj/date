@@ -1,53 +1,55 @@
 package date.jalaunup.Objects;
 public class Employer {
-    private String employerId;
-    private String employerName;
-    private String employerMobileNo;
-    private String employerEmail;
-    private String employerAddress;
+    private String EmployerId;
+    private String EmployerName;
+    private String EmployerMobileNo;
+    private String EmployerEmail;
+    private String EmployerAddress;
     public Employer(){}
-    public Employer(String employerId, String employerName, String employerMobile,String employerEmail, String employerAddress)
+    public Employer(String EmployerId, String EmployerName,String EmployerMobileNo,String EmployerEmail, String EmployerAddress )
     {
-        this.employerId = employerId;
-        this.employerName = employerName;
-        this.employerMobileNo = employerMobile;
-        this.employerEmail = employerEmail;
-        this.employerAddress = employerAddress;
+        this.EmployerId = EmployerId;
+        this.EmployerName = EmployerName;
+        this.EmployerMobileNo = EmployerMobileNo;
+        this.EmployerEmail = EmployerEmail;
+        this.EmployerAddress = EmployerAddress;
     }
-    public void setEmployerId(String employerId)
+    public void setEmployerId(String EmployerId)
     {
-        this.employerId = employerId;
+        this.EmployerId = EmployerId;
     }
-    public void setEmployerName(String employerName)
+    public void setEmployerName(String EmployerName)
     {
-        this.employerName = employerName;
+        this.EmployerName = EmployerName;
     }
-    public void setEmployerMobileNo(String employerMobileNo)
+    public void setEmployerMobileNo(String EmployerMobileNo)
     {
-        this.employerMobileNo = employerMobileNo;
+        this.EmployerMobileNo = EmployerMobileNo;
     }
-    public void setEmployerEmail(String employerEmail)
+    public void setEmployerEmail(String EmployerEmail)
     {
-        this.employerEmail = employerEmail;
+        this.EmployerEmail = EmployerEmail;
     }
-    public void setEmployerAddress(String employerAddress)
+    public void setEmployerAddress(String EmployerAddress)
     {
-        this.employerAddress = employerAddress;
+        this.EmployerAddress = EmployerAddress;
     }
     public String getEmployerId()
     {
-        return this.employerId;
+        return this.EmployerId;
     }
     public String getEmployerName(){
-        return this.employerName;
+        return this.EmployerName;
     }
     public String getEmployerMobileNo(){
-        return this.employerMobileNo;
+        return this.EmployerMobileNo;
     }
     public String getEmployerEmail(){
-        return this.employerEmail;
+        return this.EmployerEmail;
     }
-    public String getEmployerAddress(){
-        return this.employerAddress;
+    public String getEmployerAddress()
+    {
+        return this.EmployerAddress;
     }
+
 }
