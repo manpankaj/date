@@ -35,6 +35,7 @@ public class EmployerAdapter extends RecyclerView.Adapter<EmployerAdapter.ViewHo
         holder.textViewName.setText("Name : " + listdata[position].getEmployerName());
         holder.textViewMobileNo.setText("MobileNo : " + listdata[position].getEmployerMobileNo());
         holder.textViewEmail.setText("Email : " + listdata[position].getEmployerEmail());
+        //holder.textViewAddress.setText("Email : " + listdata[position].getEmployerAddress());
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
@@ -44,6 +45,7 @@ public class EmployerAdapter extends RecyclerView.Adapter<EmployerAdapter.ViewHo
                 intent.putExtra("EmployerName", myListData.getEmployerName());
                 intent.putExtra("EmployerMobileNo", myListData.getEmployerMobileNo());
                 intent.putExtra("EmployerEmail", myListData.getEmployerEmail());
+                //intent.putExtra("EmployerAddress", myListData.getEmployerAddress());
                 mContext.startActivity(intent);
             }
         });
@@ -55,7 +57,7 @@ public class EmployerAdapter extends RecyclerView.Adapter<EmployerAdapter.ViewHo
     public static class ViewHolder extends RecyclerView.ViewHolder
     {
         public ImageView imageView;
-        public TextView textViewId, textViewName, textViewEmail, textViewMobileNo;
+        public TextView textViewId, textViewName, textViewEmail, textViewMobileNo, textViewAddress;
         public RelativeLayout relativeLayout;
         public ViewHolder(View itemView)
         {
@@ -64,6 +66,7 @@ public class EmployerAdapter extends RecyclerView.Adapter<EmployerAdapter.ViewHo
             this.textViewName = (TextView) itemView.findViewById(R.id.textViewEmployerName);
             this.textViewEmail = (TextView) itemView.findViewById(R.id.textEmployerEmail);
             this.textViewMobileNo = (TextView) itemView.findViewById(R.id.textEmployerMobileNo);
+            //this.textViewAddress = (TextView) itemView.findViewById(R.id.textEmployerAddress);
             relativeLayout = (RelativeLayout)itemView.findViewById(R.id.relativeLayout);
             Context context = itemView.getContext();
         }
