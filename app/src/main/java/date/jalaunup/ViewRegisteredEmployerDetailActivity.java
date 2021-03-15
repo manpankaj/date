@@ -2,25 +2,19 @@ package date.jalaunup;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
+import org.json.JSONObject;
 
 import java.util.HashMap;
-import java.util.Map;
 
+import androidx.appcompat.app.AppCompatActivity;
+import date.jalaunup.Config.RequestHandler;
 import date.jalaunup.Config.SessionManager;
 import date.jalaunup.Config.url_add;
 
@@ -28,10 +22,8 @@ public class ViewRegisteredEmployerDetailActivity extends AppCompatActivity {
     SessionManager session;
     Button logout,back,activate_Employer;
     String url = url_add.activate_employer;
-    String currentEmployerId,currentEmployerName,currentEmployerMobileNo,currentEmployerEmail,currentEmployerAge,currentEmployerSex,
-            currentEmployerField,currentEmployerEmploy,currentEmployerExp;
-    TextView tv_Employerid,tv_Employer_name,tv_Employer_mobile,tv_Employer_email,tv_Employer_sex,tv_Employer_age,
-            tv_Employer_fa,tv_Employer_wa,tv_Employer_we;
+    String currentEmployerId,currentEmployerName,currentEmployerMobileNo,currentEmployerEmail,currentEmployerAddress;
+    TextView tv_Employerid,tv_Employer_name,tv_Employer_mobile,tv_Employer_email,tv_Employer_address;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,17 +35,24 @@ public class ViewRegisteredEmployerDetailActivity extends AppCompatActivity {
         tv_Employer_name=findViewById(R.id.tv_employer_name);
         tv_Employer_mobile=findViewById(R.id.tv_Employer_mobile);
         tv_Employer_email=findViewById(R.id.tv_Employer_email);
+        tv_Employer_address=findViewById(R.id.tv_Employer_address);
 
-        Intent intent = getIntent();
+       /* Intent intent = getIntent();
         currentEmployerId = intent.getStringExtra("EmployerId");
         currentEmployerName = intent.getStringExtra("EmployerName");
         currentEmployerMobileNo = intent.getStringExtra("EmployerMobileNo");
         currentEmployerEmail = intent.getStringExtra("EmployerEmail");
+        currentEmployerAddress = intent.getStringExtra("EmployerAddress");
 
         tv_Employerid.setText(currentEmployerId);
         tv_Employer_name.setText(currentEmployerName);
         tv_Employer_mobile.setText(currentEmployerMobileNo);
         tv_Employer_email.setText(currentEmployerEmail);
+        tv_Employer_address.setText(currentEmployerAddress);*/
+
+        Intent intent = getIntent();
+        currentEmployerId = intent.getStringExtra("EmployerId");
+        DisplayEmployerDetail(currentEmployerId);
 
         back = findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener() {
@@ -73,7 +72,7 @@ public class ViewRegisteredEmployerDetailActivity extends AppCompatActivity {
         activate_Employer = findViewById(R.id.activate_Employer);
         activate_Employer.setOnClickListener(new View.OnClickListener() {
 
-            @Override
+           /* @Override
             public void onClick(View v) {
                 ProgressDialog progressDialog = new ProgressDialog(ViewRegisteredEmployerDetailActivity.this);
                 progressDialog.setMessage("Please Wait..");
@@ -105,5 +104,114 @@ public class ViewRegisteredEmployerDetailActivity extends AppCompatActivity {
         });
 
 
+    }
+}*/
+           @Override
+           public void onClick(View v) {
+               ActivateEmployerDetail(currentEmployerId);
+           }
+        });
+    }
+
+    /************************************************************************************************************************************************************************/
+    public void DisplayEmployerDetail(String currentEmployerId)
+    {
+        class BindEmployerMaster extends AsyncTask<Void, Void, String>
+        {
+            ProgressDialog pdLoading = new ProgressDialog(ViewRegisteredEmployerDetailActivity.this);
+
+            @Override
+            protected void onPreExecute()
+            {
+                super.onPreExecute();
+                pdLoading.setMessage("\tLoading...");
+                pdLoading.setCancelable(false);
+                pdLoading.show();
+            }
+
+            @Override
+            protected String doInBackground(Void... voids)
+            {
+                RequestHandler requestHandler = new RequestHandler();
+                HashMap<String, String> params = new HashMap<>();
+                params.put("id", currentEmployerId);
+                return requestHandler.sendPostRequest(url_add.employer_detail_by_id, params);
+            }
+
+            @Override
+            protected void onPostExecute(String s)
+            {
+                super.onPostExecute(s);
+                pdLoading.dismiss();
+                //Toast.makeText(getApplicationContext(), s, Toast.LENGTH_LONG).show();
+                try
+                {
+                    JSONObject obj = new JSONObject(s);
+                    //Toast.makeText(getApplicationContext(), obj.toString(), Toast.LENGTH_LONG).show();
+                    //String wore=obj.getString("EmployerId");
+                    Toast.makeText(getApplicationContext(), s, Toast.LENGTH_LONG).show();
+                    tv_Employerid.setText(obj.getString("EmployerId"));
+                    tv_Employer_name.setText(obj.getString("EmployerName"));
+                    tv_Employer_mobile.setText(obj.getString("EmployerMobileNo"));
+                    tv_Employer_email.setText(obj.getString("EmployerEmail"));
+                    tv_Employer_address.setText(obj.getString("EmployerAddress"));
+
+                }
+                catch (Exception e )
+                {
+                    //Toast.makeText(ViewRegisteredEmployerDetailActivity.this, "Exception: "+e, Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
+        BindEmployerMaster obj = new BindEmployerMaster();
+        obj.execute();
+    }
+    /************************************************************************************************************************************************************************/
+    public void ActivateEmployerDetail(String currentEmployerId)
+    {
+        class ActivateEmployer extends AsyncTask<Void, Void, String>
+        {
+            ProgressDialog pdLoading = new ProgressDialog(ViewRegisteredEmployerDetailActivity.this);
+
+            @Override
+            protected void onPreExecute()
+            {
+                super.onPreExecute();
+                pdLoading.setMessage("\tLoading...");
+                pdLoading.setCancelable(false);
+                pdLoading.show();
+            }
+
+            @Override
+            protected String doInBackground(Void... voids)
+            {
+                RequestHandler requestHandler = new RequestHandler();
+                HashMap<String, String> params = new HashMap<>();
+                params.put("id", currentEmployerId);
+                return requestHandler.sendPostRequest(url_add.activate_employer_by_id, params);
+            }
+
+            @Override
+            protected void onPostExecute(String s)
+            {
+                super.onPostExecute(s);
+                pdLoading.dismiss();
+
+                try
+                {
+                    JSONObject obj = new JSONObject(s);
+                    if (!obj.getBoolean("error"))
+                    {
+                        Toast.makeText(ViewRegisteredEmployerDetailActivity.this, "Employer Activated Successfully", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                catch (Exception e )
+                {
+                    Toast.makeText(ViewRegisteredEmployerDetailActivity.this, "Exception: "+e, Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
+        ActivateEmployer obj = new ActivateEmployer();
+        obj.execute();
     }
 }

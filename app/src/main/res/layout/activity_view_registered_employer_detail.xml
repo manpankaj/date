@@ -137,7 +137,7 @@
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/tv_Employer_sex"
+                    android:id="@+id/tv_Employer_address"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="160dp"
