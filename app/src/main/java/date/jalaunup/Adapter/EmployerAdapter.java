@@ -7,10 +7,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import androidx.recyclerview.widget.RecyclerView;
 import date.jalaunup.Objects.Employer;
 import date.jalaunup.R;
 import date.jalaunup.ViewRegisteredEmployerDetailActivity;
+import androidx.recyclerview.widget.RecyclerView;
 public class EmployerAdapter extends RecyclerView.Adapter<EmployerAdapter.ViewHolder>{
     public Employer[] listdata;
     private Context mContext;
@@ -33,8 +33,8 @@ public class EmployerAdapter extends RecyclerView.Adapter<EmployerAdapter.ViewHo
         final Employer myListData = listdata[position];
         holder.textViewId.setText("ID :" +listdata[position].getEmployerId());
         holder.textViewName.setText("Name : " + listdata[position].getEmployerName());
-        holder.textViewEmail.setText("Email : " + listdata[position].getEmployerEmail());
         holder.textViewMobileNo.setText("MobileNo : " + listdata[position].getEmployerMobileNo());
+        holder.textViewEmail.setText("Email : " + listdata[position].getEmployerEmail());
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
@@ -44,7 +44,6 @@ public class EmployerAdapter extends RecyclerView.Adapter<EmployerAdapter.ViewHo
                 intent.putExtra("EmployerName", myListData.getEmployerName());
                 intent.putExtra("EmployerMobileNo", myListData.getEmployerMobileNo());
                 intent.putExtra("EmployerEmail", myListData.getEmployerEmail());
-                intent.putExtra("EmployerAddress", myListData.getEmployerAddress());
                 mContext.startActivity(intent);
             }
         });
@@ -67,7 +66,6 @@ public class EmployerAdapter extends RecyclerView.Adapter<EmployerAdapter.ViewHo
             this.textViewMobileNo = (TextView) itemView.findViewById(R.id.textEmployerMobileNo);
             relativeLayout = (RelativeLayout)itemView.findViewById(R.id.relativeLayout);
             Context context = itemView.getContext();
-
         }
     }
 }

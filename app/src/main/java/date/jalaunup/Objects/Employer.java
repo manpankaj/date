@@ -18,13 +18,22 @@ public class Employer {
     {
         this.employerId = employerId;
     }
-    public void setEmployerName(String employerName){this.employerName = employerName;}
-    public void setEmployerMobileNo(String employerMobileNo){this.employerMobileNo = employerMobileNo;}
+    public void setEmployerName(String employerName)
+    {
+        this.employerName = employerName;
+    }
+    public void setEmployerMobileNo(String employerMobileNo)
+    {
+        this.employerMobileNo = employerMobileNo;
+    }
     public void setEmployerEmail(String employerEmail)
     {
         this.employerEmail = employerEmail;
     }
-    public void setEmployerAddress(String employerAddress){this.employerAddress = employerAddress;}
+    public void setEmployerAddress(String employerAddress)
+    {
+        this.employerAddress = employerAddress;
+    }
     public String getEmployerId()
     {
         return this.employerId;

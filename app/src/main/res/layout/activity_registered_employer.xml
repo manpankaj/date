@@ -2,20 +2,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/layout_background"
     android:padding="5dp"
     android:orientation="vertical">
 
     <TextView
-        android:text="Registered Employer List"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/button_text"
         android:background="@color/button_background"
         android:layout_columnWeight="1"
         android:gravity="center"
-        android:textSize="18dp"/>
+        android:textSize="18dp"
+        android:text="Registered Worker List"/>
 
     <TextView
         android:layout_width="match_parent"
