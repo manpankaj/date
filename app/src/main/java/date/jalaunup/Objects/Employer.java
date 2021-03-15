@@ -6,7 +6,8 @@ public class Employer {
     private String EmployerEmail;
     private String EmployerAddress;
     public Employer(){}
-    public Employer(String EmployerId, String EmployerName,String EmployerMobileNo,String EmployerEmail, String EmployerAddress )
+    public Employer (String EmployerId, String EmployerName,String EmployerMobileNo,String EmployerEmail,
+                  String EmployerAddress)
     {
         this.EmployerId = EmployerId;
         this.EmployerName = EmployerName;
@@ -34,6 +35,7 @@ public class Employer {
     {
         this.EmployerAddress = EmployerAddress;
     }
+
     public String getEmployerId()
     {
         return this.EmployerId;

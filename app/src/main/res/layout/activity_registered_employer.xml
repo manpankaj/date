@@ -14,7 +14,7 @@
         android:layout_columnWeight="1"
         android:gravity="center"
         android:textSize="18dp"
-        android:text="Registered Employer List"/>
+        android:text="Registered Worker List"/>
 
     <TextView
         android:layout_width="match_parent"
