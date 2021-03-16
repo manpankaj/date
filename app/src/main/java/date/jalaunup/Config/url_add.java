@@ -13,8 +13,8 @@ public class url_add {
     public static String admin_changeP="http://10.135.217.19:8080/date/admin_changeP.php";
     public static String pending_worker_act="http://10.135.217.19:8080/date/get_pending_worker_list.php";
     public static String pending_employer_act="http://10.135.217.19:8080/date/get_pending_employer_list.php";
-    public static String activate_worker="http://10.135.217.19:8080/date/worker_activation.php";
-    public static String activate_employer="http://10.135.217.19:8080/date/employer_activation.php";
+    //public static String activate_worker="http://10.135.217.19:8080/date/worker_activation.php";
+    //public static String activate_employer="http://10.135.217.19:8080/date/employer_activation.php";
     public static String reset_WP="http://10.135.217.19:8080/date/worker_reset.php";
     public static String reset_EP="http://10.135.217.19:8080/date/employer_reset.php";
     public static String worker_detail_by_id="http://10.135.217.19:8080/date/get_worker_detail_by_id.php";

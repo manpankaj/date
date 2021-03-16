@@ -16,7 +16,7 @@
     <color name="layout_background">#FFFFFFFF</color>
     <color name="button_background">#673AB7</color>
     <color name="textview_text">#FFFFFFFF</color>
-    <color name="editview_text">#FFFFFFFF</color>
+    <color name="editview_text">#040404</color>
     <color name="spinner_text">#FFFFFFFF</color>
     <color name="radio_text">#FFFFFFFF</color>
     <color name="header_text">#FFFFFFFF</color>
