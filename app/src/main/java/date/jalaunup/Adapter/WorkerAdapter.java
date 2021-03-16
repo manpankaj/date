@@ -31,10 +31,10 @@ public class WorkerAdapter extends RecyclerView.Adapter<WorkerAdapter.ViewHolder
     public void onBindViewHolder(ViewHolder holder, int position)
     {
         final Worker myListData = listdata[position];
-        holder.textViewId.setText("ID :" +listdata[position].getWorkerId());
-        holder.textViewName.setText("Name : " + listdata[position].getWorkerName());
-        holder.textViewMobileNo.setText("MobileNo : " + listdata[position].getWorkerMobileNo());
-        holder.textViewEmail.setText("Email : " + listdata[position].getWorkerEmail());
+        holder.textViewId.setText("Worker Id: " +listdata[position].getWorkerId());
+        holder.textViewName.setText("Worker Name: " + listdata[position].getWorkerName());
+        holder.textViewMobileNo.setText("Worker Mobile No: " + listdata[position].getWorkerMobileNo());
+        holder.textViewEmail.setText("Worker Email Id: " + listdata[position].getWorkerEmail());
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)

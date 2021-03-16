@@ -46,7 +46,7 @@ public class WelcomeeActivity extends AppCompatActivity {
         update_work.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(WelcomeeActivity.this, employer_profileActivity.class);
+                Intent intent = new Intent(WelcomeeActivity.this, EmployerRegisteredWorkActivity.class);
                 startActivity(intent);
             }
         });
@@ -54,7 +54,7 @@ public class WelcomeeActivity extends AppCompatActivity {
         save_manpower.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(WelcomeeActivity.this, employer_profileActivity.class);
+                Intent intent = new Intent(WelcomeeActivity.this, EmployerWorkManActivity.class);
                 startActivity(intent);
             }
         });

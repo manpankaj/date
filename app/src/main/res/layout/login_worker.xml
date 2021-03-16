@@ -20,7 +20,7 @@
                 android:layout_marginTop="3dp"
                 android:background="@color/header_background"
                 android:gravity="center"
-                android:text="Welcome Worker Please Enter Mobile No. and Password For login"
+                android:text="Worker Please Enter Mobile No. and Password For login"
                 android:textColor="@color/header_text" />
     <EditText
         android:id="@+id/txtMob"

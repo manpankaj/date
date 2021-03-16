@@ -85,7 +85,7 @@ public class worker_profileActivity extends AppCompatActivity {
         arrayList_Civil.add("Civil Labour");
         arrayList_Civil.add("Construction Mistree");
         arrayList_Civil.add("Civil Supplier");
-        arrayList_Civil.add("Civil JCB ");
+        arrayList_Civil.add("Civil JCB");
         arrayList_Civil.add("Painter");
         arrayList_Civil.add("Plumber");
         arrayList_Civil.add("Electrician");
@@ -106,8 +106,8 @@ public class worker_profileActivity extends AppCompatActivity {
         arrayList_Computer.add("Programmer");
         arrayList_Computer.add("Network Engineer");
         arrayList_Computer.add("Hardware Engineer");
-        arrayList_Computer.add("Computer Equipment Supplier ");
-        arrayList_Computer.add("Computer Equipment Maintenance ");
+        arrayList_Computer.add("Computer Equipment Supplier");
+        arrayList_Computer.add("Computer Equipment Maintenance");
         arrayList_Education = new ArrayList<>();
         arrayList_Education.add("Primary Teaching");
         arrayList_Education.add("Junior Teaching");

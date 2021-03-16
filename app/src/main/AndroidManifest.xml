@@ -94,6 +94,18 @@
         <activity
             android:name=".admin_resetEPActivity"
             android:label="ADMIN EMPLOYER RESET"/>
+        <activity
+            android:name=".EmployerRegisteredWorkActivity"
+            android:label="EMPLOYER REGISTERED WORK ACTIVATION"/>
+        <activity
+        android:name=".employer_updateworkActivity"
+        android:label="EMPLOYER UPDATE WORK ACTIVATION"/>
+        <activity
+            android:name=".EmployerWorkManActivity"
+            android:label="EMPLOYER MANPOWER WORK ACTIVATION"/>
+        <activity
+            android:name=".employer_updateworkmanActivity"
+            android:label="EMPLOYER MANPOWER REQUIREMENTS"/>
     </application>
 
 </manifest>
