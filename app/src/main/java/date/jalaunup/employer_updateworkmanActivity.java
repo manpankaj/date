@@ -1,21 +1,14 @@
 package date.jalaunup;
 
-import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -27,11 +20,10 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONObject;
 
-import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
+import androidx.appcompat.app.AppCompatActivity;
 import date.jalaunup.Config.RequestHandler;
 import date.jalaunup.Config.SessionManager;
 import date.jalaunup.Config.url_add;
@@ -44,6 +36,8 @@ public class employer_updateworkmanActivity extends AppCompatActivity {
     Button logout,back;
     String str_tehsil,str_field;
     TextView tehsil,field,id;
+    EditText edcl,edcm,edcs,edcj,edcp,edcpl,edce,edcc,edctm,edcjm;
+    TextView txtcl,txtcm,txtcs,txtcj,txtcp,txtcpl,txtce,txtcc,txtctm,txtcjm;
     String currentProjectId,currentField,currentProject;
     private View view;
 
@@ -65,6 +59,27 @@ public class employer_updateworkmanActivity extends AppCompatActivity {
 
         if(currentField.equals("Civil")){
         setContentView(R.layout.employer_manwork_civil);
+
+            edcl = findViewById(R.id.edcl);
+            edcm = findViewById(R.id.edcm);
+            edcs = findViewById(R.id.edcs);
+            edcj = findViewById(R.id.edcj);
+            edcp = findViewById(R.id.edcp);
+            edcpl = findViewById(R.id.edcpl);
+            edce = findViewById(R.id.edce);
+            edcc = findViewById(R.id.edcc);
+            edctm = findViewById(R.id.edctm);
+            edcjm = findViewById(R.id.edcjm);
+            txtcl = findViewById(R.id.txtcl);
+            txtcm = findViewById(R.id.txtcm);
+            txtcs = findViewById(R.id.txtcs);
+            txtcj = findViewById(R.id.txtcj);
+            txtcp = findViewById(R.id.txtcp);
+            txtcpl = findViewById(R.id.txtcpl);
+            txtce = findViewById(R.id.txtce);
+            txtcc = findViewById(R.id.txtcc);
+            txtctm = findViewById(R.id.txtctm);
+            txtcjm = findViewById(R.id.txtcjm);
             session = new SessionManager(getApplicationContext());
             session.checkLogin();
             String roleNew =  session.checkEmployerNew(session);
@@ -75,6 +90,7 @@ public class employer_updateworkmanActivity extends AppCompatActivity {
             email = findViewById(R.id.email);
         username.setText("Id: " +  currentProjectId + " Field: " + currentField);
         email.setText("Name: " + currentProject);
+            DisplayrWorkmanCivilDetail(currentProjectId);
 
         back = findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener() {
@@ -146,7 +162,7 @@ public class employer_updateworkmanActivity extends AppCompatActivity {
         }
     }
 /*****************************************************************************************************/
-    public void DisplayEmployerWorkDetail(String currentEmployerId){
+    public void DisplayrWorkmanCivilDetail(String currentEmployerId){
         class BindEmployerMaster extends AsyncTask<Void, Void, String> {
             ProgressDialog pdLoading = new ProgressDialog(employer_updateworkmanActivity.this);
 
@@ -163,7 +179,7 @@ public class employer_updateworkmanActivity extends AppCompatActivity {
                 RequestHandler requestHandler = new RequestHandler();
                 HashMap<String, String> params = new HashMap<>();
                 params.put("id", currentProjectId);
-                return requestHandler.sendPostRequest(url_add.employer_work_detail_by_id, params);
+                return requestHandler.sendPostRequest(url_add.employer_work_man_civil, params);
             }
 
             @Override
@@ -172,13 +188,16 @@ public class employer_updateworkmanActivity extends AppCompatActivity {
                 pdLoading.dismiss();
                 try {
                     JSONObject obj = new JSONObject(s);
-                    id.setText(obj.getString("ProjectId"));
-                    field.setText(obj.getString("ProjectField"));
-                    tehsil.setText(obj.getString("Tehsil"));
-                    sdate.setText(obj.getString("ProjectStart"));
-                    edate.setText(obj.getString("ProjectEnd"));
-                    ed_project.setText(obj.getString("ProjectName"));
-                    ed_project_add.setText(obj.getString("ProjectAddress"));
+                    txtcl.setText(obj.getString("labour"));
+                    txtcm.setText(obj.getString("mistree"));
+                    txtcs.setText(obj.getString("supply"));
+                    txtcj.setText(obj.getString("jcb"));
+                    txtcp.setText(obj.getString("paint"));
+                    txtcpl.setText(obj.getString("plumber"));
+                    txtce.setText(obj.getString("elect"));
+                    txtcc.setText(obj.getString("carp"));
+                    txtctm.setText(obj.getString("tile"));
+                    txtcjm.setText(obj.getString("jaal"));
 
                 } catch (Exception e) {
                 }

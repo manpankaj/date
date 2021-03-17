@@ -31,7 +31,6 @@
                 android:gravity="center"
                 android:text="Welcome"
                 android:textSize="20sp" />
-
             <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content" >
@@ -41,12 +40,48 @@
                     android:textColor="@color/header_background"
                     android:layout_marginLeft="10dp"
                     android:textSize="18sp"
+                    android:text="Manpower Types" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/header_background"
+                    android:layout_marginLeft="180dp"
+                    android:textSize="18sp"
+                    android:text="Old No." />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/header_background"
+                    android:layout_marginLeft="280dp"
+                    android:textSize="18sp"
+                    android:text="New No." />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/header_background"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:textSize="18sp"
                     android:text="Civil Labour" />
-                <EditText
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/txtcl"
-                    android:layout_marginLeft="180dp"/>
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="200dp"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/edcl"
+                    android:maxLength="3"
+                    android:inputType="phone"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="280dp"/>
             </RelativeLayout>
             <RelativeLayout
                 android:layout_width="fill_parent"
@@ -58,11 +93,18 @@
                     android:layout_marginLeft="10dp"
                     android:textSize="18sp"
                     android:text="Construction Mistree" />
-                <EditText
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/txtcm"
-                    android:layout_marginLeft="180dp"/>
+                    android:layout_marginLeft="200dp"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/edcm"
+                    android:maxLength="3"
+                    android:inputType="phone"
+                    android:layout_marginLeft="280dp"/>
             </RelativeLayout>
             <RelativeLayout
                 android:layout_width="fill_parent"
@@ -74,11 +116,18 @@
                     android:layout_marginLeft="10dp"
                     android:textSize="18sp"
                     android:text="Civil Supplier" />
-                <EditText
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/txtcs"
-                    android:layout_marginLeft="180dp"/>
+                    android:layout_marginLeft="200dp"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/edcs"
+                    android:maxLength="3"
+                    android:inputType="phone"
+                    android:layout_marginLeft="280dp"/>
             </RelativeLayout>
             <RelativeLayout
                 android:layout_width="fill_parent"
@@ -91,11 +140,18 @@
                     android:layout_marginLeft="10dp"
                     android:textSize="18sp"
                     android:text="Civil JCB" />
-                <EditText
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/txtcj"
-                    android:layout_marginLeft="180dp"/>
+                    android:layout_marginLeft="200dp"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/edcj"
+                    android:maxLength="3"
+                    android:inputType="phone"
+                    android:layout_marginLeft="280dp"/>
             </RelativeLayout>
             <RelativeLayout
                 android:layout_width="fill_parent"
@@ -107,11 +163,18 @@
                     android:layout_marginLeft="10dp"
                     android:textSize="18sp"
                     android:text="Painter" />
-                <EditText
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/txtcp"
-                    android:layout_marginLeft="180dp"/>
+                    android:layout_marginLeft="200dp"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/edcp"
+                    android:maxLength="3"
+                    android:inputType="phone"
+                    android:layout_marginLeft="280dp"/>
             </RelativeLayout>
             <RelativeLayout
                 android:layout_width="fill_parent"
@@ -123,11 +186,18 @@
                     android:layout_marginLeft="10dp"
                     android:textSize="18sp"
                     android:text="Plumber" />
-                <EditText
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/txtcpl"
-                    android:layout_marginLeft="180dp"/>
+                    android:layout_marginLeft="200dp"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/edcpl"
+                    android:maxLength="3"
+                    android:inputType="phone"
+                    android:layout_marginLeft="280dp"/>
             </RelativeLayout>
             <RelativeLayout
                 android:layout_width="fill_parent"
@@ -139,11 +209,18 @@
                     android:layout_marginLeft="10dp"
                     android:textSize="18sp"
                     android:text="Electrician" />
-                <EditText
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/txtce"
-                    android:layout_marginLeft="180dp"/>
+                    android:layout_marginLeft="200dp"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/edce"
+                    android:maxLength="3"
+                    android:inputType="phone"
+                    android:layout_marginLeft="280dp"/>
             </RelativeLayout>
             <RelativeLayout
                 android:layout_width="fill_parent"
@@ -155,11 +232,18 @@
                     android:layout_marginLeft="10dp"
                     android:textSize="18sp"
                     android:text="Carpenter" />
-                <EditText
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/txtcc"
-                    android:layout_marginLeft="180dp"/>
+                    android:layout_marginLeft="200dp"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/edcc"
+                    android:maxLength="3"
+                    android:inputType="phone"
+                    android:layout_marginLeft="280dp"/>
             </RelativeLayout>
             <RelativeLayout
                 android:layout_width="fill_parent"
@@ -171,11 +255,18 @@
                     android:layout_marginLeft="10dp"
                     android:textSize="18sp"
                     android:text="Tiles Mistree" />
-                <EditText
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/txtctm"
-                    android:layout_marginLeft="180dp"/>
+                    android:layout_marginLeft="200dp"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/edctm"
+                    android:maxLength="3"
+                    android:inputType="phone"
+                    android:layout_marginLeft="280dp"/>
             </RelativeLayout>
             <RelativeLayout
                 android:layout_width="fill_parent"
@@ -191,7 +282,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/txtcjm"
-                    android:layout_marginLeft="180dp"/>
+                    android:layout_marginLeft="200dp"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/edcjm"
+                    android:maxLength="3"
+                    android:inputType="phone"
+                    android:layout_marginLeft="280dp"/>
             </RelativeLayout>
             <RelativeLayout
                 android:layout_width="fill_parent"

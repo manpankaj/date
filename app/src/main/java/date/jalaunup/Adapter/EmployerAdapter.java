@@ -41,10 +41,10 @@ public class EmployerAdapter extends RecyclerView.Adapter<EmployerAdapter.ViewHo
             public void onClick(View v)
             {
                 Intent intent = new Intent(mContext, ViewRegisteredEmployerDetailActivity.class);
-                intent.putExtra("Employer Id: ", myListData.getEmployerId());
-                intent.putExtra("Employer Name: ", myListData.getEmployerName());
-                intent.putExtra("Employer Mobile No: ", myListData.getEmployerMobileNo());
-                intent.putExtra("Employer Email Id: ", myListData.getEmployerEmail());
+                intent.putExtra("EmployerId", myListData.getEmployerId());
+                intent.putExtra("EmployerName", myListData.getEmployerName());
+                intent.putExtra("EmployerMobileNo", myListData.getEmployerMobileNo());
+                intent.putExtra("EmployerEmailId", myListData.getEmployerEmail());
                 //intent.putExtra("EmployerAddress", myListData.getEmployerAddress());
                 mContext.startActivity(intent);
             }
