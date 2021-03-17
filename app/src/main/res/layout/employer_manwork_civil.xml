@@ -296,7 +296,7 @@
                 android:layout_height="wrap_content" />
             <Button
                 android:id="@+id/saveProject"
-                android:onClick="saveProject"
+                android:onClick="saveCivilMan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"

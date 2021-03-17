@@ -58,14 +58,6 @@ public class WelcomeeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        update_manpower= findViewById(R.id.updateManpowerReq);
-        update_manpower.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(WelcomeeActivity.this, employer_profileActivity.class);
-                startActivity(intent);
-            }
-        });
         search_manpower= findViewById(R.id.searchWorker);
         search_manpower.setOnClickListener(new View.OnClickListener() {
             @Override

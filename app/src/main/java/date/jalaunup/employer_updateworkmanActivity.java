@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.InputFilter;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,6 +27,7 @@ import java.util.Map;
 import androidx.appcompat.app.AppCompatActivity;
 import date.jalaunup.Config.RequestHandler;
 import date.jalaunup.Config.SessionManager;
+import date.jalaunup.Config.integerMinMax;
 import date.jalaunup.Config.url_add;
 
 public class employer_updateworkmanActivity extends AppCompatActivity {
@@ -35,7 +37,6 @@ public class employer_updateworkmanActivity extends AppCompatActivity {
     TextView username,email,sdate,edate;
     Button logout,back;
     String str_tehsil,str_field;
-    TextView tehsil,field,id;
     EditText edcl,edcm,edcs,edcj,edcp,edcpl,edce,edcc,edctm,edcjm;
     TextView txtcl,txtcm,txtcs,txtcj,txtcp,txtcpl,txtce,txtcc,txtctm,txtcjm;
     String currentProjectId,currentField,currentProject;
@@ -80,6 +81,16 @@ public class employer_updateworkmanActivity extends AppCompatActivity {
             txtcc = findViewById(R.id.txtcc);
             txtctm = findViewById(R.id.txtctm);
             txtcjm = findViewById(R.id.txtcjm);
+            edcl.setFilters(new InputFilter[]{new integerMinMax.InputFilterMinMax("1", "999")});
+            edcm.setFilters(new InputFilter[]{new integerMinMax.InputFilterMinMax("1", "999")});
+            edcs.setFilters(new InputFilter[]{new integerMinMax.InputFilterMinMax("1", "999")});
+            edcj.setFilters(new InputFilter[]{new integerMinMax.InputFilterMinMax("1", "999")});
+            edcp.setFilters(new InputFilter[]{new integerMinMax.InputFilterMinMax("1", "999")});
+            edcpl.setFilters(new InputFilter[]{new integerMinMax.InputFilterMinMax("1", "999")});
+            edce.setFilters(new InputFilter[]{new integerMinMax.InputFilterMinMax("1", "999")});
+            edcc.setFilters(new InputFilter[]{new integerMinMax.InputFilterMinMax("1", "999")});
+            edctm.setFilters(new InputFilter[]{new integerMinMax.InputFilterMinMax("1", "999")});
+            edcjm.setFilters(new InputFilter[]{new integerMinMax.InputFilterMinMax("1", "999")});
             session = new SessionManager(getApplicationContext());
             session.checkLogin();
             String roleNew =  session.checkEmployerNew(session);
@@ -109,59 +120,8 @@ public class employer_updateworkmanActivity extends AppCompatActivity {
         });
     }
 
-    } /****************************************************************************************************/
-    public void saveProject(View v) {
-        final ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Please Wait..");
-        if (ed_project.getText().toString().equals("")){
-            Toast.makeText(this, "Enter Project Name", Toast.LENGTH_SHORT).show();
-        }
-        else if(ed_project_add.getText().toString().equals("")) {
-            Toast.makeText(this, "Enter Project Side Address", Toast.LENGTH_SHORT).show();
-        }
-        else{
-            progressDialog.show();
-            str_project = ed_project.getText().toString().trim();
-            str_project_add = ed_project_add.getText().toString().trim();
-            str_sdate=sdate.getText().toString().trim();
-            str_edate=edate.getText().toString().trim();
-            StringRequest request = new StringRequest(Request.Method.POST, url_add.employer_update_work, new Response.Listener<String>() {
-
-
-                @Override
-                public void onResponse(String response) {
-                    Toast.makeText(employer_updateworkmanActivity.this, response, Toast.LENGTH_SHORT).show();
-                    progressDialog.dismiss();
-                    Intent intent = new Intent(employer_updateworkmanActivity.this, WelcomeeActivity.class);
-                    startActivity(intent);
-                }
-            },new Response.ErrorListener(){
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    progressDialog.dismiss();
-                    Toast.makeText(employer_updateworkmanActivity.this, error.getMessage().toString(), Toast.LENGTH_SHORT).show();
-                }
-            }
-            ){
-                @Override
-                protected Map<String, String> getParams() throws AuthFailureError {
-                    Map<String,String> params = new HashMap<String, String>();
-                    params.put("id", currentProjectId);
-                    params.put("mobile", str_email);
-                    params.put("project",str_project);
-                    params.put("project_add",str_project_add);
-                    params.put("sdate",str_sdate);
-                    params.put("edate",str_edate);
-                    params.put("field",str_field);
-                    params.put("tehsil",str_tehsil);
-                    return params;
-                }
-            };
-            RequestQueue requestQueue = Volley.newRequestQueue(employer_updateworkmanActivity.this);
-            requestQueue.add(request);
-        }
     }
-/*****************************************************************************************************/
+    /****************************************************************************************************/
     public void DisplayrWorkmanCivilDetail(String currentEmployerId){
         class BindEmployerMaster extends AsyncTask<Void, Void, String> {
             ProgressDialog pdLoading = new ProgressDialog(employer_updateworkmanActivity.this);
@@ -206,5 +166,58 @@ public class employer_updateworkmanActivity extends AppCompatActivity {
         BindEmployerMaster obj = new BindEmployerMaster();
         obj.execute();
     }
+    /*****************************************************************************************************/
+    public void saveCivilMan(View v) {
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Please Wait..");
+            progressDialog.show();
+        String str_edcl = edcl.getText().toString().trim();
+        String str_edcm = edcm.getText().toString().trim();
+        String str_edcs = edcs.getText().toString().trim();
+        String str_edcj = edcj.getText().toString().trim();
+        String str_edcp = edcp.getText().toString().trim();
+        String str_edcpl = edcpl.getText().toString().trim();
+        String str_edce = edce.getText().toString().trim();
+        String str_edcc = edcc.getText().toString().trim();
+        String str_edctm = edctm.getText().toString().trim();
+        String str_edcjm = edcjm.getText().toString().trim();
+        StringRequest request = new StringRequest(Request.Method.POST, url_add.update_work_man_civil, new Response.Listener<String>() {
+
+                @Override
+                public void onResponse(String response) {
+                    Toast.makeText(employer_updateworkmanActivity.this, response, Toast.LENGTH_SHORT).show();
+                    progressDialog.dismiss();
+                    Intent intent = new Intent(employer_updateworkmanActivity.this, WelcomeeActivity.class);
+                    startActivity(intent);
+                }
+            },new Response.ErrorListener(){
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    progressDialog.dismiss();
+                    Toast.makeText(employer_updateworkmanActivity.this, error.getMessage().toString(), Toast.LENGTH_SHORT).show();
+                }
+            }
+            ){
+                @Override
+                protected Map<String, String> getParams() throws AuthFailureError {
+                    Map<String,String> params = new HashMap<String, String>();
+                    params.put("id", currentProjectId);
+                    params.put("edcl",str_edcl);
+                    params.put("edcm",str_edcm);
+                    params.put("edcs",str_edcs);
+                    params.put("edcj",str_edcj);
+                    params.put("edcp",str_edcp);
+                    params.put("edcpl",str_edcpl);
+                    params.put("edce",str_edce);
+                    params.put("edcc",str_edcc);
+                    params.put("edctm",str_edctm);
+                    params.put("edcjm",str_edcjm);
+                    return params;
+                }
+            };
+            RequestQueue requestQueue = Volley.newRequestQueue(employer_updateworkmanActivity.this);
+            requestQueue.add(request);
+        }
 /*****************************************************************************************************/
+
 }

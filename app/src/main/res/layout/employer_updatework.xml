@@ -45,7 +45,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="20dp"
                     android:textSize="18sp"
-                    android:text="Your Project ID" />
+                    android:text="Project ID" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -65,7 +65,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
                     android:textSize="18sp"
-                    android:text="Your Project Field" />
+                    android:text="Project Field" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -74,25 +74,7 @@
                     android:layout_marginLeft="180dp"
                     android:layout_marginTop="5dp"/>
             </RelativeLayout>
-            <RelativeLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content" >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/header_background"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="5dp"
-                    android:textSize="18sp"
-                    android:text="Change Project Field" />
 
-                <Spinner
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/ProjectFieldSP"
-                    android:layout_marginLeft="180dp"
-                    android:layout_marginTop="5dp"/>
-            </RelativeLayout>
 
             <EditText
                 android:id="@+id/txtProjectName"
@@ -119,7 +101,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
                     android:textSize="18sp"
-                    android:text="Selected Tehsil" />
+                    android:text="Project Tehsil" />
 
                 <TextView
                     android:layout_width="match_parent"

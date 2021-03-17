@@ -45,11 +45,11 @@ public class employer_updateworkActivity extends AppCompatActivity {
     Button logout,back,startdate,enddate;
     Calendar start,end;
     DatePickerDialog dstart,dend;
-    ArrayList<String> arrayList_tehsil,arrayList_field;
-    ArrayAdapter<String> arrayAdapter_tehsil,arrayAdapter_field;
-    String str_tehsil,str_field;
+    ArrayList<String> arrayList_tehsil;
+    ArrayAdapter<String> arrayAdapter_tehsil;
+    String str_tehsil;
     TextView tehsil,field,id;
-    Spinner sp_tehsil,sp_field;
+    Spinner sp_tehsil;
     String currentProjectId;
     private View view;
 
@@ -77,31 +77,10 @@ public class employer_updateworkActivity extends AppCompatActivity {
         enddate = findViewById(R.id.txtEndDate);
         edate = findViewById(R.id.tv_edate);
         sp_tehsil = (Spinner) findViewById(R.id.tehsilSP);
-        sp_field = (Spinner) findViewById(R.id.ProjectFieldSP);
 
         Intent intent = getIntent();
         currentProjectId = intent.getStringExtra("ProjectId");
         DisplayEmployerWorkDetail(currentProjectId);
-
-        arrayList_field = new ArrayList<>();
-        arrayList_field.add("Civil");
-        arrayList_field.add("Electrical");
-        arrayList_field.add("Jal Sansaadan");
-        arrayList_field.add("Computer");
-        arrayList_field.add("Education");
-        arrayList_field.add("Official Work");
-        arrayAdapter_field = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, arrayList_field);
-        sp_field.setAdapter(arrayAdapter_field);
-        sp_field.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> ProjectField, View view, int position, long id) {
-                str_field =  ProjectField.getItemAtPosition(position).toString();
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });
-
 
         arrayList_tehsil = new ArrayList<>();
         arrayList_tehsil.add("Jalaun");
@@ -120,8 +99,6 @@ public class employer_updateworkActivity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> tehsil) {
             }
         });
-
-
 
         startdate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -222,7 +199,6 @@ public class employer_updateworkActivity extends AppCompatActivity {
                     params.put("project_add",str_project_add);
                     params.put("sdate",str_sdate);
                     params.put("edate",str_edate);
-                    params.put("field",str_field);
                     params.put("tehsil",str_tehsil);
                     return params;
                 }

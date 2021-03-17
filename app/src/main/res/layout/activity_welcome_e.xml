@@ -64,18 +64,8 @@
                 android:layout_gravity="fill"
                 android:textColor="@color/button_text"
                 app:backgroundTint="@color/button_background"
-                android:text="Save Manpower Requirements"/>
-            <Button
-                android:id="@+id/updateManpowerReq"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                android:layout_gravity="fill"
-                android:textColor="@color/button_text"
-                app:backgroundTint="@color/button_background"
-                android:text="Update Manpower Requirements"/>
+                android:text="Manpower Requirements"/>
+
             <Button
                 android:id="@+id/searchWorker"
                 android:layout_width="match_parent"
