@@ -1,11 +1,11 @@
 package date.jalaunup.Objects;
-public class Employer {
+public class Employment {
     private String employerId;
     private String employerName;
     private String employerMobileNo;
     private String employerAddress;
-    public Employer(){}
-    public Employer(String employerId, String employerName, String employerMobile, String employerAddress)
+    public Employment(){}
+    public Employment(String employerId, String employerName, String employerMobile, String employerAddress)
     {
         this.employerId = employerId;
         this.employerName = employerName;

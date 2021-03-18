@@ -44,7 +44,7 @@ public class WelcomewActivity extends AppCompatActivity {
         search_employment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(WelcomewActivity.this, worker_employmentActivity.class);
+                Intent intent = new Intent(WelcomewActivity.this, EmploymentWorkerActivity.class);
                 startActivity(intent);
             }
         });

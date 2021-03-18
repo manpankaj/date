@@ -33,6 +33,27 @@
                 android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
                 android:inputType="textCapWords"
                 android:hint="Enter Name of Employer Office" />
+
+            <EditText
+                android:id="@+id/txtMob"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:ems="10"
+                android:hint="Enter Mobile No. Office Head"
+                android:inputType="phone"
+                android:maxLength="10"
+                android:textColor="@color/editview_text" />
+
+            <EditText
+                android:id="@+id/txtEmail"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:ems="10"
+                android:hint="Enter Email ID of Employer Office"
+                android:textColor="@color/editview_text" />
+
             <EditText
                 android:id="@+id/txtAdd"
                 android:layout_width="300dp"
@@ -41,25 +62,25 @@
                 android:textColor="@color/editview_text"
                 android:ems="10"
                 android:hint="Enter Address of Employer Office" />
-            <EditText
-                android:id="@+id/txtEmail"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:textColor="@color/editview_text"
-                android:ems="10"
-                android:hint="Enter Email ID of Employer Office" />
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/header_background"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="5dp"
+                    android:textSize="18sp"
+                    android:text="Select Tehsil" />
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tehsil"
+                    android:layout_marginLeft="180dp"
+                    android:layout_marginTop="5dp"/>
+            </RelativeLayout>
 
-            <EditText
-                android:id="@+id/txtMob"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:ems="10"
-                android:maxLength="10"
-                android:textColor="@color/editview_text"
-                android:hint="Enter Mobile No. Office Head"
-                android:inputType="phone" />
             <EditText
                 android:id="@+id/txtPwd"
                 android:layout_width="300dp"

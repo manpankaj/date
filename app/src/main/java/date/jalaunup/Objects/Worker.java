@@ -3,25 +3,14 @@ public class Worker {
     private String workerId;
     private String workerName;
     private String workerMobileNo;
-    private String workerEmail;
-    private String workerAge;
-    private String workerSex;
-    private String workerField;
-    private String workerWork;
-    private String workerExp;
+    private String workerAddress;
     public Worker(){}
-    public Worker(String workerId, String workerName,String workerMobileNo,String workerEmail,
-                  String workerAge, String workerSex,String workerField,String workerWork,String workerExp)
+    public Worker(String workerId, String workerName,String workerMobileNo,String workerAddress)
     {
         this.workerId = workerId;
         this.workerName = workerName;
         this.workerMobileNo = workerMobileNo;
-        this.workerEmail = workerEmail;
-        this.workerAge = workerAge;
-        this.workerSex = workerSex;
-        this.workerField = workerField;
-        this.workerWork = workerWork;
-        this.workerExp = workerExp;
+        this.workerAddress = workerAddress;
     }
     public void setWorkerId(String workerId)
     {
@@ -35,29 +24,9 @@ public class Worker {
     {
         this.workerMobileNo = workerMobileNo;
     }
-    public void setWorkerEmail(String workerEmail)
+    public void setWorkerAddress(String workerEmail)
     {
-        this.workerEmail = workerEmail;
-    }
-    public void setworkerAge(String workerAge)
-    {
-        this.workerAge = workerAge;
-    }
-    public void setWorkerSex(String workerSex)
-    {
-        this.workerSex = workerSex;
-    }
-    public void setWorkerField(String workerField)
-    {
-        this.workerField = workerField;
-    }
-    public void setWorkerWork(String workerWork)
-    {
-        this.workerWork = workerWork;
-    }
-    public void setWorkerExp(String workerExp)
-    {
-        this.workerExp = workerExp;
+        this.workerAddress = workerAddress;
     }
     public String getWorkerId()
     {
@@ -69,23 +38,7 @@ public class Worker {
     public String getWorkerMobileNo(){
         return this.workerMobileNo;
     }
-    public String getWorkerEmail(){
-        return this.workerEmail;
-    }
-    public String getWorkerAge()
-    {
-        return this.workerAge;
-    }
-    public String getWorkerSex(){
-        return this.workerSex;
-    }
-    public String getWorkerField(){
-        return this.workerField;
-    }
-    public String getWorkerWork(){
-        return this.workerWork;
-    }
-    public String getWorkerExp(){
-        return this.workerExp;
+    public String getWorkerAddress(){
+        return this.workerAddress;
     }
 }

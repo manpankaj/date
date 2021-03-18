@@ -86,7 +86,6 @@ public class RegisteredEmployerActivity extends AppCompatActivity {
                             tempOBJ.setEmployerId(currentEmployer.getString("EmployerId"));
                             tempOBJ.setEmployerName(currentEmployer.getString("EmployerName"));
                             tempOBJ.setEmployerMobileNo(currentEmployer.getString("EmployerMobileNo"));
-                            tempOBJ.setEmployerEmail(currentEmployer.getString("EmployerEmail"));
                             tempOBJ.setEmployerAddress(currentEmployer.getString("EmployerAddress"));
                             myListData.add(tempOBJ);
                         }

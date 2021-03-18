@@ -6,7 +6,7 @@
     android:background="@drawable/border">
 
     <TextView
-        android:id="@+id/textViewWorkerId"
+        android:id="@+id/textViewEmployerId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
@@ -17,30 +17,30 @@
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
         />
     <TextView
-        android:id="@+id/textViewWorkerName"
+        android:id="@+id/textViewEmployerName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/textViewWorkerId"
-        android:layout_toRightOf="@id/textViewWorkerId"
+        android:layout_toEndOf="@id/textViewEmployerId"
+        android:layout_toRightOf="@id/textViewEmployerId"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
         android:gravity="center_vertical"
         android:textSize="16sp"/>
     <TextView
-        android:id="@+id/textWorkerMobileNo"
+        android:id="@+id/textEmployerMobileNo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textViewWorkerName"
-        android:layout_toRightOf="@id/textViewWorkerId"
+        android:layout_below="@id/textViewEmployerName"
+        android:layout_toRightOf="@id/textViewEmployerId"
         android:layout_marginLeft="10dp"
         android:gravity="center_vertical"
         android:textSize="16sp"/>
     <TextView
-        android:id="@+id/textWorkerAddress"
+        android:id="@+id/textEmployerAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textWorkerMobileNo"
-        android:layout_toRightOf="@id/textViewWorkerId"
+        android:layout_below="@id/textEmployerMobileNo"
+        android:layout_toRightOf="@id/textViewEmployerId"
         android:layout_marginLeft="10dp"
         android:gravity="center_vertical"
         android:textSize="16sp"/>

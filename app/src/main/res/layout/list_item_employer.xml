@@ -26,8 +26,9 @@
         android:layout_marginLeft="10dp"
         android:gravity="center_vertical"
         android:textSize="16sp"/>
+
     <TextView
-        android:id="@+id/textEmployerEmail"
+        android:id="@+id/textEmployerMobileNo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/textViewEmployerName"
@@ -36,13 +37,12 @@
         android:gravity="center_vertical"
         android:textSize="16sp"/>
     <TextView
-        android:id="@+id/textEmployerMobileNo"
+        android:id="@+id/textEmployerAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textEmployerEmail"
+        android:layout_below="@id/textEmployerMobileNo"
         android:layout_toRightOf="@id/textViewEmployerId"
         android:layout_marginLeft="10dp"
         android:gravity="center_vertical"
-        android:textSize="16sp"
-        android:layout_marginBottom="10dp"/>
+        android:textSize="16sp"/>
    </RelativeLayout>

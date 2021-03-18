@@ -31,10 +31,10 @@ public class WorkerAdapter extends RecyclerView.Adapter<WorkerAdapter.ViewHolder
     public void onBindViewHolder(ViewHolder holder, int position)
     {
         final Worker myListData = listdata[position];
-        holder.textViewId.setText(" Worker Id: " +listdata[position].getWorkerId());
-        holder.textViewName.setText("Worker Name: " + listdata[position].getWorkerName());
-        holder.textViewMobileNo.setText("Worker Mobile No: " + listdata[position].getWorkerMobileNo());
-        holder.textViewEmail.setText("Worker Email Id: " + listdata[position].getWorkerEmail());
+        holder.textViewId.setText("  Id: " +listdata[position].getWorkerId());
+        holder.textViewName.setText("  Name: " + listdata[position].getWorkerName());
+        holder.textViewMobileNo.setText("  Mobile No: " + listdata[position].getWorkerMobileNo());
+        holder.textViewAddress.setText("  Address: " + listdata[position].getWorkerAddress());
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
@@ -43,12 +43,6 @@ public class WorkerAdapter extends RecyclerView.Adapter<WorkerAdapter.ViewHolder
                 intent.putExtra("WorkerId", myListData.getWorkerId());
                 intent.putExtra("WorkerName", myListData.getWorkerName());
                 intent.putExtra("WorkerMobileNo", myListData.getWorkerMobileNo());
-                intent.putExtra("WorkerEmail", myListData.getWorkerEmail());
-                intent.putExtra("WorkerAge", myListData.getWorkerAge());
-                intent.putExtra("WorkerSex", myListData.getWorkerSex());
-                intent.putExtra("WorkerField", myListData.getWorkerField());
-                intent.putExtra("WorkerWork", myListData.getWorkerWork());
-                intent.putExtra("WorkerExp", myListData.getWorkerExp());
                 mContext.startActivity(intent);
             }
         });
@@ -59,15 +53,14 @@ public class WorkerAdapter extends RecyclerView.Adapter<WorkerAdapter.ViewHolder
     }
     public static class ViewHolder extends RecyclerView.ViewHolder
     {
-        public ImageView imageView;
-        public TextView textViewId, textViewName, textViewEmail, textViewMobileNo;
+        public TextView textViewId, textViewName, textViewMobileNo, textViewAddress;
         public RelativeLayout relativeLayout;
         public ViewHolder(View itemView)
         {
             super(itemView);
             this.textViewId = (TextView) itemView.findViewById(R.id.textViewWorkerId);
             this.textViewName = (TextView) itemView.findViewById(R.id.textViewWorkerName);
-            this.textViewEmail = (TextView) itemView.findViewById(R.id.textWorkerEmail);
+            this.textViewAddress = (TextView) itemView.findViewById(R.id.textWorkerAddress);
             this.textViewMobileNo = (TextView) itemView.findViewById(R.id.textWorkerMobileNo);
             relativeLayout = (RelativeLayout)itemView.findViewById(R.id.relativeLayout);
             Context context = itemView.getContext();

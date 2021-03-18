@@ -29,16 +29,16 @@
             <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp" >
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp" >
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:background="#FFFFFF"
+                    android:background="@color/white"
                     android:text="Worker ID"
-                    android:textColor="@color/button_background"
+                    android:textColor="@color/list_font"
                     android:textSize="18sp" />
 
                 <TextView
@@ -54,14 +54,15 @@
             <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp">
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Worker Name"
-                    android:textColor="@color/button_background"
+                    android:background="@color/lightgrey"
+                    android:textColor="@color/list_font"
                     android:textSize="18sp" />
 
                 <TextView
@@ -76,15 +77,15 @@
             <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp">
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
                     android:text="Worker Mobile No."
-                    android:textColor="#3F51B5"
+                    android:textColor="@color/list_font"
                     android:textSize="18sp" />
 
                 <TextView
@@ -99,14 +100,15 @@
             <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp">
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Worker Email ID"
-                    android:textColor="@color/button_background"
+                    android:background="@color/lightgrey"
+                    android:textColor="@color/list_font"
                     android:textSize="18sp" />
 
                 <TextView
@@ -121,15 +123,15 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp">
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
                     android:text="Worker Sex"
-                    android:textColor="#3F51B5"
+                    android:textColor="@color/list_font"
                     android:textSize="18sp" />
 
                 <TextView
@@ -143,14 +145,15 @@
             <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp">
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Worker Age"
-                    android:textColor="@color/button_background"
+                    android:background="@color/lightgrey"
+                    android:textColor="@color/list_font"
                     android:textSize="18sp" />
 
                 <TextView
@@ -161,19 +164,63 @@
                     android:layout_marginLeft="160dp"
                     android:textColor="@color/black"/>
             </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:text="Worker Address"
+                    android:textColor="@color/list_font"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_worker_add"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="160dp"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Worker Tehsil"
+                    android:background="@color/lightgrey"
+                    android:textColor="@color/list_font"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_worker_teh"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:layout_marginLeft="160dp"
+                    android:textColor="@color/black"/>
+            </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp">
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
                     android:text="Worker Field Area"
-                    android:textColor="#3F51B5"
+                    android:textColor="@color/list_font"
                     android:textSize="18sp" />
 
                 <TextView
@@ -187,14 +234,15 @@
             <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp">
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Worker Work Area"
-                    android:textColor="@color/button_background"
+                    android:background="@color/lightgrey"
+                    android:textColor="@color/list_font"
                     android:textSize="18sp" />
 
                 <TextView
@@ -209,15 +257,15 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp">
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
                     android:text="Work Experience"
-                    android:textColor="#3F51B5"
+                    android:textColor="@color/list_font"
                     android:textSize="18sp" />
 
                 <TextView

@@ -31,7 +31,7 @@ public class ViewRegisteredEmployerDetailActivity extends AppCompatActivity {
     SessionManager session;
     Button logout,back,activate_Employer;
     String currentEmployerId;
-    TextView tv_Employerid,tv_Employer_name,tv_Employer_mobile,tv_Employer_email,tv_Employer_address;
+    TextView tv_Employerid,tv_Employer_name,tv_Employer_mobile,tv_Employer_email,tv_Employer_address,tv_Employer_tehsil;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +44,7 @@ public class ViewRegisteredEmployerDetailActivity extends AppCompatActivity {
         tv_Employer_mobile=findViewById(R.id.tv_Employer_mobile);
         tv_Employer_email=findViewById(R.id.tv_Employer_email);
         tv_Employer_address=findViewById(R.id.tv_Employer_address);
+        tv_Employer_tehsil=findViewById(R.id.tv_Employer_tehsil);
 
         Intent intent = getIntent();
         currentEmployerId = intent.getStringExtra("EmployerId");
@@ -130,6 +131,7 @@ public class ViewRegisteredEmployerDetailActivity extends AppCompatActivity {
                     tv_Employer_mobile.setText(obj.getString("EmployerMobileNo"));
                     tv_Employer_email.setText(obj.getString("EmployerEmail"));
                     tv_Employer_address.setText(obj.getString("EmployerAddress"));
+                    tv_Employer_tehsil.setText(obj.getString("EmployerTehsil"));
 
                 } catch (Exception e) {
                 }

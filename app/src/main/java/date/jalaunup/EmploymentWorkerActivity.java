@@ -5,7 +5,10 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -14,42 +17,45 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import date.jalaunup.Adapter.EmploymentAdapter;
 import date.jalaunup.Adapter.WorkerAdapter;
 import date.jalaunup.Config.RequestHandler;
 import date.jalaunup.Config.SessionManager;
 import date.jalaunup.Config.url_add;
+import date.jalaunup.Objects.Employment;
 import date.jalaunup.Objects.Worker;
 
-public class RegisteredWorkerActivity extends AppCompatActivity {
+public class EmploymentWorkerActivity extends AppCompatActivity {
 
     SessionManager session;
-    List<Worker> myListData;
+    List<Employment> myListData;
     RecyclerView recyclerView;
-    public static final String URL_PENDING_WORKER_LIST =url_add.pending_worker_act ;
+    String str_category,str_subcategory;
+    public static final String URL_WORKER_EMPLOYMENT_LIST =url_add.worker_employment_act ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registered_worker);
+        setContentView(R.layout.activity_employment_worker);
         session = new SessionManager(getApplicationContext());
         session.checkLogin();
-        String roleNew =  session.checkAdminNew(session);
+        String roleNew =  session.checkWorkerNew(session);
+        HashMap<String, String> user = session.getUserDetails();
+        str_category = user.get(SessionManager.KEY_CATEGORY);
+        str_subcategory = user.get(SessionManager.KEY_SUBCATEGORY);
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(RegisteredWorkerActivity.this));
+        recyclerView.setLayoutManager(new LinearLayoutManager(EmploymentWorkerActivity.this));
         myListData = new ArrayList<>();
 
-        GetPendingWorker();
+        GetWorkerEmployment();
     }
 
-    public void GetPendingWorker()
+    public void GetWorkerEmployment()
     {
-        class GetPendingWorkerList extends AsyncTask<Void, Void, String>
+        class GetWorkerEmployment extends AsyncTask<Void, Void, String>
         {
-            ProgressDialog pdLoading = new ProgressDialog(RegisteredWorkerActivity.this);
+            ProgressDialog pdLoading = new ProgressDialog(EmploymentWorkerActivity.this);
 
             @Override
             protected void onPreExecute() {
@@ -64,7 +70,9 @@ public class RegisteredWorkerActivity extends AppCompatActivity {
             {
                 RequestHandler requestHandler = new RequestHandler();
                 HashMap<String, String> params = new HashMap<>();
-                return requestHandler.sendPostRequest(URL_PENDING_WORKER_LIST, params);
+                params.put("category",str_category);
+                params.put("subcategory",str_subcategory);
+                return requestHandler.sendPostRequest(URL_WORKER_EMPLOYMENT_LIST, params);
             }
 
             @Override
@@ -77,25 +85,25 @@ public class RegisteredWorkerActivity extends AppCompatActivity {
                     JSONObject jsonObj = new JSONObject(s);
                     if (jsonObj != null)
                     {
-                        JSONArray cmArray = jsonObj.getJSONArray("WorkerList");
+                        JSONArray cmArray = jsonObj.getJSONArray("EmploymentList");
                         for (int count = 0; count < cmArray.length(); count++)
                         {
-                            JSONObject currentWorker = cmArray.getJSONObject(count);
+                            JSONObject currentEmployment = cmArray.getJSONObject(count);
 
-                            Worker tempOBJ = new Worker();
-                            tempOBJ.setWorkerId(currentWorker.getString("WorkerId"));
-                            tempOBJ.setWorkerName(currentWorker.getString("WorkerName"));
-                            tempOBJ.setWorkerMobileNo(currentWorker.getString("WorkerMobileNo"));
-                            tempOBJ.setWorkerAddress(currentWorker.getString("WorkerAddress"));
+                            Employment tempOBJ = new Employment();
+                            tempOBJ.setEmployerId(currentEmployment.getString("EmployerId"));
+                            tempOBJ.setEmployerName(currentEmployment.getString("EmployerName"));
+                            tempOBJ.setEmployerMobileNo(currentEmployment.getString("EmployerMobileNo"));
+                            tempOBJ.setEmployerAddress(currentEmployment.getString("EmployerAddress"));
                             myListData.add(tempOBJ);
                         }
                     }
-                    Worker[] myArrayData = new Worker[myListData.size()];
+                    Employment[] myArrayData = new Employment[myListData.size()];
                     myArrayData = myListData.toArray(myArrayData);
 
-                    Log.e("Worker List :",myListData.toString());
+                    Log.e("Employment List :",myListData.toString());
 
-                    WorkerAdapter finalAdapter = new WorkerAdapter(RegisteredWorkerActivity.this,myArrayData);
+                    EmploymentAdapter finalAdapter = new EmploymentAdapter(EmploymentWorkerActivity.this,myArrayData);
                     recyclerView.setAdapter(finalAdapter);
 
                 }
@@ -105,14 +113,14 @@ public class RegisteredWorkerActivity extends AppCompatActivity {
                 }
             }
         }
-        GetPendingWorkerList show = new GetPendingWorkerList();
+        GetWorkerEmployment show = new GetWorkerEmployment();
         show.execute();
     }
 
     @Override
     public void onBackPressed()
     {
-        Intent i = new Intent(RegisteredWorkerActivity.this,WelcomeaActivity.class);
+        Intent i = new Intent(EmploymentWorkerActivity.this,WelcomewActivity.class);
        startActivity(i);
       finish();
     }

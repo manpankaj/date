@@ -3,7 +3,10 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -12,6 +15,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,6 +28,10 @@ public class registrationeActivity extends AppCompatActivity {
     EditText ed_empname,ed_mobile,ed_email,ed_add,ed_password,ed_password1;
     String str_empname,str_mobile,str_email,str_add,str_password,str_password1;
     String url = url_add.regis_employer;
+    Spinner sp_tehsil;
+    ArrayList<String> arrayList_tehsil;
+    ArrayAdapter<String> arrayAdapter_tehsil;
+    String str_tehsil;
     private View view;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +41,26 @@ public class registrationeActivity extends AppCompatActivity {
         ed_mobile = findViewById(R.id.txtMob);
         ed_email = findViewById(R.id.txtEmail);
         ed_add = findViewById(R.id.txtAdd);
+        sp_tehsil = (Spinner) findViewById(R.id.tehsil);
         ed_password = findViewById(R.id.txtPwd);
         ed_password1 = findViewById(R.id.txtPwd2);
+        arrayList_tehsil = new ArrayList<>();
+        arrayList_tehsil.add("Jalaun");
+        arrayList_tehsil.add("Orai");
+        arrayList_tehsil.add("Kalpi");
+        arrayList_tehsil.add("Konch");
+        arrayList_tehsil.add("Madhogarh");
+        arrayAdapter_tehsil = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, arrayList_tehsil);
+        sp_tehsil.setAdapter(arrayAdapter_tehsil);
+        sp_tehsil.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> tehsil, View view, int position, long id) {
+                str_tehsil =  tehsil.getItemAtPosition(position).toString();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> tehsil) {
+            }
+        });
     }
     public void back(View view) {
         startActivity(new Intent(getApplicationContext(),MainActivity.class));
@@ -107,6 +134,7 @@ public class registrationeActivity extends AppCompatActivity {
                     params.put("mobile",str_mobile);
                     params.put("email",str_email);
                     params.put("add",str_add);
+                    params.put("tehsil",str_tehsil);
                     params.put("password",encrypt_password);
                     return params;
                 }

@@ -49,9 +49,6 @@
             android:name=".worker_profileActivity"
             android:label="WORKER&apos;S PROFILE UPDATE" />
         <activity
-            android:name=".worker_employmentActivity"
-            android:label="WORKER&apos;S EMPLOYMENT" />
-        <activity
             android:name=".worker_changePActivity"
             android:label="WORKER&apos;S CHANGE PASSWORD" />
         <activity
@@ -105,6 +102,9 @@
         <activity
             android:name=".employer_updateworkmanActivity"
             android:label="EMPLOYER MANPOWER REQUIREMENTS"/>
+        <activity
+            android:name=".EmploymentWorkerActivity"
+            android:label="WORKER&apos;S EMPLOYMENT"/>
     </application>
 
 </manifest>

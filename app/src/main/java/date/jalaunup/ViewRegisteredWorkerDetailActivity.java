@@ -33,7 +33,7 @@ public class ViewRegisteredWorkerDetailActivity extends AppCompatActivity {
     SessionManager session;
     Button logout, back, activate_worker;
     String currentWorkerId;
-    TextView workerid, worker_name, worker_mobile, worker_email, worker_sex, worker_age, worker_fa, worker_wa, worker_we;
+    TextView workerid, worker_name, worker_mobile, worker_email, worker_sex, worker_age,worker_add,worker_teh, worker_fa, worker_wa, worker_we;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +48,8 @@ public class ViewRegisteredWorkerDetailActivity extends AppCompatActivity {
         worker_email = findViewById(R.id.tv_worker_email);
         worker_sex = findViewById(R.id.tv_worker_sex);
         worker_age = findViewById(R.id.tv_worker_age);
+        worker_add = findViewById(R.id.tv_worker_add);
+        worker_teh = findViewById(R.id.tv_worker_teh);
         worker_fa = findViewById(R.id.tv_worker_fa);
         worker_wa = findViewById(R.id.tv_worker_wa);
         worker_we = findViewById(R.id.tv_worker_we);
@@ -140,6 +142,8 @@ public class ViewRegisteredWorkerDetailActivity extends AppCompatActivity {
                     worker_email.setText(obj.getString("WorkerEmail"));
                     worker_sex.setText(obj.getString("WorkerSex"));
                     worker_age.setText(obj.getString("WorkerAge"));
+                    worker_add.setText(obj.getString("WorkerAdd"));
+                    worker_teh.setText(obj.getString("WorkerTeh"));
                     worker_fa.setText(obj.getString("WorkerField"));
                     worker_wa.setText(obj.getString("WorkerWork"));
                     worker_we.setText(obj.getString("WorkerExp"));
