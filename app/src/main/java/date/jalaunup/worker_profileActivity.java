@@ -65,7 +65,7 @@ public class worker_profileActivity extends AppCompatActivity {
         tv_child = findViewById(R.id.tv_child1);
         tv_expyear = findViewById(R.id.tv_expyear1);
         tv_expyear.setFilters(new InputFilter[]{new integerMinMax.InputFilterMinMax("1", "30")});
-        username.setText("Welcome " + str_username + str_role);
+        username.setText("Welcome " + str_username );
         email.setText("Your Mobile No. " + str_email);
         sp_parent = (Spinner) findViewById(R.id.parent);
         sp_child = (Spinner) findViewById(R.id.child);

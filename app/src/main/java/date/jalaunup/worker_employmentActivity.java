@@ -30,7 +30,7 @@ public class worker_employmentActivity extends AppCompatActivity {
         email = findViewById(R.id.email);
         username = findViewById(R.id.username);
         email = findViewById(R.id.email);
-        username.setText("Welcome " + str_username + str_role);
+        username.setText("Welcome " + str_username );
         email.setText("Your Mobile No. " + str_email);
         back = findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener() {

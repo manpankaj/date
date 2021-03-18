@@ -9,8 +9,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -22,6 +20,7 @@ import com.android.volley.toolbox.Volley;
 import java.util.HashMap;
 import java.util.Map;
 
+import androidx.appcompat.app.AppCompatActivity;
 import date.jalaunup.Config.SessionManager;
 import date.jalaunup.Config.password_encrypt;
 import date.jalaunup.Config.stringPattern;
@@ -49,7 +48,7 @@ public class admin_resetEPActivity extends AppCompatActivity {
         str_role = user.get(SessionManager.KEY_ROLE);
         username = findViewById(R.id.username);
         email = findViewById(R.id.email);
-        username.setText("Welcome " + str_username + str_role);
+        username.setText("Welcome " + str_username );
         email.setText("Your Mobile No. " + str_email);
         employer_mobile = findViewById(R.id.txt_employer_mobile);
 

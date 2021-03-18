@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/layout_background"
+    android:background="@drawable/layout_background"
     android:padding="5dp"
     android:orientation="vertical">
     <ScrollView
@@ -20,7 +20,7 @@
                 android:layout_marginTop="3dp"
                 android:background="@color/header_background"
                 android:gravity="center"
-                android:text="Employer Please Enter Mobile No. and Password For login"
+                android:text="Employer Enter Mobile No. and Password For login"
                 android:textColor="@color/header_text" />
             <EditText
                 android:id="@+id/txtMob"

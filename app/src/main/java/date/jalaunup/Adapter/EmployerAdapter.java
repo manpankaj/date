@@ -31,10 +31,10 @@ public class EmployerAdapter extends RecyclerView.Adapter<EmployerAdapter.ViewHo
     public void onBindViewHolder(ViewHolder holder, int position)
     {
         final Employer myListData = listdata[position];
-        holder.textViewId.setText("ID :" +listdata[position].getEmployerId());
-        holder.textViewName.setText("Name : " + listdata[position].getEmployerName());
-        holder.textViewMobileNo.setText("MobileNo : " + listdata[position].getEmployerMobileNo());
-        holder.textViewEmail.setText("Email : " + listdata[position].getEmployerEmail());
+        holder.textViewId.setText(" Employer Id :" +listdata[position].getEmployerId());
+        holder.textViewName.setText("Employer Name : " + listdata[position].getEmployerName());
+        holder.textViewMobileNo.setText("Employer Mobile No : " + listdata[position].getEmployerMobileNo());
+        holder.textViewEmail.setText("Employer Email Id : " + listdata[position].getEmployerEmail());
         //holder.textViewAddress.setText("Email : " + listdata[position].getEmployerAddress());
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override

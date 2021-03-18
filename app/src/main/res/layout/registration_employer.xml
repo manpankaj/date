@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/layout_background"
+    android:background="@drawable/layout_background"
     android:padding="5dp"
     android:orientation="vertical">
     <ScrollView
@@ -21,7 +21,7 @@
                 android:layout_marginTop="3dp"
                 android:background="@color/header_background"
                 android:gravity="center"
-                android:text="Welcome Employer Please Provide The Details For Registration"
+                android:text="Employer Please Provide The Details For Registration"
                 android:textColor="@color/header_text" />
             <EditText
                 android:id="@+id/txtName"
@@ -32,7 +32,7 @@
                 android:ems="10"
                 android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
                 android:inputType="textCapWords"
-                android:hint="Enter Name of The Employer" />
+                android:hint="Enter Name of Employer Office" />
             <EditText
                 android:id="@+id/txtAdd"
                 android:layout_width="300dp"
@@ -40,7 +40,7 @@
                 android:layout_marginLeft="50dp"
                 android:textColor="@color/editview_text"
                 android:ems="10"
-                android:hint="Enter Address of the Employer" />
+                android:hint="Enter Address of Employer Office" />
             <EditText
                 android:id="@+id/txtEmail"
                 android:layout_width="300dp"
@@ -48,7 +48,7 @@
                 android:layout_marginLeft="50dp"
                 android:textColor="@color/editview_text"
                 android:ems="10"
-                android:hint="Enter Email ID of the Employer" />
+                android:hint="Enter Email ID of Employer Office" />
 
             <EditText
                 android:id="@+id/txtMob"
@@ -58,7 +58,7 @@
                 android:ems="10"
                 android:maxLength="10"
                 android:textColor="@color/editview_text"
-                android:hint="Enter Mobile No."
+                android:hint="Enter Mobile No. Office Head"
                 android:inputType="phone" />
             <EditText
                 android:id="@+id/txtPwd"

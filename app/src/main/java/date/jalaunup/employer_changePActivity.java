@@ -45,7 +45,7 @@ public class employer_changePActivity extends AppCompatActivity {
         str_role = user.get(SessionManager.KEY_ROLE);
         username = findViewById(R.id.username);
         email = findViewById(R.id.email);
-        username.setText("Welcome " + str_username + str_role);
+        username.setText("Welcome " + str_username);
         email.setText("Your Mobile No. " + str_email);
         ed_oldpassword = findViewById(R.id.txtOPwd);
         ed_password = findViewById(R.id.txtNPwd);

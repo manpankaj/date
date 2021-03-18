@@ -59,7 +59,7 @@ public class employer_saveworkActivity extends AppCompatActivity {
         str_role = user.get(SessionManager.KEY_ROLE);
         username = findViewById(R.id.username);
         email = findViewById(R.id.email);
-        username.setText("Welcome " +  str_username + str_role);
+        username.setText("Welcome " +  str_username );
         email.setText("Your Mobile No. " + str_email);
         ed_project = findViewById(R.id.txtProjectName);
         ed_project_add = findViewById(R.id.txtSideAdd);
