@@ -1,38 +1,26 @@
 package date.jalaunup.Objects;
 public class Employment {
-    private String employerId;
-    private String employerName;
-    private String employerMobileNo;
-    private String employerAddress;
+    private String projectId;
+    private String projectName;
+    private String projectAddress;
+    private String projectTehsil;
+    
     public Employment(){}
-    public Employment(String employerId, String employerName, String employerMobile, String employerAddress)
+    public Employment(String projectId, String projectName, String projectAddress, String projectTehsil)
     {
-        this.employerId = employerId;
-        this.employerName = employerName;
-        this.employerMobileNo = employerMobile;
-        this.employerAddress = employerAddress;
+        this.projectId = projectId;
+        this.projectName = projectName;
+        this.projectAddress = projectAddress;
+        this.projectTehsil = projectTehsil;
     }
-    public void setEmployerId(String employerId)
-    {
-        this.employerId = employerId;
-    }
-    public void setEmployerName(String employerName)
-    {
-        this.employerName = employerName;
-    }
-    public void setEmployerMobileNo(String employerMobileNo){this.employerMobileNo = employerMobileNo;}
-    public void setEmployerAddress(String employerAddress){this.employerAddress = employerAddress;}
-    public String getEmployerId()
-    {
-        return this.employerId;
-    }
-    public String getEmployerName(){
-        return this.employerName;
-    }
-    public String getEmployerMobileNo(){
-        return this.employerMobileNo;
-    }
-    public String getEmployerAddress(){
-        return this.employerAddress;
+    public void setProjectId(String projectId){this.projectId = projectId;}
+    public void setProjectName(String projectName){this.projectName = projectName;}
+    public void setProjectAddress(String projectAddress){this.projectAddress = projectAddress;}
+    public void setProjectTehsil(String projectTehsil){this.projectTehsil = projectTehsil;}
+    public String getProjectId(){return this.projectId;}
+    public String getProjectName(){return this.projectName;}
+    public String getProjectAddress(){return this.projectAddress;}
+    public String getProjectTehsil(){
+        return this.projectTehsil;
     }
 }

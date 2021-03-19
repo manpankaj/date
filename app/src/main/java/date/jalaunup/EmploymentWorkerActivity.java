@@ -6,10 +6,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -17,13 +13,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import date.jalaunup.Adapter.EmploymentAdapter;
-import date.jalaunup.Adapter.WorkerAdapter;
 import date.jalaunup.Config.RequestHandler;
 import date.jalaunup.Config.SessionManager;
 import date.jalaunup.Config.url_add;
 import date.jalaunup.Objects.Employment;
-import date.jalaunup.Objects.Worker;
 
 public class EmploymentWorkerActivity extends AppCompatActivity {
 
@@ -42,7 +39,6 @@ public class EmploymentWorkerActivity extends AppCompatActivity {
         String roleNew =  session.checkWorkerNew(session);
         HashMap<String, String> user = session.getUserDetails();
         str_category = user.get(SessionManager.KEY_CATEGORY);
-        str_subcategory = user.get(SessionManager.KEY_SUBCATEGORY);
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(EmploymentWorkerActivity.this));
@@ -71,7 +67,6 @@ public class EmploymentWorkerActivity extends AppCompatActivity {
                 RequestHandler requestHandler = new RequestHandler();
                 HashMap<String, String> params = new HashMap<>();
                 params.put("category",str_category);
-                params.put("subcategory",str_subcategory);
                 return requestHandler.sendPostRequest(URL_WORKER_EMPLOYMENT_LIST, params);
             }
 
@@ -85,16 +80,16 @@ public class EmploymentWorkerActivity extends AppCompatActivity {
                     JSONObject jsonObj = new JSONObject(s);
                     if (jsonObj != null)
                     {
-                        JSONArray cmArray = jsonObj.getJSONArray("EmploymentList");
+                        JSONArray cmArray = jsonObj.getJSONArray("ProjectList");
                         for (int count = 0; count < cmArray.length(); count++)
                         {
                             JSONObject currentEmployment = cmArray.getJSONObject(count);
 
                             Employment tempOBJ = new Employment();
-                            tempOBJ.setEmployerId(currentEmployment.getString("EmployerId"));
-                            tempOBJ.setEmployerName(currentEmployment.getString("EmployerName"));
-                            tempOBJ.setEmployerMobileNo(currentEmployment.getString("EmployerMobileNo"));
-                            tempOBJ.setEmployerAddress(currentEmployment.getString("EmployerAddress"));
+                            tempOBJ.setProjectId(currentEmployment.getString("ProjectId"));
+                            tempOBJ.setProjectName(currentEmployment.getString("ProjectName"));
+                            tempOBJ.setProjectAddress(currentEmployment.getString("ProjectAddress"));
+                            tempOBJ.setProjectTehsil(currentEmployment.getString("ProjectTehsil"));
                             myListData.add(tempOBJ);
                         }
                     }

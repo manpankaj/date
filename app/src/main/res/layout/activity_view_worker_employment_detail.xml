@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/layout_background"
-    android:orientation="vertical"
-    android:padding="5dp">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:background="@drawable/layout_background"
+        android:orientation="vertical"
+        android:padding="5dp">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -21,21 +22,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/header_background"
+                android:textColor="@color/header_text"
                 android:gravity="center"
                 android:text="Welcome"
-                android:textColor="@color/header_text"
                 android:textSize="20sp" />
-
             <TextView
                 android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/header_background"
+                android:textColor="@color/header_text"
                 android:gravity="center"
                 android:text="Welcome"
-                android:textColor="@color/header_text"
                 android:textSize="20sp" />
-
             <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -43,22 +42,21 @@
                 android:layout_marginRight="5dp" >
 
                 <TextView
-                    android:id="@+id/tv_parent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:background="#FFFFFF"
-                    android:text="Your Field Area"
-                    android:textColor="@color/button_background"
+                    android:text="Employer ID"
+                    android:textColor="@color/list_font"
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/tv_parent1"
+                    android:id="@+id/tv_employerid"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="200dp"
+                    android:layout_marginLeft="160dp"
                     android:layout_marginTop="20dp"
-                    android:text="Field"
+                    android:text="Employer ID"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
             </RelativeLayout>
@@ -72,15 +70,18 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Change Field Area"
-                    android:textColor="@color/button_background"
+                    android:text="Employer Name"
+                    android:background="@color/lightgrey"
+                    android:textColor="@color/list_font"
                     android:textSize="18sp" />
 
-                <Spinner
-                    android:id="@+id/parent"
+                <TextView
+                    android:id="@+id/tv_employer_name"
+                    android:text="Employer Name"
+                    android:textSize="18sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="200dp"
+                    android:layout_marginLeft="160dp"
                     android:textColor="@color/black"/>
             </RelativeLayout>
 
@@ -91,20 +92,19 @@
                 android:layout_marginRight="5dp">
 
                 <TextView
-                    android:id="@+id/tv_child"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
-                    android:text="Your Work Area"
-                    android:textColor="#3F51B5"
+                    android:text="Employer Mobile No."
+                    android:textColor="@color/list_font"
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/tv_child1"
+                    android:id="@+id/tv_Employer_mobile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="200dp"
-                    android:text="Work"
+                    android:layout_marginLeft="160dp"
+                    android:text="Employer Mobile No."
                     android:textColor="@color/black"
                     android:textSize="18sp" />
             </RelativeLayout>
@@ -118,15 +118,18 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Change Work Area"
-                    android:textColor="@color/button_background"
+                    android:text="Employer Email ID"
+                    android:background="@color/lightgrey"
+                    android:textColor="@color/list_font"
                     android:textSize="18sp" />
 
-                <Spinner
-                    android:id="@+id/child"
+                <TextView
+                    android:id="@+id/tv_Employer_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="200dp"
+                    android:text="Employer Email ID"
+                    android:textSize="18sp"
+                    android:layout_marginLeft="160dp"
                     android:textColor="@color/black"/>
             </RelativeLayout>
 
@@ -137,48 +140,47 @@
                 android:layout_marginRight="5dp">
 
                 <TextView
-                    android:id="@+id/tv_expyear"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:text="Work Experience in Year"
-                    android:textColor="#3F51B5"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/tv_expyear1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="200dp"
-                    android:background="#FFFFFF"
-                    android:hint="Experience in Year"
-                    android:inputType="number"
-                    android:textColor="#3F51B5" />
+                    android:background="@color/white"
+                    android:text="Employer Address"
+                    android:textColor="@color/list_font"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_Employer_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="160dp"
+                    android:text="Employer Address"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
             </RelativeLayout>
             <RelativeLayout
-                android:layout_width="match_parent"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|center_horizontal">
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
-            <Button
-                android:id="@+id/profile"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_gravity="fill"
                 android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:text="Profile Update"
-                android:textColor="@color/button_text"
-                app:backgroundTint="@color/button_background" />
-                <Space
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
+                android:layout_marginRight="5dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Employer Tehsil"
+                    android:background="@color/lightgrey"
+                    android:textColor="@color/list_font"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_Employer_tehsil"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Employer Tehsil"
+                    android:textSize="18sp"
+                    android:layout_marginLeft="160dp"
+                    android:textColor="@color/black"/>
             </RelativeLayout>
+
+
             <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -188,40 +190,40 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                <Space
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
 
-                <Button
-                    android:id="@+id/back"
-                    android:layout_width="160dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_marginTop="10dp"
-                    android:text="Back"
-                    android:textColor="@color/button_text"
-                    app:backgroundTint="@color/button_background" />
+                    <Button
+                        android:id="@+id/back"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_marginTop="10dp"
+                        android:text="Back"
+                        android:textColor="@color/button_text"
+                        app:backgroundTint="@color/button_background" />
 
-                <Space
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
 
-                <Button
-                    android:id="@+id/logout"
-                    android:layout_width="160dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_marginTop="10dp"
-                    android:text="Logout"
-                    android:textColor="@color/button_text"
-                    app:backgroundTint="@color/button_background" />
+                    <Button
+                        android:id="@+id/logout"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_marginTop="10dp"
+                        android:text="Logout"
+                        android:textColor="@color/button_text"
+                        app:backgroundTint="@color/button_background" />
 
-                <Space
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
                 </LinearLayout>
             </GridLayout>
 
@@ -238,7 +240,6 @@
                     android:layout_marginTop="130dp"
                     app:srcCompat="@drawable/niclogo" />
             </LinearLayout>
-
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

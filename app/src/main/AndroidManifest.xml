@@ -105,6 +105,9 @@
         <activity
             android:name=".EmploymentWorkerActivity"
             android:label="WORKER&apos;S EMPLOYMENT"/>
+        <activity
+            android:name=".ViewWorkerEmploymentDetailActivity"
+            android:label="EMPLOYER&apos;S EMPLOYMENT DETAIL"/>
     </application>
 
 </manifest>

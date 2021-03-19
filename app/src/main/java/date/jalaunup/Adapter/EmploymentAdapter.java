@@ -9,10 +9,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
-
 import date.jalaunup.Objects.Employment;
 import date.jalaunup.R;
-import date.jalaunup.ViewRegisteredEmployerDetailActivity;
+import date.jalaunup.ViewWorkerEmploymentDetailActivity;
 
 public class EmploymentAdapter extends RecyclerView.Adapter<EmploymentAdapter.ViewHolder>{
     public Employment[] listdata;
@@ -34,19 +33,20 @@ public class EmploymentAdapter extends RecyclerView.Adapter<EmploymentAdapter.Vi
     public void onBindViewHolder(ViewHolder holder, int position)
     {
         final Employment myListData = listdata[position];
-        holder.textViewId.setText("  Id :" +listdata[position].getEmployerId());
-        holder.textViewName.setText("  Name : " + listdata[position].getEmployerName());
-        holder.textViewMobileNo.setText("  Mobile No : " + listdata[position].getEmployerMobileNo());
-        holder.textViewAddress.setText("  Address : " + listdata[position].getEmployerAddress());
+        holder.textViewId.setText(" Id : " +listdata[position].getProjectId());
+        holder.textViewName.setText(" Project Name : " + listdata[position].getProjectName());
+        holder.textViewAddress.setText(" Address : " + listdata[position].getProjectAddress());
+        holder.textViewTehsil.setText(" Tehsil : " + listdata[position].getProjectTehsil());
+
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
             {
-                Intent intent = new Intent(mContext, ViewRegisteredEmployerDetailActivity.class);
-                intent.putExtra("EmployerId", myListData.getEmployerId());
-                intent.putExtra("EmployerName", myListData.getEmployerName());
-                intent.putExtra("EmployerMobileNo", myListData.getEmployerMobileNo());
-                intent.putExtra("EmployerAddress", myListData.getEmployerAddress());
+                Intent intent = new Intent(mContext, ViewWorkerEmploymentDetailActivity.class);
+                intent.putExtra("ProjectId", myListData.getProjectId());
+                intent.putExtra("ProjectName", myListData.getProjectName());
+                intent.putExtra("ProjectAddress", myListData.getProjectAddress());
+                intent.putExtra("ProjectTehsil", myListData.getProjectTehsil());
                 mContext.startActivity(intent);
             }
         });
@@ -57,15 +57,15 @@ public class EmploymentAdapter extends RecyclerView.Adapter<EmploymentAdapter.Vi
     }
     public static class ViewHolder extends RecyclerView.ViewHolder
     {
-        public TextView textViewId, textViewName, textViewMobileNo, textViewAddress;
+        public TextView textViewId, textViewName, textViewAddress, textViewTehsil;
         public RelativeLayout relativeLayout;
         public ViewHolder(View itemView)
         {
             super(itemView);
-            this.textViewId = (TextView) itemView.findViewById(R.id.textViewEmployerId);
-            this.textViewName = (TextView) itemView.findViewById(R.id.textViewEmployerName);
-            this.textViewMobileNo = (TextView) itemView.findViewById(R.id.textEmployerMobileNo);
-            this.textViewAddress = (TextView) itemView.findViewById(R.id.textEmployerAddress);
+            this.textViewId = (TextView) itemView.findViewById(R.id.textViewProjectId);
+            this.textViewName = (TextView) itemView.findViewById(R.id.textViewProjectName);
+            this.textViewAddress = (TextView) itemView.findViewById(R.id.textProjectAddress);
+            this.textViewTehsil = (TextView) itemView.findViewById(R.id.textProjectTehsil);
             relativeLayout = (RelativeLayout)itemView.findViewById(R.id.relativeLayout);
             Context context = itemView.getContext();
         }
