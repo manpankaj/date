@@ -17,7 +17,7 @@ import date.jalaunup.Config.url_add;
 
 public class ViewWorkerEmploymentDetailActivity extends AppCompatActivity {
     SessionManager session;
-    String currentProjectId,currentProjectrName,currentProjectrAddress,currentProjectrTehsil,str_category ,str_subcategory;
+    String currentProjectId,currentProjectMobile,currentProjectrName,currentProjectrAddress,currentProjectrTehsil,str_category ,str_subcategory;
     TextView username,email;
     TextView tv_Employerid,tv_Employer_name,tv_Employer_mobile,tv_Employer_email,tv_Employer_address,tv_Employer_tehsil;
     @Override
@@ -41,12 +41,13 @@ public class ViewWorkerEmploymentDetailActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         currentProjectId = intent.getStringExtra("ProjectId");
+        currentProjectMobile = intent.getStringExtra("ProjectMobile");
         currentProjectrName = intent.getStringExtra("ProjectName");
         currentProjectrAddress= intent.getStringExtra("ProjectAddress");
         currentProjectrTehsil = intent.getStringExtra("ProjectTehsil");
         username.setText("Project Id: " + currentProjectId + "  Name: " + currentProjectrName);
         email.setText(currentProjectrAddress +" "+ currentProjectrTehsil );
-       // DisplayEmployerDetail(currentProjectrId);
+        DisplayEmployerDetail(currentProjectId);
 
 
     }

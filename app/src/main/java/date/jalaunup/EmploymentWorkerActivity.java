@@ -27,7 +27,7 @@ public class EmploymentWorkerActivity extends AppCompatActivity {
     SessionManager session;
     List<Employment> myListData;
     RecyclerView recyclerView;
-    String str_category,str_subcategory;
+    String str_category;
     public static final String URL_WORKER_EMPLOYMENT_LIST =url_add.worker_employment_act ;
 
     @Override
@@ -87,6 +87,7 @@ public class EmploymentWorkerActivity extends AppCompatActivity {
 
                             Employment tempOBJ = new Employment();
                             tempOBJ.setProjectId(currentEmployment.getString("ProjectId"));
+                            tempOBJ.setProjectMobile(currentEmployment.getString("ProjectMobile"));
                             tempOBJ.setProjectName(currentEmployment.getString("ProjectName"));
                             tempOBJ.setProjectAddress(currentEmployment.getString("ProjectAddress"));
                             tempOBJ.setProjectTehsil(currentEmployment.getString("ProjectTehsil"));
