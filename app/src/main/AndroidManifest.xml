@@ -64,9 +64,6 @@
             android:name=".admin_profileActivity"
             android:label="ADMIN EMPLOYER&apos;S WORK ACTIVATION" />
         <activity
-            android:name=".EmployerSearchManActivity"
-            android:label="EMPLOYER&apos;S SAVE PROJECT LIST" />
-        <activity
             android:name=".employer_changePActivity"
             android:label="EMPLOYER&apos;S CHANGE PASSWORD" />
         <activity
@@ -108,6 +105,15 @@
         <activity
             android:name=".ViewWorkerEmploymentDetailActivity"
             android:label="EMPLOYER&apos;S EMPLOYMENT DETAIL"/>
+        <activity
+            android:name=".EmployerSearchManActivity"
+            android:label="EMPLOYER&apos;S SAVE PROJECT LIST" />
+        <activity
+            android:name=".EmployerSearchManBycatActivity"
+            android:label="WORKER LIST BY PROJECT FIELD"/>
+        <activity
+            android:name=".ViewWorkerDetailByempActivity"
+            android:label="WORKER&apos;S FULL DETAIL"/>
     </application>
 
 </manifest>

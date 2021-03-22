@@ -6,10 +6,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -17,13 +13,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import date.jalaunup.Adapter.EmployerSaveWorkAdapter;
-import date.jalaunup.Adapter.EmployerWorkManAdapter;
 import date.jalaunup.Config.RequestHandler;
 import date.jalaunup.Config.SessionManager;
 import date.jalaunup.Config.url_add;
 import date.jalaunup.Objects.SearchWorkMan;
-import date.jalaunup.Objects.WorkMan;
 
 public class EmployerSearchManActivity extends AppCompatActivity {
 
@@ -31,8 +28,7 @@ public class EmployerSearchManActivity extends AppCompatActivity {
     List<SearchWorkMan> myListData;
     RecyclerView recyclerView;
     String str_username,str_email;
-    String currentProjectCat;
-    public static final String URL_EMPLOYER_REGISTERED_WORK_LIST =url_add.employer_registered_work_act ;
+    public static final String URL_EMPLOYER_REGISTERED_WORK_LIST =url_add.employer_registered_worker_act ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +67,7 @@ public class EmployerSearchManActivity extends AppCompatActivity {
             {
                 RequestHandler requestHandler = new RequestHandler();
                 HashMap<String, String> params = new HashMap<>();
-                params.put("WorkCat", currentProjectCat);
+                params.put("EmployerMobile", str_email);
                 return requestHandler.sendPostRequest(URL_EMPLOYER_REGISTERED_WORK_LIST, params);
             }
 
@@ -85,7 +81,7 @@ public class EmployerSearchManActivity extends AppCompatActivity {
                     JSONObject jsonObj = new JSONObject(s);
                     if (jsonObj != null)
                     {
-                        JSONArray cmArray = jsonObj.getJSONArray("WorkerList");
+                        JSONArray cmArray = jsonObj.getJSONArray("WorkList");
                         for (int count = 0; count < cmArray.length(); count++)
                         {
                             JSONObject registeredWork = cmArray.getJSONObject(count);

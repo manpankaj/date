@@ -14,7 +14,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
             <TextView
-                android:text="Employer Registered Work List"
+                android:text="Worker List as Per Project Field Area"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/button_text"

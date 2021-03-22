@@ -6,10 +6,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -17,24 +13,28 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import date.jalaunup.Adapter.EmployerSaveWorkAdapter;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import date.jalaunup.Adapter.WorkerAdapterByEmp;
 import date.jalaunup.Config.RequestHandler;
 import date.jalaunup.Config.SessionManager;
 import date.jalaunup.Config.url_add;
-import date.jalaunup.Objects.SearchWorkMan;
+import date.jalaunup.Objects.WorkerBycat;
 
 public class EmployerSearchManBycatActivity extends AppCompatActivity {
 
     SessionManager session;
-    List<SearchWorkMan> myListData;
+    List<WorkerBycat> myListData;
     RecyclerView recyclerView;
     String str_username,str_email;
-    public static final String URL_EMPLOYER_REGISTERED_WORK_LIST =url_add.employer_registered_worker_act ;
+    String currentProjectId,currentProjectField;
+    public static final String URL_EMPLOYER_REGISTERED_WORKER_LIST =url_add.employer_search_worker_bycat ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.employer_searchworker);
+        setContentView(R.layout.employer_searchworker_bycat);
         session = new SessionManager(getApplicationContext());
         session.checkLogin();
         String roleNew =  session.checkEmployerNew(session);
@@ -46,12 +46,17 @@ public class EmployerSearchManBycatActivity extends AppCompatActivity {
         str_username = user.get(SessionManager.KEY_NAME);
         str_email = user.get(SessionManager.KEY_EMAIL);
 
-       GetRegisteredWork();
+        Intent intent = getIntent();
+        currentProjectId = intent.getStringExtra("ProjectId");
+        currentProjectField = intent.getStringExtra("ProjectField");
+       // Toast.makeText(getApplicationContext(), "User Login Status: " + currentProjectField, Toast.LENGTH_LONG).show();
+
+       GetRegisteredWorker();
     }
 
-    public void GetRegisteredWork()
+    public void GetRegisteredWorker()
     {
-        class GetRegisteredWork extends AsyncTask<Void, Void, String>
+        class GetRegisteredWorker extends AsyncTask<Void, Void, String>
         {
             ProgressDialog pdLoading = new ProgressDialog(EmployerSearchManBycatActivity.this);
 
@@ -68,8 +73,8 @@ public class EmployerSearchManBycatActivity extends AppCompatActivity {
             {
                 RequestHandler requestHandler = new RequestHandler();
                 HashMap<String, String> params = new HashMap<>();
-                params.put("EmployerMobile", str_email);
-                return requestHandler.sendPostRequest(URL_EMPLOYER_REGISTERED_WORK_LIST, params);
+                params.put("WorkCat", currentProjectField);
+                return requestHandler.sendPostRequest(URL_EMPLOYER_REGISTERED_WORKER_LIST, params);
             }
 
             @Override
@@ -82,25 +87,25 @@ public class EmployerSearchManBycatActivity extends AppCompatActivity {
                     JSONObject jsonObj = new JSONObject(s);
                     if (jsonObj != null)
                     {
-                        JSONArray cmArray = jsonObj.getJSONArray("WorkList");
+                        JSONArray cmArray = jsonObj.getJSONArray("WorkerList");
                         for (int count = 0; count < cmArray.length(); count++)
                         {
-                            JSONObject registeredWork = cmArray.getJSONObject(count);
+                            JSONObject registeredWorker = cmArray.getJSONObject(count);
 
-                            SearchWorkMan tempOBJ = new SearchWorkMan();
-                            tempOBJ.setProjectId(registeredWork.getString("ProjectId"));
-                            tempOBJ.setProjectField(registeredWork.getString("ProjectField"));
-                            tempOBJ.setProjectName(registeredWork.getString("ProjectName"));
-                            tempOBJ.setProjectAddress(registeredWork.getString("ProjectAddress"));
+                            WorkerBycat tempOBJ = new WorkerBycat();
+                            tempOBJ.setWorkerId(registeredWorker.getString("WorkerId"));
+                            tempOBJ.setWorkerName(registeredWorker.getString("WorkerName"));
+                            tempOBJ.setWorkerMobileNo(registeredWorker.getString("WorkerMobile"));
+                            tempOBJ.setWorkerSubcat(registeredWorker.getString("WorkerSubcat"));
                             myListData.add(tempOBJ);
                         }
                     }
-                    SearchWorkMan[] myArrayData = new SearchWorkMan[myListData.size()];
+                    WorkerBycat[] myArrayData = new WorkerBycat[myListData.size()];
                     myArrayData = myListData.toArray(myArrayData);
 
-                    Log.e("Work List :",myListData.toString());
+                    Log.e("Worker List :",myListData.toString());
 
-                    EmployerSaveWorkAdapter finalAdapter = new EmployerSaveWorkAdapter(EmployerSearchManBycatActivity.this,myArrayData);
+                    WorkerAdapterByEmp finalAdapter = new WorkerAdapterByEmp(EmployerSearchManBycatActivity.this,myArrayData);
                     recyclerView.setAdapter(finalAdapter);
 
                 }
@@ -110,7 +115,7 @@ public class EmployerSearchManBycatActivity extends AppCompatActivity {
                 }
             }
         }
-        GetRegisteredWork show = new GetRegisteredWork();
+        GetRegisteredWorker show = new GetRegisteredWorker();
         show.execute();
     }
 
