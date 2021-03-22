@@ -68,12 +68,15 @@ public class loginwActivity extends AppCompatActivity {
                     try {
                         JSONObject obj = new JSONObject(s);
                         if (!obj.getBoolean("error")) {
+                            String emailid = obj.getString("email");
                             String username = obj.getString("username");
                             String category = obj.getString("category");
                             String sub_category = obj.getString("sub_category");
                             String exp_year = obj.getString("exp_year");
                             String role = obj.getString("role");
-                            session.createLoginSession_worker(username, email, category, sub_category, exp_year, role);
+                            String address = obj.getString("address");
+                            String tehsil = obj.getString("tehsil");
+                            session.createLoginSession_worker(username, email, emailid, category, sub_category, exp_year, role, address, tehsil);
                             Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_LONG).show();
                             Intent intent = new Intent(loginwActivity.this, WelcomewActivity.class);
                             startActivity(intent);

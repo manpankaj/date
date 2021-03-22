@@ -4,6 +4,8 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import org.json.JSONObject;
@@ -19,6 +21,7 @@ public class ViewWorkerEmploymentDetailActivity extends AppCompatActivity {
     SessionManager session;
     String currentProjectId,currentProjectMobile,currentProjectrName,currentProjectrAddress,currentProjectrTehsil,str_category ,str_subcategory;
     TextView username,email;
+    Button logout,back;
     TextView tv_Employerid,tv_Employer_name,tv_Employer_mobile,tv_Employer_email,tv_Employer_address,tv_Employer_tehsil;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,12 +50,26 @@ public class ViewWorkerEmploymentDetailActivity extends AppCompatActivity {
         currentProjectrTehsil = intent.getStringExtra("ProjectTehsil");
         username.setText("Project Id: " + currentProjectId + "  Name: " + currentProjectrName);
         email.setText(currentProjectrAddress +" "+ currentProjectrTehsil );
-        DisplayEmployerDetail(currentProjectId);
-
+        DisplayEmployerDetail(currentProjectMobile);
+        back = findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ViewWorkerEmploymentDetailActivity.this, EmploymentWorkerActivity.class);
+                startActivity(intent);
+            }
+        });
+        logout = findViewById(R.id.logout);
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                session.logoutUser();
+            }
+        });
 
     }
     /************************************************************************************************************************************************************************/
-    public void DisplayEmployerDetail(String currentProjectrId)
+    public void DisplayEmployerDetail(String currentProjectMobile)
     {
         class BindEmployerMaster extends AsyncTask<Void, Void, String> {
             ProgressDialog pdLoading = new ProgressDialog(ViewWorkerEmploymentDetailActivity.this);
@@ -69,8 +86,8 @@ public class ViewWorkerEmploymentDetailActivity extends AppCompatActivity {
             protected String doInBackground(Void... voids) {
                 RequestHandler requestHandler = new RequestHandler();
                 HashMap<String, String> params = new HashMap<>();
-                params.put("id", currentProjectrId);
-                return requestHandler.sendPostRequest(url_add.employer_detail_by_id, params);
+                params.put("id", currentProjectMobile);
+                return requestHandler.sendPostRequest(url_add.employment_detail_by_id, params);
             }
 
             @Override

@@ -44,6 +44,7 @@ public class EmploymentAdapter extends RecyclerView.Adapter<EmploymentAdapter.Vi
             {
                 Intent intent = new Intent(mContext, ViewWorkerEmploymentDetailActivity.class);
                 intent.putExtra("ProjectId", myListData.getProjectId());
+                intent.putExtra("ProjectMobile", myListData.getProjectMobile());
                 intent.putExtra("ProjectName", myListData.getProjectName());
                 intent.putExtra("ProjectAddress", myListData.getProjectAddress());
                 intent.putExtra("ProjectTehsil", myListData.getProjectTehsil());

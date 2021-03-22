@@ -18,11 +18,13 @@ public class SessionManager {
     private static final String IS_LOGIN = "IsLoggedIn";
     public static final String KEY_NAME = "name";
     public static final String KEY_EMAIL = "email";
+    public static final String KEY_EMAILID = "emailid";
     public static final String KEY_ROLE = "role";
+    public static String KEY_ADDRESS = "address";
+    public static String KEY_TEHSIL = "tehsil";
     public static String KEY_CATEGORY = "category";
     public static String KEY_SUBCATEGORY = "subcategory";
     public static String KEY_EXPYEAR = "expyear";
-
 
     public SessionManager(Context context){
         this._context = context;
@@ -30,14 +32,17 @@ public class SessionManager {
         editor = pref.edit();
     }
 
-    public void createLoginSession_worker(String username, String email, String category, String sub_category, String exp_year, String role){
+    public void createLoginSession_worker(String username, String email, String emailid, String category, String sub_category, String exp_year, String role, String address, String tehsil){
         editor.putBoolean(IS_LOGIN, true);
         editor.putString(KEY_NAME, username);
         editor.putString(KEY_EMAIL, email);
+        editor.putString(KEY_EMAILID, emailid);
         editor.putString(KEY_CATEGORY, category);
         editor.putString(KEY_SUBCATEGORY, sub_category);
         editor.putString(KEY_EXPYEAR, exp_year);
         editor.putString(KEY_ROLE, role);
+        editor.putString(KEY_ADDRESS, address);
+        editor.putString(KEY_TEHSIL, tehsil);
         editor.commit();
     }
     public void createLoginSession_employer(String username, String email, String role){
@@ -54,10 +59,12 @@ public class SessionManager {
         editor.putString(KEY_ROLE, role);
         editor.commit();
     }
-    public void updateWorkerProfile( String category, String sub_category, String exp_year){
+    public void updateWorkerProfile( String category, String sub_category, String exp_year, String address, String tehsil){
         editor.putString(KEY_CATEGORY, category);
         editor.putString(KEY_SUBCATEGORY, sub_category);
         editor.putString(KEY_EXPYEAR, exp_year);
+        editor.putString(KEY_ADDRESS, address);
+        editor.putString(KEY_TEHSIL, tehsil);
         editor.commit();
     }
 

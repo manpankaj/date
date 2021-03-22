@@ -62,7 +62,7 @@ public class WelcomeeActivity extends AppCompatActivity {
         search_manpower.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(WelcomeeActivity.this, employer_profileActivity.class);
+                Intent intent = new Intent(WelcomeeActivity.this, EmployerSearchManActivity.class);
                 startActivity(intent);
             }
         });

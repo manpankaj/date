@@ -2,6 +2,7 @@ package date.jalaunup;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.InputFilter;
 import android.view.View;
@@ -26,22 +27,31 @@ import java.util.HashMap;
 import java.util.Map;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import org.json.JSONObject;
+
+import date.jalaunup.Config.RequestHandler;
 import date.jalaunup.Config.SessionManager;
 import date.jalaunup.Config.integerMinMax;
 import date.jalaunup.Config.url_add;
 
 public class worker_profileActivity extends AppCompatActivity {
     SessionManager session;
-    TextView username,email,tv_parent,tv_child;
-    EditText tv_expyear;
+    TextView username,email,tv_parent,tv_child,txtadd,txtteh;
+    EditText tv_expyear,ed_add;
+    Spinner sp_tehsil;
+    String str_add,str_tehsil;
+    ArrayList<String> arrayList_tehsil;
+    ArrayAdapter<String> arrayAdapter_tehsil;
     Button logout,back,profile;
     Spinner sp_parent,sp_child;
     ArrayList<String> arrayList_parent;
     ArrayList<String> arrayList_Civil,arrayList_Electrical,arrayList_Jal_Sansaadan,arrayList_Computer,arrayList_Education,arrayList_Official_Work;
     ArrayAdapter<String> arrayAdapter_parent;
     ArrayAdapter<String> arrayAdapter_child;
-    String str_category1,str_subcategory1,str_expyear1,str_username,str_email,str_role,str_category,str_subcategory,str_expyear;
+    String str_category1,str_subcategory1,str_expyear1,str_username,str_email,str_role,str_category,str_subcategory,str_expyear,stradd,strtehsil;
     String url =url_add.worker_update;
+
     private View view;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,9 +68,13 @@ public class worker_profileActivity extends AppCompatActivity {
         str_category = user.get(SessionManager.KEY_CATEGORY);
         str_subcategory = user.get(SessionManager.KEY_SUBCATEGORY);
         str_expyear = user.get(SessionManager.KEY_EXPYEAR);
+        stradd = user.get(SessionManager.KEY_ADDRESS);
+        strtehsil = user.get(SessionManager.KEY_TEHSIL);
 
         username = findViewById(R.id.username);
         email = findViewById(R.id.email);
+        txtadd = findViewById(R.id.txtAdd);
+        txtteh = findViewById(R.id.txtTeh);
         tv_parent = findViewById(R.id.tv_parent1);
         tv_child = findViewById(R.id.tv_child1);
         tv_expyear = findViewById(R.id.tv_expyear1);
@@ -69,9 +83,30 @@ public class worker_profileActivity extends AppCompatActivity {
         email.setText("Your Mobile No. " + str_email);
         sp_parent = (Spinner) findViewById(R.id.parent);
         sp_child = (Spinner) findViewById(R.id.child);
-        tv_parent.setText(str_category);
-        tv_child.setText(str_subcategory);
-        tv_expyear.setText(str_expyear);
+        sp_tehsil = (Spinner) findViewById(R.id.tehsil);
+        ed_add = findViewById(R.id.Address);
+        //tv_parent.setText(str_category);
+        //tv_child.setText(str_subcategory);
+        //tv_expyear.setText(str_expyear);
+        //String currentWorkerMob = str_email.toString().trim();
+        DisplayWorkerDetail(str_email);
+        arrayList_tehsil = new ArrayList<>();
+        arrayList_tehsil.add("Jalaun");
+        arrayList_tehsil.add("Orai");
+        arrayList_tehsil.add("Kalpi");
+        arrayList_tehsil.add("Konch");
+        arrayList_tehsil.add("Madhogarh");
+        arrayAdapter_tehsil = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, arrayList_tehsil);
+        sp_tehsil.setAdapter(arrayAdapter_tehsil);
+        sp_tehsil.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> tehsil, View view, int position, long id) {
+                str_tehsil =  tehsil.getItemAtPosition(position).toString();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> tehsil) {
+            }
+        });
         arrayList_parent = new ArrayList<>();
         arrayList_parent.add("Civil");
         arrayList_parent.add("Electrical");
@@ -223,7 +258,8 @@ public class worker_profileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 str_expyear1 = tv_expyear.getText().toString().trim();
-                session.updateWorkerProfile(str_category1,str_subcategory1,str_expyear1);
+                str_add = ed_add.getText().toString().trim();
+                session.updateWorkerProfile(str_category1,str_subcategory1,str_expyear1,str_add,str_tehsil);
                 ProgressDialog progressDialog = new ProgressDialog(worker_profileActivity.this);
                 progressDialog.setMessage("Please Wait..");
                 progressDialog.show();
@@ -249,6 +285,8 @@ public class worker_profileActivity extends AppCompatActivity {
                         params.put("category", str_category1);
                         params.put("sub_category", str_subcategory1);
                         params.put("expyear", str_expyear1);
+                        params.put("address", str_add);
+                        params.put("tehsil", str_tehsil);
                         return params;
                     }
                 };
@@ -257,4 +295,45 @@ public class worker_profileActivity extends AppCompatActivity {
             }
         });
     }
+    /**************************************************************************************************************/
+    public void DisplayWorkerDetail(String currentWorkerId) {
+        class BindWorkerMaster extends AsyncTask<Void, Void, String> {
+            ProgressDialog pdLoading = new ProgressDialog(worker_profileActivity.this);
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                pdLoading.setMessage("\tLoading...");
+                pdLoading.setCancelable(false);
+                pdLoading.show();
+            }
+
+            @Override
+            protected String doInBackground(Void... voids) {
+                RequestHandler requestHandler = new RequestHandler();
+                HashMap<String, String> params = new HashMap<>();
+                params.put("id", currentWorkerId);
+                return requestHandler.sendPostRequest(url_add.worker_by_id, params);
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+                pdLoading.dismiss();
+                try {
+                    JSONObject obj = new JSONObject(s);
+                    txtadd.setText(obj.getString("WorkerAdd"));
+                    txtteh.setText(obj.getString("WorkerTeh"));
+                    tv_parent.setText(obj.getString("WorkerField"));
+                    tv_child.setText(obj.getString("WorkerWork"));
+                    tv_expyear.setText(obj.getString("WorkerExp"));
+
+                } catch (Exception e) {
+                }
+            }
+        }
+        BindWorkerMaster obj = new BindWorkerMaster();
+        obj.execute();
+    }
+    /************************************************************************************************************/
 }

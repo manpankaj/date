@@ -18,7 +18,7 @@ public class employer_profileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.employer_profile);
+        setContentView(R.layout.employer_searchworker);
         session = new SessionManager(getApplicationContext());
         session.checkLogin();
         String roleNew =  session.checkEmployerNew(session);
