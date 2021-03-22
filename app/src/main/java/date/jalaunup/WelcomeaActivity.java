@@ -52,7 +52,7 @@ public class WelcomeaActivity extends AppCompatActivity {
         approve_EW.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(WelcomeaActivity.this, admin_profileActivity.class);
+                Intent intent = new Intent(WelcomeaActivity.this, AdminSearchEmployerWorkActivity.class);
                 startActivity(intent);
             }
         });

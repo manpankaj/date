@@ -10,18 +10,14 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
-
-import date.jalaunup.EmployerSearchManBycatActivity;
-import date.jalaunup.Objects.SearchWorkMan;
-import date.jalaunup.Objects.WorkMan;
+import date.jalaunup.Objects.AdminSearchEmployerWork;
 import date.jalaunup.R;
-import date.jalaunup.employer_updateworkmanActivity;
+import date.jalaunup.ViewRegisteredEmployerWorkDetailActivity;
 
-public class EmployerSaveWorkAdapter extends RecyclerView.Adapter<EmployerSaveWorkAdapter.ViewHolder>{
-
-    public SearchWorkMan[] listdata;
+public class AdminSearchEmployerWorkAdapter extends RecyclerView.Adapter<AdminSearchEmployerWorkAdapter.ViewHolder>{
+    public AdminSearchEmployerWork[] listdata;
     private Context mContext;
-    public EmployerSaveWorkAdapter(Context context, SearchWorkMan[] listdata)
+    public AdminSearchEmployerWorkAdapter(Context context, AdminSearchEmployerWork[] listdata)
     {
         this.listdata = listdata;
         mContext = context;
@@ -30,14 +26,14 @@ public class EmployerSaveWorkAdapter extends RecyclerView.Adapter<EmployerSaveWo
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
     {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View listItem= layoutInflater.inflate(R.layout.list_item_search_work, parent, false);
+        View listItem= layoutInflater.inflate(R.layout.list_admin_employer_work, parent, false);
         ViewHolder viewHolder = new ViewHolder(listItem);
         return viewHolder;
     }
     @Override
     public void onBindViewHolder(ViewHolder holder, int position)
     {
-        final SearchWorkMan myListData = listdata[position];
+        final AdminSearchEmployerWork myListData = listdata[position];
         holder.textViewEmployerWorkId.setText("Project Id: " +listdata[position].getProjectId());
         holder.textViewEmployerWorkField.setText("Project Field: " + listdata[position].getProjectField());
         holder.textEmployerProjectName.setText("Project Name: " + listdata[position].getProjectName());
@@ -46,7 +42,7 @@ public class EmployerSaveWorkAdapter extends RecyclerView.Adapter<EmployerSaveWo
             @Override
             public void onClick(View v)
             {
-                Intent intent = new Intent(mContext, EmployerSearchManBycatActivity.class);
+                Intent intent = new Intent(mContext, ViewRegisteredEmployerWorkDetailActivity.class);
                 intent.putExtra("ProjectId", myListData.getProjectId());
                 intent.putExtra("ProjectField", myListData.getProjectField());
                 intent.putExtra("ProjectName", myListData.getProjectName());

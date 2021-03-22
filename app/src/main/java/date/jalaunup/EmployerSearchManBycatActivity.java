@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -29,6 +30,7 @@ public class EmployerSearchManBycatActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     String str_username,str_email;
     String currentProjectId,currentProjectField;
+    TextView headertext;
     public static final String URL_EMPLOYER_REGISTERED_WORKER_LIST =url_add.employer_search_worker_bycat ;
 
     @Override
@@ -39,8 +41,10 @@ public class EmployerSearchManBycatActivity extends AppCompatActivity {
         session.checkLogin();
         String roleNew =  session.checkEmployerNew(session);
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(EmployerSearchManBycatActivity.this));
+        recyclerView.setHasFixedSize(true);
+        headertext=findViewById(R.id.head_text);
+
         myListData = new ArrayList<>();
         HashMap<String, String> user = session.getUserDetails();
         str_username = user.get(SessionManager.KEY_NAME);
@@ -49,6 +53,7 @@ public class EmployerSearchManBycatActivity extends AppCompatActivity {
         Intent intent = getIntent();
         currentProjectId = intent.getStringExtra("ProjectId");
         currentProjectField = intent.getStringExtra("ProjectField");
+        headertext.setText(currentProjectField);
        // Toast.makeText(getApplicationContext(), "User Login Status: " + currentProjectField, Toast.LENGTH_LONG).show();
 
        GetRegisteredWorker();
@@ -95,7 +100,7 @@ public class EmployerSearchManBycatActivity extends AppCompatActivity {
                             WorkerBycat tempOBJ = new WorkerBycat();
                             tempOBJ.setWorkerId(registeredWorker.getString("WorkerId"));
                             tempOBJ.setWorkerName(registeredWorker.getString("WorkerName"));
-                            tempOBJ.setWorkerMobileNo(registeredWorker.getString("WorkerMobile"));
+                            tempOBJ.setWorkerMobileNo(registeredWorker.getString("WorkerMobileNo"));
                             tempOBJ.setWorkerSubcat(registeredWorker.getString("WorkerSubcat"));
                             myListData.add(tempOBJ);
                         }

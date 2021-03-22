@@ -45,6 +45,7 @@ public class WorkerAdapterByEmp extends RecyclerView.Adapter<WorkerAdapterByEmp.
                 intent.putExtra("WorkerId", myListData.getWorkerId());
                 intent.putExtra("WorkerName", myListData.getWorkerName());
                 intent.putExtra("WorkerMobileNo", myListData.getWorkerMobileNo());
+                intent.putExtra("WorkerSubcat", myListData.getWorkerSubcat());
                 mContext.startActivity(intent);
             }
         });

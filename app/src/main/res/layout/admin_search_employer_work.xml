@@ -14,8 +14,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
             <TextView
-                android:text="Worker List as Per Project Field Area"
-                android:id="@+id/head_text"
+                android:text="Employer Registered Work List"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/button_text"
@@ -37,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:scrollbars="vertical"
                 android:id="@+id/recyclerView"
-                tools:context=".EmployerSearchManBycatActivity">
+                tools:context=".EmployerSearchManActivity">
 
             </androidx.recyclerview.widget.RecyclerView>
             </LinearLayout>>

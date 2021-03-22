@@ -24,7 +24,7 @@ public class Worker {
     {
         this.workerMobileNo = workerMobileNo;
     }
-    public void setWorkerAddress(String workerEmail)
+    public void setWorkerAddress(String workerAddress)
     {
         this.workerAddress = workerAddress;
     }

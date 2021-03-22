@@ -61,9 +61,6 @@
             android:name=".WelcomeaActivity"
             android:label="ADMIN HOME SCREEN" />
         <activity
-            android:name=".admin_profileActivity"
-            android:label="ADMIN EMPLOYER&apos;S WORK ACTIVATION" />
-        <activity
             android:name=".employer_changePActivity"
             android:label="EMPLOYER&apos;S CHANGE PASSWORD" />
         <activity
@@ -114,6 +111,12 @@
         <activity
             android:name=".ViewWorkerDetailByempActivity"
             android:label="WORKER&apos;S FULL DETAIL"/>
+        <activity
+            android:name=".AdminSearchEmployerWorkActivity"
+            android:label="EMPLOYER&apos;S SAVE WORK LIST"/>
+        <activity
+            android:name=".ViewRegisteredEmployerWorkDetailActivity"
+            android:label="EMPLOYER&apos;S SAVE WORK DETAIL"/>
     </application>
 
 </manifest>

@@ -58,7 +58,6 @@ public class EmployerWorkAdapter extends RecyclerView.Adapter<EmployerWorkAdapte
     }
     public static class ViewHolder extends RecyclerView.ViewHolder
     {
-        public ImageView imageView;
         public TextView textViewEmployerWorkId, textViewEmployerWorkField, textEmployerProjectName, textEmployerWorkAddress;
         public RelativeLayout relativeLayout;
         public ViewHolder(View itemView)

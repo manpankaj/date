@@ -1,44 +1,44 @@
 package date.jalaunup.Objects;
 public class WorkerBycat {
-    private String workerId;
-    private String workerName;
-    private String workerMobileNo;
-    private String workerSubcat;
+    private String WorkerId;
+    private String WorkerName;
+    private String WorkerMobileNo;
+    private String WorkerSubcat;
     public WorkerBycat(){}
-    public WorkerBycat(String workerId, String workerName, String workerMobileNo, String workerSubcat)
+    public WorkerBycat(String WorkerId, String WorkerName, String WorkerMobileNo, String WorkerSubcat)
     {
-        this.workerId = workerId;
-        this.workerName = workerName;
-        this.workerMobileNo = workerMobileNo;
-        this.workerSubcat = workerSubcat;
+        this.WorkerId = WorkerId;
+        this.WorkerName = WorkerName;
+        this.WorkerMobileNo = WorkerMobileNo;
+        this.WorkerSubcat = WorkerSubcat;
     }
-    public void setWorkerId(String workerId)
+    public void setWorkerId(String WorkerId)
     {
-        this.workerId = workerId;
+        this.WorkerId = WorkerId;
     }
-    public void setWorkerName(String workerName)
+    public void setWorkerName(String WorkerName)
     {
-        this.workerName = workerName;
+        this.WorkerName = WorkerName;
     }
-    public void setWorkerMobileNo(String workerMobileNo)
+    public void setWorkerMobileNo(String WorkerMobileNo)
     {
-        this.workerMobileNo = workerMobileNo;
+        this.WorkerMobileNo = WorkerMobileNo;
     }
-    public void setWorkerSubcat(String workerSubcat)
+    public void setWorkerSubcat(String WorkerSubcat)
     {
-        this.workerSubcat = workerSubcat;
+        this.WorkerSubcat = WorkerSubcat;
     }
     public String getWorkerId()
     {
-        return this.workerId;
+        return this.WorkerId;
     }
     public String getWorkerName(){
-        return this.workerName;
+        return this.WorkerName;
     }
     public String getWorkerMobileNo(){
-        return this.workerMobileNo;
+        return this.WorkerMobileNo;
     }
     public String getWorkerSubcat(){
-        return this.workerSubcat;
+        return this.WorkerSubcat;
     }
 }
