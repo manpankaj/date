@@ -49,8 +49,6 @@ public class employer_updateworkmanActivity extends AppCompatActivity {
         currentProjectId = intent.getStringExtra("ProjectId");
         currentField = intent.getStringExtra("ProjectField");
         currentProject = intent.getStringExtra("ProjectName");
-        /*arrayList_field.add("Official Work");*/
-
 
    /***************************************************************************/
         if(currentField.equals("Civil")){
@@ -102,7 +100,7 @@ public class employer_updateworkmanActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(employer_updateworkmanActivity.this, WelcomeeActivity.class);
+                Intent intent = new Intent(employer_updateworkmanActivity.this, EmployerWorkManActivity.class);
                 startActivity(intent);
             }
         });
@@ -143,7 +141,7 @@ public class employer_updateworkmanActivity extends AppCompatActivity {
             back.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(employer_updateworkmanActivity.this, WelcomeeActivity.class);
+                    Intent intent = new Intent(employer_updateworkmanActivity.this, EmployerWorkManActivity.class);
                     startActivity(intent);
                 }
             });
@@ -187,7 +185,7 @@ public class employer_updateworkmanActivity extends AppCompatActivity {
             back.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(employer_updateworkmanActivity.this, WelcomeeActivity.class);
+                    Intent intent = new Intent(employer_updateworkmanActivity.this, EmployerWorkManActivity.class);
                     startActivity(intent);
                 }
             });
@@ -237,7 +235,7 @@ public class employer_updateworkmanActivity extends AppCompatActivity {
             back.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(employer_updateworkmanActivity.this, WelcomeeActivity.class);
+                    Intent intent = new Intent(employer_updateworkmanActivity.this, EmployerWorkManActivity.class);
                     startActivity(intent);
                 }
             });
@@ -287,7 +285,7 @@ public class employer_updateworkmanActivity extends AppCompatActivity {
             back.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(employer_updateworkmanActivity.this, WelcomeeActivity.class);
+                    Intent intent = new Intent(employer_updateworkmanActivity.this, EmployerWorkManActivity.class);
                     startActivity(intent);
                 }
             });
@@ -331,7 +329,7 @@ public class employer_updateworkmanActivity extends AppCompatActivity {
             back.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(employer_updateworkmanActivity.this, WelcomeeActivity.class);
+                    Intent intent = new Intent(employer_updateworkmanActivity.this, EmployerWorkManActivity.class);
                     startActivity(intent);
                 }
             });
@@ -669,9 +667,9 @@ public void saveElectricalMan(View v) {
         protected Map<String, String> getParams() throws AuthFailureError {
             Map<String,String> params = new HashMap<String, String>();
             params.put("id", currentProjectId);
-            params.put("edcl",str_edel);
-            params.put("edcm",str_edele);
-            params.put("edcs",str_edes);
+            params.put("edel",str_edel);
+            params.put("edele",str_edele);
+            params.put("edes",str_edes);
             return params;
         }
     };
@@ -708,10 +706,10 @@ public void saveIrrigationMan(View v) {
         protected Map<String, String> getParams() throws AuthFailureError {
             Map<String,String> params = new HashMap<String, String>();
             params.put("id", currentProjectId);
-            params.put("edcl",str_edil);
-            params.put("edcm",str_edim);
-            params.put("edcs",str_edij);
-            params.put("edcs",str_edis);
+            params.put("edil",str_edil);
+            params.put("edim",str_edim);
+            params.put("edij",str_edij);
+            params.put("edis",str_edis);
             return params;
         }
     };
