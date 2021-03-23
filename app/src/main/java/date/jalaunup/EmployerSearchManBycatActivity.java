@@ -53,8 +53,7 @@ public class EmployerSearchManBycatActivity extends AppCompatActivity {
         Intent intent = getIntent();
         currentProjectId = intent.getStringExtra("ProjectId");
         currentProjectField = intent.getStringExtra("ProjectField");
-        headertext.setText(currentProjectField);
-       // Toast.makeText(getApplicationContext(), "User Login Status: " + currentProjectField, Toast.LENGTH_LONG).show();
+        headertext.setText("Current Project Field " + currentProjectId +" "+ currentProjectField);
 
        GetRegisteredWorker();
     }

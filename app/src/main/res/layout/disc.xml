@@ -24,12 +24,11 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="15dp"
-                android:textColor="@color/button_text"
                 android:background="@color/button_background"
                 android:justificationMode="inter_word"
-                android:text="Content of this mobile app is provided by user of this app and App is Developed and Maintained by NIC. NIC Jalaun design and developing android mobile application specially for the unorganised labour so it become easy to find the temporary or contractual job by this app.
-Workers who are seeking the job within district, using this app common man can find temporary jobs from his mobile, Once registered, the worker will fill up the details from his login that he is skilled / unskilled in which field or what work he can do, then the district administration will collect the data and send The worker’s details to department who conducting the construction work and the concerned departments Like PWD, RES, MI, Jal Sansthan, Electricity, MNREGA, NHAI, Bridge corporation etc. will provide him temporary employment in ongoing or coming projects according to his skill
-" />
+                android:text="Content of this mobile app is provided by user of this app and App is Developed and Maintained by NIC Jalaun "
+                android:textColor="@color/button_text" />
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

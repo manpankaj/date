@@ -52,12 +52,12 @@ public class MainActivity<val> extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        TextView register = (TextView)findViewById(R.id.disclaimer);
+        TextView register = (TextView)findViewById(R.id.disc);
         register.setMovementMethod(LinkMovementMethod.getInstance());
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, disclaimerActivity.class);
+                Intent intent = new Intent(MainActivity.this, discActivity.class);
                 startActivity(intent);
             }
         });
