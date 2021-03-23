@@ -67,142 +67,21 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="15dp"
                     android:textSize="18sp"
-                    android:text="Civil Labour" />
+                    android:text="Electrical Labour" />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/txtcl"
+                    android:id="@+id/txtel"
                     android:textSize="18sp"
                     android:layout_marginTop="15dp"
                     android:layout_marginLeft="200dp"/>
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/edcl"
+                    android:id="@+id/edel"
                     android:maxLength="3"
                     android:inputType="phone"
                     android:layout_marginTop="15dp"
-                    android:layout_marginLeft="280dp"/>
-            </RelativeLayout>
-            <RelativeLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content" >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/header_background"
-                    android:layout_marginLeft="10dp"
-                    android:textSize="18sp"
-                    android:text="Construction Mistree" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/txtcm"
-                    android:textSize="18sp"
-                    android:layout_marginLeft="200dp"/>
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/edcm"
-                    android:maxLength="3"
-                    android:inputType="phone"
-                    android:layout_marginLeft="280dp"/>
-            </RelativeLayout>
-            <RelativeLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content" >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/header_background"
-                    android:layout_marginLeft="10dp"
-                    android:textSize="18sp"
-                    android:text="Civil Supplier" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/txtcs"
-                    android:textSize="18sp"
-                    android:layout_marginLeft="200dp"/>
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/edcs"
-                    android:maxLength="3"
-                    android:inputType="phone"
-                    android:layout_marginLeft="280dp"/>
-            </RelativeLayout>
-            <RelativeLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content" >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tv_tehsil"
-                    android:textColor="@color/header_background"
-                    android:layout_marginLeft="10dp"
-                    android:textSize="18sp"
-                    android:text="Civil JCB" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/txtcj"
-                    android:textSize="18sp"
-                    android:layout_marginLeft="200dp"/>
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/edcj"
-                    android:maxLength="3"
-                    android:inputType="phone"
-                    android:layout_marginLeft="280dp"/>
-            </RelativeLayout>
-            <RelativeLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content" >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/header_background"
-                    android:layout_marginLeft="10dp"
-                    android:textSize="18sp"
-                    android:text="Painter" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/txtcp"
-                    android:textSize="18sp"
-                    android:layout_marginLeft="200dp"/>
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/edcp"
-                    android:maxLength="3"
-                    android:inputType="phone"
-                    android:layout_marginLeft="280dp"/>
-            </RelativeLayout>
-            <RelativeLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content" >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/header_background"
-                    android:layout_marginLeft="10dp"
-                    android:textSize="18sp"
-                    android:text="Plumber" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/txtcpl"
-                    android:textSize="18sp"
-                    android:layout_marginLeft="200dp"/>
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/edcpl"
-                    android:maxLength="3"
-                    android:inputType="phone"
                     android:layout_marginLeft="280dp"/>
             </RelativeLayout>
             <RelativeLayout
@@ -218,13 +97,13 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/txtce"
+                    android:id="@+id/txtele"
                     android:textSize="18sp"
                     android:layout_marginLeft="200dp"/>
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/edce"
+                    android:id="@+id/edele"
                     android:maxLength="3"
                     android:inputType="phone"
                     android:layout_marginLeft="280dp"/>
@@ -238,74 +117,27 @@
                     android:textColor="@color/header_background"
                     android:layout_marginLeft="10dp"
                     android:textSize="18sp"
-                    android:text="Carpenter" />
+                    android:text="Electrical Supplier" />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/txtcc"
+                    android:id="@+id/txtes"
                     android:textSize="18sp"
                     android:layout_marginLeft="200dp"/>
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/edcc"
+                    android:id="@+id/edes"
                     android:maxLength="3"
                     android:inputType="phone"
                     android:layout_marginLeft="280dp"/>
             </RelativeLayout>
-            <RelativeLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content" >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/header_background"
-                    android:layout_marginLeft="10dp"
-                    android:textSize="18sp"
-                    android:text="Tiles Mistree" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/txtctm"
-                    android:textSize="18sp"
-                    android:layout_marginLeft="200dp"/>
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/edctm"
-                    android:maxLength="3"
-                    android:inputType="phone"
-                    android:layout_marginLeft="280dp"/>
-            </RelativeLayout>
-            <RelativeLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content" >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/header_background"
-                    android:layout_marginLeft="10dp"
-                    android:textSize="18sp"
-                    android:text="Jaal Mistree" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/txtcjm"
-                    android:textSize="18sp"
-                    android:layout_marginLeft="200dp"/>
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/edcjm"
-                    android:maxLength="3"
-                    android:inputType="phone"
-                    android:layout_marginLeft="280dp"/>
-            </RelativeLayout>
+
             <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content" />
             <Button
-                android:onClick="saveCivilMan"
+                android:onClick="saveElectricalMan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -315,7 +147,7 @@
                 android:layout_gravity="fill"
                 app:backgroundTint="@color/button_background"
                 android:textColor="@color/button_text"
-                android:text="Update Civil Manpower" />
+                android:text="Update Electrical Manpower" />
             <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

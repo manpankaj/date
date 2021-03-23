@@ -32,4 +32,14 @@ public class url_add {
     public static String admin_employer_registered_work_list="http://192.168.1.3:8080/date/get_admin_employer_registered_work_list.php";
     public static String admin_work_employer_detail="http://192.168.1.3:8080/date/get_admin_work_employer_detail.php";
     public static String activate_employer_work_id="http://192.168.1.3:8080/date/activate_employer_work_id.php";
+    public static String employer_work_man_electrical="http://192.168.1.3:8080/date/get_employer_work_man_electrical.php";
+    public static String update_work_man_electrical="http://192.168.1.3:8080/date/update_work_man_electrical.php";
+    public static String employer_work_man_irrigation="http://192.168.1.3:8080/date/get_employer_work_man_irrigation.php";
+    public static String update_work_man_irrigation="http://192.168.1.3:8080/date/update_work_man_irrigation.php";
+    public static String employer_work_man_computer="http://192.168.1.3:8080/date/get_employer_work_man_computer.php";
+    public static String update_work_man_computer="http://192.168.1.3:8080/date/update_work_man_computer.php";
+    public static String employer_work_man_education="http://192.168.1.3:8080/date/get_employer_work_man_education.php";
+    public static String update_work_man_education="http://192.168.1.3:8080/date/update_work_man_education.php";
+    public static String employer_work_man_official="http://192.168.1.3:8080/date/get_employer_work_man_official.php";
+    public static String update_work_man_official="http://192.168.1.3:8080/date/update_work_man_official.php";
 }
