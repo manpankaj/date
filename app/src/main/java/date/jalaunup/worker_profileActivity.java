@@ -2,14 +2,19 @@ package date.jalaunup;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.text.InputFilter;
+import android.util.Base64;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,14 +27,15 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONObject;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import org.json.JSONObject;
-
 import date.jalaunup.Config.RequestHandler;
 import date.jalaunup.Config.SessionManager;
 import date.jalaunup.Config.integerMinMax;
@@ -51,6 +57,16 @@ public class worker_profileActivity extends AppCompatActivity {
     ArrayAdapter<String> arrayAdapter_child;
     String str_category1,str_subcategory1,str_expyear1,str_username,str_email,str_role,str_category,str_subcategory,str_expyear,stradd,strtehsil;
     String url =url_add.worker_update;
+    public static final String UPLOAD_KEY = "image";
+    public static final String TAG = "MY MESSAGE";
+    private int PICK_IMAGE_REQUEST = 1;
+    private Button buttonChoose;
+    private Button buttonUpload;
+    private Button buttonView;
+    private ImageView imageView;
+    private Bitmap bitmap;
+    private Uri filePath;
+    public static final String UPLOAD_URL = "http://simplifiedcoding.16mb.com/PhotoUpload/upload.php";
 
     private View view;
     @Override
@@ -85,6 +101,14 @@ public class worker_profileActivity extends AppCompatActivity {
         sp_child = (Spinner) findViewById(R.id.child);
         sp_tehsil = (Spinner) findViewById(R.id.tehsil);
         ed_add = findViewById(R.id.Address);
+        buttonChoose = (Button) findViewById(R.id.ChooseId);
+        buttonUpload = (Button) findViewById(R.id.UploadId);
+        buttonView = (Button) findViewById(R.id.ViewId);
+
+        imageView = (ImageView) findViewById(R.id.imageId);
+
+        buttonChoose.setOnClickListener((View.OnClickListener) this);
+        buttonUpload.setOnClickListener((View.OnClickListener) this);
         //tv_parent.setText(str_category);
         //tv_child.setText(str_subcategory);
         //tv_expyear.setText(str_expyear);
@@ -268,12 +292,15 @@ public class worker_profileActivity extends AppCompatActivity {
                     public void onResponse(String response) {
                         progressDialog.dismiss();
                         Toast.makeText(worker_profileActivity.this, response, Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(worker_profileActivity.this, WelcomewActivity.class);
+                        startActivity(intent);
                     }
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         progressDialog.dismiss();
                         Toast.makeText(worker_profileActivity.this, error.getMessage().toString(), Toast.LENGTH_SHORT).show();
+
                     }
                 }
                 ) {
@@ -295,6 +322,93 @@ public class worker_profileActivity extends AppCompatActivity {
             }
         });
     }
+    private void showFileChooser() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
+
+            filePath = data.getData();
+            try {
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
+                imageView.setImageBitmap(bitmap);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public String getStringImage(Bitmap bmp){
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bmp.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        byte[] imageBytes = baos.toByteArray();
+        String encodedImage = Base64.encodeToString(imageBytes, Base64.DEFAULT);
+        return encodedImage;
+    }
+
+    private void uploadImage(){
+        class UploadImage extends AsyncTask<Bitmap,Void,String>{
+
+            ProgressDialog loading;
+            RequestHandler rh = new RequestHandler();
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                loading = ProgressDialog.show(worker_profileActivity.this, "Uploading...", null,true,true);
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+                loading.dismiss();
+                Toast.makeText(getApplicationContext(),s,Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            protected String doInBackground(Bitmap... params) {
+                Bitmap bitmap = params[0];
+                String uploadImage = getStringImage(bitmap);
+
+                HashMap<String,String> data = new HashMap<>();
+
+                data.put(UPLOAD_KEY, uploadImage);
+                String result = rh.sendPostRequest(UPLOAD_URL,data);
+
+                return result;
+            }
+        }
+
+        UploadImage ui = new UploadImage();
+        ui.execute(bitmap);
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v == buttonChoose) {
+            showFileChooser();
+        }
+
+        if(v == buttonUpload){
+            uploadImage();
+        }
+
+        if(v == buttonView){
+            viewImage();
+        }
+    }
+
+    private void viewImage() {
+        startActivity(new Intent(this, ImageListView.class));
+    }
+
     /**************************************************************************************************************/
     public void DisplayWorkerDetail(String currentWorkerId) {
         class BindWorkerMaster extends AsyncTask<Void, Void, String> {
