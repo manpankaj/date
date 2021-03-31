@@ -390,7 +390,7 @@ public class worker_profileActivity extends AppCompatActivity {
         ui.execute(bitmap);
     }
 
-    @Override
+
     public void onClick(View v) {
         if (v == buttonChoose) {
             showFileChooser();
