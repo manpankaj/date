@@ -14,7 +14,7 @@ import java.net.URL;
 /**
  * Created by Belal on 9/19/2015.
  */
-public class GetAlImages {
+public class Getallimage {
 
     public static String[] imageURLs;
     public static Bitmap[] bitmaps;
@@ -24,7 +24,7 @@ public class GetAlImages {
     private String json;
     private JSONArray urls;
 
-    public GetAlImages(String json){
+    public Getallimage(String json){
         this.json = json;
         try {
             JSONObject jsonObject = new JSONObject(json);

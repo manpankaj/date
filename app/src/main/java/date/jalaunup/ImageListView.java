@@ -16,14 +16,15 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 import androidx.appcompat.app.AppCompatActivity;
+import date.jalaunup.Config.url_add;
 
 public class ImageListView extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     private ListView listView;
 
-    public static final String GET_IMAGE_URL="http://simplifiedcoding.16mb.com/PhotoUpload/getAllImages.php";
+    public static final String GET_IMAGE_URL= url_add.worker_getall_image;
 
-    public GetAlImages getAlImages;
+    public Getallimage getAlImages;
 
     public static final String BITMAP_ID = "BITMAP_ID";
 
@@ -51,7 +52,7 @@ public class ImageListView extends AppCompatActivity implements AdapterView.OnIt
                 super.onPostExecute(v);
                 loading.dismiss();
                 //Toast.makeText(ImageListView.this,"Success",Toast.LENGTH_LONG).show();
-                CustomList customList = new CustomList(ImageListView.this,GetAlImages.imageURLs,GetAlImages.bitmaps);
+                CustomList customList = new CustomList(ImageListView.this, Getallimage.imageURLs, Getallimage.bitmaps);
                 listView.setAdapter(customList);
             }
 
@@ -84,7 +85,7 @@ public class ImageListView extends AppCompatActivity implements AdapterView.OnIt
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
                 loading.dismiss();
-                getAlImages = new GetAlImages(s);
+                getAlImages = new Getallimage(s);
                 getImages();
             }
 

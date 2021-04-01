@@ -117,6 +117,10 @@
         <activity
             android:name=".ViewRegisteredEmployerWorkDetailActivity"
             android:label="EMPLOYER&apos;S SAVE WORK DETAIL"/>
+        <activity
+            android:name=".ViewFullImage"/>
+        <activity
+            android:name=".ImageListView"/>
     </application>
 
 </manifest>

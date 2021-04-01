@@ -66,7 +66,7 @@ public class worker_profileActivity extends AppCompatActivity {
     private ImageView imageView;
     private Bitmap bitmap;
     private Uri filePath;
-    public static final String UPLOAD_URL = "http://simplifiedcoding.16mb.com/PhotoUpload/upload.php";
+    public static final String UPLOAD_URL = url_add.worker_upload_id;
 
     private View view;
     @Override
@@ -107,12 +107,6 @@ public class worker_profileActivity extends AppCompatActivity {
 
         imageView = (ImageView) findViewById(R.id.imageId);
 
-        buttonChoose.setOnClickListener((View.OnClickListener) this);
-        buttonUpload.setOnClickListener((View.OnClickListener) this);
-        //tv_parent.setText(str_category);
-        //tv_child.setText(str_subcategory);
-        //tv_expyear.setText(str_expyear);
-        //String currentWorkerMob = str_email.toString().trim();
         DisplayWorkerDetail(str_email);
         arrayList_tehsil = new ArrayList<>();
         arrayList_tehsil.add("Jalaun");
@@ -276,7 +270,22 @@ public class worker_profileActivity extends AppCompatActivity {
                     session.logoutUser();
             }
         });
-        profile = findViewById(R.id.profile);
+        buttonChoose.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                    showFileChooser();
+                }
+        });
+        buttonUpload.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                uploadImage();
+            }
+        });
+        buttonView.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                viewImage();
+            }
+        });
+         profile = findViewById(R.id.profile);
         profile.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -355,54 +364,33 @@ public class worker_profileActivity extends AppCompatActivity {
 
     private void uploadImage(){
         class UploadImage extends AsyncTask<Bitmap,Void,String>{
-
             ProgressDialog loading;
             RequestHandler rh = new RequestHandler();
-
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
                 loading = ProgressDialog.show(worker_profileActivity.this, "Uploading...", null,true,true);
             }
-
             @Override
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
                 loading.dismiss();
                 Toast.makeText(getApplicationContext(),s,Toast.LENGTH_LONG).show();
             }
-
             @Override
             protected String doInBackground(Bitmap... params) {
                 Bitmap bitmap = params[0];
                 String uploadImage = getStringImage(bitmap);
-
                 HashMap<String,String> data = new HashMap<>();
-
                 data.put(UPLOAD_KEY, uploadImage);
+                data.put("mobile", str_email);
                 String result = rh.sendPostRequest(UPLOAD_URL,data);
-
                 return result;
             }
         }
 
         UploadImage ui = new UploadImage();
         ui.execute(bitmap);
-    }
-
-
-    public void onClick(View v) {
-        if (v == buttonChoose) {
-            showFileChooser();
-        }
-
-        if(v == buttonUpload){
-            uploadImage();
-        }
-
-        if(v == buttonView){
-            viewImage();
-        }
     }
 
     private void viewImage() {

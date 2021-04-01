@@ -16,7 +16,7 @@ public class ViewFullImage extends AppCompatActivity {
         int i = intent.getIntExtra(ImageListView.BITMAP_ID,0);
 
         imageView = (ImageView) findViewById(R.id.imageViewFull);
-        imageView.setImageBitmap(GetAlImages.bitmaps[i]);
+        imageView.setImageBitmap(Getallimage.bitmaps[i]);
 
     }
 }

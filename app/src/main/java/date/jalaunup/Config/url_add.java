@@ -43,4 +43,6 @@ public class url_add {
     public static String update_work_man_education="http://10.135.217.19:8080/date/update_work_man_education.php";
     public static String employer_work_man_official="http://10.135.217.19:8080/date/get_employer_work_man_official.php";
     public static String update_work_man_official="http://10.135.217.19:8080/date/update_work_man_official.php";
+    public static String worker_upload_id="http://10.135.217.19:8080/date/uploadid.php";
+    public static String worker_getall_image="http://10.135.217.19:8080/date/getAllImages.php";
 }
